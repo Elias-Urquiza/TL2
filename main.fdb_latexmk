@@ -1,10 +1,10 @@
 # Fdb version 3
-["biber main"] 1571400087 "main.bcf" "main.bbl" "main" 1571410479
-  "main.bcf" 1571410478 90103 5d1ab7d2a13185bc1bed9a77fe525744 ""
+["biber main"] 1571400087 "main.bcf" "main.bbl" "main" 1571411391
+  "main.bcf" 1571411390 90103 5d1ab7d2a13185bc1bed9a77fe525744 ""
   (generated)
   "main.bbl"
   "main.blg"
-["pdflatex"] 1571410474 "main.tex" "main.pdf" "main" 1571410479
+["pdflatex"] 1571411385 "main.tex" "main.pdf" "main" 1571411391
   "config.tex" 1567912686 2548 d84cb7eb284da74b2461d098b7d8a917 ""
   "f:/texlive/2018/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1535860012 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "f:/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1535860717 3332 103109f5612ad95229751940c61aada0 ""
@@ -243,17 +243,17 @@
   "imgs/lhead.png" 1567912686 61763 739c1074e2f2aee6ff9d5d088ced0d9d ""
   "imgs/oscilador1.png" 1571403473 80789 53b24bedbe251e6995b13f794619d1b3 ""
   "imgs/salida_oscilador.png" 1571399676 24479 9824ea4ce274adb58415e721ac449fa4 ""
-  "main.aux" 1571410478 5579 8d756d7a73a130ab57c6a8fe5e529712 ""
+  "main.aux" 1571411390 6247 65b493c35891289b8ffee6eceadee603 ""
   "main.bbl" 1571400104 486 5e94f251ea8a419bbae6173a1e9a9c1d "biber main"
-  "main.out" 1571410478 1206 91269f9622cdb5ebb27edae9d6d6bf5c ""
-  "main.run.xml" 1571410478 2298 2db5382476a952474dab8ca9e428a676 ""
-  "main.tex" 1571410465 12395 29fffe1c38b81008a8c8c63fd40103df ""
+  "main.out" 1571411390 1206 91269f9622cdb5ebb27edae9d6d6bf5c ""
+  "main.run.xml" 1571411390 2298 2db5382476a952474dab8ca9e428a676 ""
+  "main.tex" 1571411383 12630 c563815576daf3dd1462fc4c13ceaf04 ""
   "mcode.sty" 1567912687 10845 5e11567c486976c8640799df7479dccc ""
   "nul" 0 0 d41d8cd98f00b204e9800998ecf8427e ""
   (generated)
-  "main.pdf"
-  "main.aux"
   "main.log"
-  "main.run.xml"
   "main.bcf"
   "main.out"
+  "main.pdf"
+  "main.run.xml"
+  "main.aux"

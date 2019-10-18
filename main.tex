@@ -64,6 +64,7 @@
         \begin{center}
                    \includegraphics[width=\columnwidth]{diseno1.png}
                    \captionof{figure}{Etapa Amplificadora - Source Común.}
+                   \label{fig:etapa_amp}
         \end{center}
 
 
@@ -119,8 +120,8 @@
 
         \begin{center}
                    \includegraphics[width=\columnwidth]{diseno4.png}
-                   \captionof{figure}{Etapa Amplificadora - Circuito de señal a frecuencias medias.}
-                   \label{fig:circuito_señal}
+                   \captionof{figure}{Etapa Amplificadora - Modelo de señal a frecuencias medias.}
+                   \label{fig:circuito_senal}
         \end{center}
 
 
@@ -160,6 +161,9 @@
         \begin{equation}
         R_O = R_D(1+g_mR_S)
         \end{equation}
+
+      \end{multicols}
+        \newpage
 
 
         \subsubsection{Elección de valores}
@@ -209,6 +213,7 @@
         \label{tab:dispersion}
         \end{table}
 
+        \begin{multicols}{2}
         Para obtener estos valores se tuvieron en cuenta los siguientes puntos
 
         \begin{itemize}
@@ -260,8 +265,16 @@
         \textbf{El límite por alinealidad será el determinante de las máximas señales del generador}. Aceptando un error del $10\ \%$ en la linealización se obtiene una cota de $v_{gs} < 25\ mV$ asociado a la tensión térmica.
 
         \begin{equation}
-        	v_{gs} = 25\ mV \Rightarrow v_o = -i_o\times R_D//R_L = -g_m\cdot v_{gs} \times R_D//R_L = - 80\ mV \Rightarrow v_s = 67\ mV
-        	\end{equation}
+        	v_{gs} = 25\ mV
+        \end{equation}
+
+        \begin{equation}
+        	\Rightarrow v_o = -i_o\times R_D//R_L = -g_m\cdot v_{gs} \times R_D//R_L = - 80\ mV
+        \end{equation}
+
+        \begin{equation}
+        	\Rightarrow v_s = 67\ mV
+        \end{equation}
 
         \textbf{La máxima amplitud pico de señal que puede tener el generador sin distorsión de ningún tipo es $v_s = 67\ mV$ (cuando $I_{DSS} = 14\ mV$ y $V_P = -4\ V$).}
 
