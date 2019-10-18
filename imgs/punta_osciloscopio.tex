@@ -1,0 +1,11 @@
+\documentclass{standalone}
+\usepackage{circuitikz}
+\begin{document}
+            \begin{circuitikz}
+            \ctikzset{resistor = european}
+            \draw
+            (0,0) node[above]{CH} to[short,-*,o-] ++(1,0) node(A){} to[short] ++(0,0.5) to[C] node[above] {$C_{in}$} ++(2,0) to[short,-*] ++(0,-0.5) to[short] 
+            ++ (1,0) to[short] ++(0,-0) node[ground]{}
+            (A) to[short] ++ (0,-0.5) to[R] node[below] {$R_{in}$} ++ (2,0) to[short] ++(0,0.5); 
+            \end{circuitikz}
+\end{document}

@@ -1,0 +1,259 @@
+
+
+\documentclass[a4paper, 10pt, spanish]{article}
+\usepackage{color}
+\definecolor{cadet}{rgb}{0.33, 0.41, 0.47}
+\definecolor{orange}{rgb}{0.93, 0.53, 0.18}
+\definecolor{carminered}{rgb}{1.0, 0.0, 0.22}
+\definecolor{green}{rgb}{0.33, 0.42, 0.18}
+\definecolor{darkmagenta}{rgb}{0.55, 0.0, 0.55}
+\usepackage{anysize}
+\usepackage{amsmath}
+\usepackage{biblatex}
+\usepackage{float}
+\usepackage{array} % 1
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{calc,patterns,angles,quotes}
+\usetikzlibrary{calc,decorations.pathmorphing,patterns}
+\usepackage{graphicx}
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{textcomp}
+\usepackage{fancyhdr}
+\usepackage{color}
+\usepackage{courier}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{pgfplots,filecontents}
+\pgfplotsset{compat=1.7}
+\pgfplotsset{compat=newest}
+\usepgfplotslibrary{units}
+\usepackage[siunitx]{circuitikz}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{cleveref}
+\usepackage{tabularx}
+\usepackage{lscape}
+\usepackage{pdflscape}
+\usepackage{booktabs}
+
+
+
+\begin{document}
+
+\section{Especificaciones}
+
+Necesitamos diseñar una etapa amplificadora con un transistor \textbf{JFET 2N5486} donde la ganancia de potencia sea $G_p > 100$.
+
+\section{Diseño de la Etapa Amplificadora}
+
+\begin{center}
+           \includegraphics[width=\columnwidth]{diseño1.png}
+           \captionof{figure}{Etapa Amplificadora - Source Común.}
+           \label{diseño1}
+\end{center}
+
+
+El circuito propuesto consiste en un JFET Canal N en modo Source Común con una camino de realimentación. Para este circuito definimos la ganancia de potencia para señales senoidales como
+
+\begin{equation}
+	G_P = \frac{P_O}{P_I} = \frac{\hat{V_O}\hat{I_O}/2}{\hat{V_S}\hat{I_S}/2} = \frac{\hat{V_O}\hat{I_O}}{\hat{V_S}\hat{I_S}} = A_{vs}\cdot A_{i}
+	\end{equation}
+
+De la hoja de datos se obtienen los datos para definir una \textbf{zona de operación segura} de la Figura \ref{fig:zona_segura} dentro de los cuales podremos polarizar al transistor.
+
+
+
+\begin{center}
+           \includegraphics[width=\columnwidth]{diseño2a.png}
+           \captionof{figure}{Zona de operación segura del transistor.}
+           \label{fig:zona_segura}
+\end{center}
+
+\begin{center}
+           \includegraphics[width=\columnwidth]{diseño2b.png}
+           \captionof{figure}{Rectas de carga para el circuito propuesto.}
+           \label{fig:rectas_carga}
+\end{center}
+
+
+
+\subsection{Rectas de Carga}
+
+
+\begin{center}
+           \includegraphics[width=\columnwidth]{diseño3.png}
+           \captionof{figure}{Etapa Amplificadora - Circuito de Continua.}
+           \label{fig:circuito_continua}
+\end{center}
+
+En la Figura \ref{fig:circuito_continua} se ve el circuito de continua, donde la recta de carga estática se obtiene al recorrer la malla de salida:
+
+\begin{equation}
+	I_D = \frac{V_{DD}}{R_D + R_S} - \frac{V_{DSQ}}{R_D + R_S}
+	\end{equation}
+
+y la recta de carga dinámica será
+
+\begin{equation}
+	i_D = \frac{-1}{(R_D//R_L) + R_S}\cdot v_{DS} + I_{DQ} + \frac{V_{DSQ}}{(R_D//R_L) + R_S}
+	\end{equation}
+
+
+\subsection{Parámetros de pequeña señal}
+
+
+
+\begin{center}
+           \includegraphics[width=\columnwidth]{diseño4.png}
+           \captionof{figure}{Etapa Amplificadora - Circuito de señal a frecuencias medias.}
+           \label{fig:circuito_señal}
+\end{center}
+
+
+
+Del circuito de señal a frecuencias medias podemos obtener los siguientes parámetros por inspección, en una primera aproximación \textbf{despreciando efectos de segundo orden en el transistor}.
+La ganancia de tensión será
+
+\begin{equation}
+A_v = \frac{v_o}{v_i} = \frac{-i_o(R_D // R_L)}{v_{gs}+ v_{R_S}} = \frac{-(R_D//R_L)}{\frac{v_{gs}}{i_o}+R_S} = \frac{-(R_D//R_L)}{\frac{1}{g_m}+R_S}
+\end{equation}
+
+que referida al generador resulta
+
+\begin{equation}
+A_{vs} = A_v \frac{v_i}{v_s} = A_v \frac{R_G}{R_G + R_s}
+\end{equation}
+
+La ganancia de corrientes será
+
+\begin{equation}
+A_i = \frac{i_o}{i_s} = \frac{i_o}{\frac{v_i}{R_G}} = \frac{i_o}{v_{gs}+i_o R_S} = \frac{R_G}{\frac{1}{g_m}+R_S}
+\end{equation}
+
+Asumiendo que se cumple que $R_S >> 1/g_m$ y $R_s << R_G$ \textbf{se puede expresar la ganancia de potencia en una primera aproximación que depende integramente de la elección de resistencias}
+
+\begin{equation}
+G_P = A_{vs}\times A_i \approx \frac{R_D//R_L}{R_S} \times \frac{R_G}{R_S}
+\end{equation}
+
+
+la resistencia de entrada y salida serán:
+
+\begin{equation}
+R_I = R_G
+\end{equation}
+
+\begin{equation}
+R_O = R_D(1+g_mR_S)
+\end{equation}
+
+
+\subsection{Elección de valores}
+
+Con el objetivo de obtener $G_P > 100$ se eligieron los valores de resistencias y fuente de polarización del Cuadro \ref{tab:valores}.
+
+\begin{table}[h]
+\centering
+\begin{tabularx}{0.7\textwidth}{XXXXX}
+\hline
+ $R_G$  		& $R_D$ 		& $R_S$ 			& $R_L$ 		& $V_{DD}$ \\
+ \hline
+ $820\ k\Omega$ & $1\ k\Omega$ 	& $470\ k\Omega$ 	& $10\ k\Omega$ & $12\ V$ \\
+\hline
+\end{tabularx}
+\caption{Valores propuestos para la etapa amplificadora.}
+\label{tab:valores}
+\end{table}
+
+
+
+\subsection{Dispersión de parámetros}
+
+En el Cuadro \ref{tab:dispersion} se muestran los distintos parámetros del amplificador y el punto de reposo para los valores extremos de los parámetros $I_{DSS}$ y $V_P$ del JFET con la elección de resistencias de la sección anterior.
+
+
+
+\begin{table}[h]
+\centering
+\begin{tabularx}{1\textwidth}{XXXXXXXX}
+\hline
+\multicolumn{2}{c}{}				& \multicolumn{4}{c}{Parámetros del Amplificador}						& \multicolumn{2}{c}{Punto de Reposo} \\
+									\cmidrule(r){3-6}														\cmidrule(r){7-8}
+\multicolumn{2}{c}{$(I_{DSS},V_{P})$}& $|A_{vs}|$  		& $|A_{i}|$ 		& $G_P$ 			& $g_m$ 		& $I_{DQ}$ 			& $V_{DSQ}$			\\
+\cmidrule(r){1-2}  									\cmidrule(r){3-3} \cmidrule(r){4-4} 	\cmidrule(r){5-5} 	\cmidrule(r){6-6} \cmidrule(r){7-7} 	\cmidrule(r){8-8}
+\multicolumn{2}{c}{$(20\ mA,-6\ V)$}& $1.2$	& $1096$	& $1316$ & $3.6\ mA/V$ & $5.8\ mA$& $3.5\ V$\\
+\hline
+\multicolumn{2}{c}{$(14\ mA,-4\ V)$}& $1.2$	& $1108$	& $1329$ & $3.7\ mA/V$& $3.9\ mA$ & $6.3\ V$\\
+\hline
+\multicolumn{2}{c}{$$(8\ mA,-2\ V)$$}&$1.3$	& $1139$	& $1480$ & 4\ mA/V & $2\ mA$ & $9.1\ V$ \\
+\hline
+\hline
+\multicolumn{2}{c}{\textcolor{red}{Dispersión:}} & $8\%$ & $3\%$ & $13\%$ & $11\%$ & $190\%$ & $160\% $\\
+\hline
+\end{tabularx}
+\caption{Parámetros teóricos de la etapa amplificadora.}
+\label{tab:dispersion}
+\end{table}
+
+Para obtener estos valores se tuvieron en cuenta los siguientes puntos
+
+\begin{itemize}
+	\item En ningún caso se cumple $1/g_m << R_S$ luego se usaron las expresiones completas de ganancias.
+	\item Se despreciaron efectos de segundo orden en el transistor.
+	\item Se utilizó para describir la dispersión el rango porcentual respecto al mínimo dado por
+		\begin{equation}
+		\delta f \% = \frac{f_{MAX}-f_{MIN}}{f_{MIN}}\times 100 \nonumber
+		\end{equation}
+	\item Se asumieron valores típicos como los valores promedios a falta de esta información en hoja de datos.
+
+	\end{itemize}
+
+
+En la Figura \ref{fig:dispersion} se muestran los distintos puntos de reposo en el contorno de la zona segura.
+
+\begin{center}
+           \includegraphics[width=\columnwidth]{diseño5.png}
+           \captionof{figure}{Recta de carga estática con puntos de reposo extremos y típico.}
+           \label{fig:dispersion}
+\end{center}
+
+
+\subsection{Realimentación en señal}
+
+El circuito presenta un camino de realimentación de señal de muestreo de corriente y suma de tensión. En la Figura \ref{fig:realimentacion} se hace un análisis de incrementos para mostrar que la realimentación es negativa.
+
+
+\begin{center}
+           \includegraphics[width=\columnwidth]{diseño6.png}
+           \captionof{figure}{Análisis de incrementos de la realimentación}
+           \label{fig:realimentacion}
+\end{center}
+
+
+De las expresiones de ganancia de tensión podemos obtener que el \textbf{factor de realimentación} para este circuito es
+\begin{equation}
+	FR = 1+g_mR_S
+	\end{equation}
+
+\subsection{Señales sin recorte}
+
+Asumiendo el punto de operación Q asociado a los valores típicos del transistor $I_{DSS} = 14\ mA$ y $V_P = -4\ V$ obtenemos las máximas señales sin distorsión. De la Figura \ref{fig:dispersion} se ve que para los valores típicos la máxima tensión a la salida sin distorsión por recorte ni triodo serán de tensión máxima aproximadamente $\hat{v_o} = 6\ V$. Luego, en este punto la ganancia referida al generador es de unos $A_{vs} = 1.2$, entonces la máxima tensión que podemos poner del generador, a valores típicos, será
+
+\begin{equation}
+	v_s = \frac{v_o}{A_{vs}} \approx 5\ V \nonumber
+	\end{equation}
+
+\textbf{El límite por alinealidad será el determinante de las máximas señales del generador}. Aceptando un error del $10\ \%$ en la linealización se obtiene una cota de $v_{gs} < 25\ mV$ asociado a la tensión térmica.
+
+\begin{equation}
+	v_{gs} = 25\ mV \Rightarrow v_o = -i_o\times R_D//R_L = -g_m\cdot v_{gs} \times R_D//R_L = - 80\ mV \Rightarrow v_s = 67\ mV
+	\end{equation}
+
+\textbf{La máxima amplitud pico de señal que puede tener el generador sin distorsión de ningún tipo es $v_s = 67\ mV$ (cuando $I_{DSS} = 14\ mV$ y $V_P = -4\ V$).}
+
+
+\end{document}
