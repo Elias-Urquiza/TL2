@@ -1,9 +1,27 @@
 Circuit: * F:\Usuario Elias\Downloads\FIUBA\01 - En Curso\Circuitos I\Repos\TL2\sims\D\oscilador.asc
 
 Direct Newton iteration for .op point succeeded.
+N-Period=1
+Fourier components of V(salida)
+DC component:13.0719
 
-Date: Fri Oct 18 08:50:30 2019
-Total elapsed time: 0.054 seconds.
+Harmonic	Frequency	 Fourier 	Normalized	 Phase  	Normalized
+ Number 	  [Hz]   	Component	 Component	[degree]	Phase [deg]
+    1   	5.000e+02	6.993e+00	1.000e+00	  -30.60°	    0.00°
+    2   	1.000e+03	9.040e-01	1.293e-01	  -50.18°	  -19.58°
+    3   	1.500e+03	3.429e-01	4.903e-02	 -104.41°	  -73.81°
+    4   	2.000e+03	1.814e-01	2.594e-02	 -164.08°	 -133.48°
+    5   	2.500e+03	1.136e-01	1.624e-02	  131.68°	  162.28°
+    6   	3.000e+03	7.458e-02	1.067e-02	   63.71°	   94.31°
+    7   	3.500e+03	4.821e-02	6.894e-03	   -3.05°	   27.56°
+    8   	4.000e+03	3.244e-02	4.639e-03	  -64.20°	  -33.60°
+    9   	4.500e+03	2.492e-02	3.563e-03	 -123.79°	  -93.19°
+Total Harmonic Distortion: 14.229580%(14.240799%)
+
+
+
+Date: Sun Oct 20 15:20:58 2019
+Total elapsed time: 0.458 seconds.
 
 tnom = 27
 temp = 27
@@ -17,5 +35,5 @@ matrix size = 8
 fillins = 4
 solver = Normal
 Matrix Compiler1: 638 bytes object code size  0.2/0.1/[0.1]
-Matrix Compiler2: off  [0.1]/0.2/0.1
+Matrix Compiler2: off  [0.1]/0.1/0.1
 
