@@ -1,0 +1,11 @@
+Av = 1.54
+Ai = 123.4
+Ri = 819kohms      <------ todos calculados con 10khz
+Ro = 995.2ohms
+Gp = 190                
+
+Idq = 5.85mA
+
+Vdsq = 3.4V
+Vsq = 2.75V
+Vdq = 6.15V
