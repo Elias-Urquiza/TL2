@@ -555,6 +555,39 @@ para simplificar asumimos $\delta^2 g_m = 39\ nS$ (estimación en base a valores
 \newpage
 \section{Simulaciones}
 
+\subsection{Rango de Frecuencias Medias}
+
+Simulando la respuesta en frecuencia del circuito diseñado, se obtuvo la respuesta en frecuencia y se realizó un gráfico de bode del módulo y fase de la transferencia $V_o/V_i$ tal que se pudo concluir que, efectivamente, al trabajar con una frecuencia de señal de 5KHz nos encontraremos en frecuencias medias, donde se pueden despreciar los efectos reactivos del amplificador.
+\begin{center}
+  \includegraphics[width=0.5\textwidth]{bode-a-mod.png}
+  \captionof{figure}{Respuesta en frecuencia del módulo de la transferencia.}
+  \label{fig:amp-mod-bode}
+\end{center}
+
+\begin{center}
+  \includegraphics[width=0.5\textwidth]{bode-a-fase.png}
+  \captionof{figure}{Respuesta en frecuencia de la fase de la transferencia.}
+  \label{fig:amp-fase-bode}
+\end{center}
+
+\subsection{Resultados obtenidos}
+
+\begin{table}[h]
+\centering
+\begin{tabularx}{0.9\textwidth}{XXXXXXXX}
+\hline
+\multicolumn{1}{c}{}				& \multicolumn{5}{c}{Parámetros Simulados del Amplificador}						& \multicolumn{2}{c}{Punto de Reposo Medido} \\
+									\cmidrule(r){2-6}														\cmidrule(r){7-8}
+\multicolumn{1}{c}{}				& $|A_{vs}|$  		& $|A_{i}|$ 		& $G_P$ 			& $R_I\ (k\Omega)$ & $R_O\ (k\Omega)$ 		& $I_{DQ}$ 			& $V_{DSQ}$			\\
+									\cmidrule(r){2-2} \cmidrule(r){3-3} \cmidrule(r){4-4} 	\cmidrule(r){5-5} 	\cmidrule(r){6-6} \cmidrule(r){7-7} 	\cmidrule(r){8-8}
+\multicolumn{1}{c}{}				& $1.5$	& $???$	& $???$ & $???$ & $???$ & $??$& $??$\\
+\hline
+\end{tabularx}
+\caption{Parámetros simulados de la etapa amplificadora.}
+\label{tab:simulaciones}
+\end{table}
+
+
 \newpage
 \section{Mediciones}\label{sec:mediciones}
 
@@ -723,8 +756,6 @@ En el Cuadro \ref{tab:mediciones} se muestran los resultados de esta medición.
                                             \label{fig:ri}
                                           \end{figure}
 
-
-\subsection{Rango de Frecuencias Medias}
 
 
 

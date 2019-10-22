@@ -1,10 +1,12 @@
 # Fdb version 3
-["biber propuesta_v5"] 1571603976 "propuesta_v5.bcf" "propuesta_v5.bbl" "propuesta_v5" 1571603994
-  "propuesta_v5.bcf" 1571603993 90028 b407e86b57bba4aece7bec85f1371fd8 ""
+["biber propuesta_v5"] 1571603976 "propuesta_v5.bcf" "propuesta_v5.bbl" "propuesta_v5" 1571760951
+  "propuesta_v5.bcf" 1571760950 90028 b407e86b57bba4aece7bec85f1371fd8 ""
   (generated)
   "propuesta_v5.bbl"
   "propuesta_v5.blg"
-["pdflatex"] 1571603987 "propuesta_v5.tex" "propuesta_v5.pdf" "propuesta_v5" 1571603994
+["pdflatex"] 1571760944 "propuesta_v5.tex" "propuesta_v5.pdf" "propuesta_v5" 1571760951
+  "bode-a-fase.png" 1571671600 21753 2e7b39c1d966c84062c3a099597f35ce ""
+  "bode-a-mod.png" 1571671462 21473 8966c4644f6809a92d2950b685f10364 ""
   "bode-fase.png" 1571603312 69645 b96c1036add9b5fac51426aa6ca23254 ""
   "f:/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc" 1535860409 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "f:/texlive/2018/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1535860012 2971 def0b6c1f0b107b3b936def894055589 ""
@@ -297,16 +299,16 @@
   "lhead.png" 1567912686 61763 739c1074e2f2aee6ff9d5d088ced0d9d ""
   "med_oscilador_cc.png" 1571586642 538493 cd5793ca0098659f714c6e600e713386 ""
   "nul" 0 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "propuesta_v5.aux" 1571603993 8175 910eb63d539f0182669948b2f92a2d0d ""
+  "propuesta_v5.aux" 1571760950 8990 78ad5dc7383a1131007dfdb6fa44874f ""
   "propuesta_v5.bbl" 1571603979 0 d41d8cd98f00b204e9800998ecf8427e "biber propuesta_v5"
-  "propuesta_v5.run.xml" 1571603993 2280 94da9b5579775490cbc7c88a86404203 ""
-  "propuesta_v5.tex" 1571603636 44598 d4634c258f275a13777701275aae6aa1 ""
-  "propuesta_v5.toc" 1571603993 2008 5b30a74b9cb8944534643a97414e94bb ""
+  "propuesta_v5.run.xml" 1571760950 2280 94da9b5579775490cbc7c88a86404203 ""
+  "propuesta_v5.tex" 1571760933 46145 8979e6e1ae722d5d38a86f037309c908 ""
+  "propuesta_v5.toc" 1571760950 2076 76e4fcca45965aa86cc141595b926daf ""
   "salida_oscilador.png" 1571399676 24479 9824ea4ce274adb58415e721ac449fa4 ""
   (generated)
-  "propuesta_v5.log"
-  "propuesta_v5.run.xml"
-  "propuesta_v5.toc"
-  "propuesta_v5.pdf"
-  "propuesta_v5.aux"
   "propuesta_v5.bcf"
+  "propuesta_v5.pdf"
+  "propuesta_v5.toc"
+  "propuesta_v5.run.xml"
+  "propuesta_v5.log"
+  "propuesta_v5.aux"

@@ -30,7 +30,7 @@ ylabel('V [V]');
 xlabel('t [ms]');
 
 
-Hleg = legend(Ha,'V_i - Entrada; V_{p}=15mV ;f=5KHz', 'V_o - Salida; V_{p}=15mV',"location",'southeast');
+Hleg = legend(Ha,'V_i - Entrada; V_{p}=10mV ;f=5KHz', 'V_o - Salida; V_{p}=15mV',"location",'southeast');
 legend('boxon');
 set(Hleg,'FontName','Arial','FontSize',7);
 
