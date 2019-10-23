@@ -1,15 +1,15 @@
 # Fdb version 3
-["biber TL2"] 1571800719 "TL2.bcf" "TL2.bbl" "TL2" 1571800857
-  "TL2.bcf" 1571800856 90028 b407e86b57bba4aece7bec85f1371fd8 ""
+["biber TL2"] 1571800719 "TL2.bcf" "TL2.bbl" "TL2" 1571802062
+  "TL2.bcf" 1571802061 90028 b407e86b57bba4aece7bec85f1371fd8 ""
   (generated)
-  "TL2.blg"
   "TL2.bbl"
-["pdflatex"] 1571800850 "TL2.tex" "TL2.pdf" "TL2" 1571800857
-  "TL2.aux" 1571800856 9064 77b465fede759ae32f0d341be6fa7f3f ""
+  "TL2.blg"
+["pdflatex"] 1571802054 "TL2.tex" "TL2.pdf" "TL2" 1571802062
+  "TL2.aux" 1571802061 9064 77b465fede759ae32f0d341be6fa7f3f ""
   "TL2.bbl" 1571800722 0 d41d8cd98f00b204e9800998ecf8427e "biber TL2"
-  "TL2.run.xml" 1571800856 2217 89636e7a56cbafbf741d8a6512093b27 ""
-  "TL2.tex" 1571800847 48198 4cfe88dfb76a50c773249790ca7b5e09 ""
-  "TL2.toc" 1571800856 2131 417aa28431cc31369322461f1f338c3d ""
+  "TL2.run.xml" 1571802061 2217 89636e7a56cbafbf741d8a6512093b27 ""
+  "TL2.tex" 1571802052 48200 fd50daebe76538487ae613eca8aafb36 ""
+  "TL2.toc" 1571802061 2131 417aa28431cc31369322461f1f338c3d ""
   "bode-a-fase.png" 1571671600 21753 2e7b39c1d966c84062c3a099597f35ce ""
   "bode-a-mod.png" 1571671462 21473 8966c4644f6809a92d2950b685f10364 ""
   "bode-fase.png" 1571603312 69645 b96c1036add9b5fac51426aa6ca23254 ""
@@ -306,9 +306,9 @@
   "nul" 0 0 d41d8cd98f00b204e9800998ecf8427e ""
   "salida_oscilador.png" 1571399676 24479 9824ea4ce274adb58415e721ac449fa4 ""
   (generated)
-  "TL2.bcf"
-  "TL2.log"
-  "TL2.run.xml"
   "TL2.pdf"
   "TL2.aux"
+  "TL2.bcf"
   "TL2.toc"
+  "TL2.run.xml"
+  "TL2.log"
