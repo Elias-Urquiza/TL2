@@ -460,7 +460,7 @@ Asumiendo el punto de operación Q asociado a los valores típicos del transisto
 	v_{gs} = 25\ mV \Rightarrow v_o = -i_o\times R_D//R_L = -g_m\cdot v_{gs} \times R_D//R_L = - 80\ mV \Rightarrow v_s = 67\ mV
 	\end{equation}
 
-\textbf{La máxima amplitud pico de señal que puede tener el generador sin distorsión de ningún tipo es $v_s = 67\ mV$ (cuando $I_{DSS} = 14\ mV$ y $V_P = -4\ V$).}
+\textbf{La máxima amplitud pico de señal que puede tener el generador sin distorsión de ningún tipo es $v_s = 67\ mV$ (cuando $I_{DSS} = 14\ mA$ y $V_P = -4\ V$).}
 
 
 \subsection{Propagación de Errores}
@@ -556,7 +556,7 @@ para simplificar asumimos $\delta^2 g_m = 39\ nS$ (estimación en base a valores
 
 \section{Mediciones}\label{sec:mediciones}
 
-Se implementó el circuito de la Figura \ref{fig:circuito} en la placa provista por el LACE utilizando los valores de componentes y alimentaciones definidos en el Cuadro \ref{tab:valores}. Sobre la placa se midieron los parámetros del parámetros del circuito amplificador que se resumen en el Cuadro \ref{tab:mediciones}. Para las señales de generador y de prueba se tuvo en cuenta el análisis de distorciones hecho en la Sección \ref{sec:distorsiones} y se usaron señales de $40\ mV$ pico a $1\ kHz$.
+Se implementó el circuito de la Figura \ref{fig:circuito} en la placa provista por el LACE utilizando los valores de componentes y alimentaciones definidos en el Cuadro \ref{tab:valores}. Sobre la placa se midieron los parámetros del circuito amplificador que se resumen en el Cuadro \ref{tab:mediciones}. Para las señales de generador y de prueba se tuvo en cuenta el análisis de distorciones hecho en la Sección \ref{sec:distorsiones} y se usaron señales de $40\ mV$ pico a $1\ kHz$.
 
 
 \begin{table}[h]
@@ -596,7 +596,7 @@ La corriente del generador se obtiene asumiendo que por el gate no circula corri
 
 Para medir la resistencia de salida se utilizó un divisor resistivo como el que se muestra en la Figura \ref{fig:ro}. Conociendo la tensión sobre la resistencia de prueba obtenemos
 \begin{equation}
-	i_p = \frac{v_{CH2}-v_{CH1}}{1\ k\Omega} \Rightarrow R_o + 1\ k\Omega = \frac{v_p}{i_p} = \frac{v_p}{v_{CH2}-v_{CH1}}
+	i_p = \frac{v_{CH2}-v_{CH1}}{1\ k\Omega} \Rightarrow R_o + 1\ k\Omega = \frac{v_p}{i_p} = \frac{v_p}{v_{CH2}-v_{CH1}}1\ k\Omega
 	\end{equation}
 En el Cuadro \ref{tab:mediciones} se muestran los resultados de esta medición.
 
@@ -857,6 +857,14 @@ Se puede observar que la ganancia de corriente es un $87\%$ menor a la presentad
         \end{center}
 
 
+        \clearpage
+                \section{Conclusiones}
+
+        Durante la etapa amplificadora se puede notar que alcanzar una ganancia de potencia mayor a 100 es un objetivo perfectamente razonable puesto que es directamente proporcional a la ganancia de corriente, para la cual se tiene una corriente de entrada cuya magnitud es despreciable al utilizarse un FET, por lo que finalmente se regula con la resistencia de gate elegida. Por este motivo, logramos diseñar un circuito que cumple la condición propuesta. También pudimos comprobar que trabajamos en frecuencias medias para los valores elegidos. Por otro lado, en la simulación se obtuvo un valor de ganancia menor en un $85\%$ al medido en la práctica. Consideramos que esto se debe a algún parámetro no contemplado en el modelo, aunque este valor simulado también cumple la condición propuesta.
+
+        \medskip
+
+        Para el oscilador senoidal por desplazamiento de fase se puede destacar que inicialmente consideramos que el bloque de realimentación estaba constituido por tres bloques RC,ero para ello se requeriría que cada bloque otorgue un desfasaje de 60º, con una frecuencia asociada en el orden de los 6KHz. Dado que tanto en la simulación como en la práctica se midió una respuesta de 500Hz, se concluyó que era más coherente considerar únicamente dos bloques que desfasan 90º. Además, se pudo observar como puede detenerse el efecto de oscilación al disminuir la tensión de alimentación a un valor tal que el transistor se encuentra en corte, o con un punto Q cercano a este régimen.
 
 
 
