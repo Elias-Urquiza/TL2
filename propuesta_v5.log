@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.9.2)  22 OCT 2019 13:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.9.2)  22 OCT 2019 21:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1339,17 +1339,17 @@ Package caption Info: End \AtBeginDocument code.
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
 (lastpage)             ! on input line 58.
-<lhead.png, id=4, 387.00584pt x 129.3633pt>
-File: lhead.png Graphic file (type png)
-<use lhead.png>
-Package pdftex.def Info: lhead.png  used on input line 70.
-(pdftex.def)             Requested size: 116.10265pt x 38.80928pt.
+<fiuba.pdf, id=4, 241.90375pt x 472.76625pt>
+File: fiuba.pdf Graphic file (type pdf)
+<use fiuba.pdf>
+Package pdftex.def Info: fiuba.pdf  used on input line 70.
+(pdftex.def)             Requested size: 72.57167pt x 141.83096pt.
 LaTeX Font Info:    Try loading font information for T1+pcr on input line 88.
  (f:/texlive/2018/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 ) [1
 
-{f:/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./lhead.png>] (./propuesta_v5.toc
+{f:/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./fiuba.pdf>] (./propuesta_v5.toc
 LaTeX Info: Redefining \sptext on input line 2.
 LaTeX Info: Redefining \. on input line 2.
 LaTeX Info: Redefining \% on input line 2.
@@ -1373,36 +1373,38 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[5] [6] [7] [8]
-<bode-a-mod.png, id=59, 252.945pt x 180.675pt>
+[5] [6] [7] [8] [9] [10] [11]
+<bode-a-mod.png, id=68, 252.945pt x 180.675pt>
 File: bode-a-mod.png Graphic file (type png)
 <use bode-a-mod.png>
-Package pdftex.def Info: bode-a-mod.png  used on input line 562.
+Package pdftex.def Info: bode-a-mod.png  used on input line 732.
 (pdftex.def)             Requested size: 241.84843pt x 172.75128pt.
-<bode-a-fase.png, id=60, 252.945pt x 180.675pt>
+<bode-a-fase.png, id=69, 252.945pt x 180.675pt>
 File: bode-a-fase.png Graphic file (type png)
 <use bode-a-fase.png>
-Package pdftex.def Info: bode-a-fase.png  used on input line 568.
+Package pdftex.def Info: bode-a-fase.png  used on input line 738.
 (pdftex.def)             Requested size: 241.84843pt x 172.75128pt.
- [9 <./bode-a-mod.png> <./bode-a-fase.png>] [10] [11] [12]
+ [12
 
-LaTeX Warning: Command \textordmasculine invalid in math mode on input line 802.
+ <./bode-a-mod.png> <./bode-a-fase.png>]
+
+LaTeX Warning: Command \textordmasculine invalid in math mode on input line 803.
 
 
-LaTeX Warning: Command \textordmasculine invalid in math mode on input line 802.
+LaTeX Warning: Command \textordmasculine invalid in math mode on input line 803.
 
 Missing character: There is no º in font cmr10!
 
-LaTeX Warning: Command \textordmasculine invalid in math mode on input line 802.
+LaTeX Warning: Command \textordmasculine invalid in math mode on input line 803.
 
 
-LaTeX Warning: Command \textordmasculine invalid in math mode on input line 802.
+LaTeX Warning: Command \textordmasculine invalid in math mode on input line 803.
 
 Missing character: There is no º in font cmr10!
 <bode-fase.png, id=74, 1204.5pt x 903.375pt>
 File: bode-fase.png Graphic file (type png)
 <use bode-fase.png>
-Package pdftex.def Info: bode-fase.png  used on input line 809.
+Package pdftex.def Info: bode-fase.png  used on input line 810.
 (pdftex.def)             Requested size: 290.22107pt x 217.66905pt.
 [13
 
@@ -1410,17 +1412,17 @@ Package pdftex.def Info: bode-fase.png  used on input line 809.
 <med_oscilador_cc.png, id=82, 697.10437pt x 499.8675pt>
 File: med_oscilador_cc.png Graphic file (type png)
 <use med_oscilador_cc.png>
-Package pdftex.def Info: med_oscilador_cc.png  used on input line 840.
+Package pdftex.def Info: med_oscilador_cc.png  used on input line 841.
 (pdftex.def)             Requested size: 241.84843pt x 173.41551pt.
-<salida_oscilador.png, id=83, 252.945pt x 180.675pt>
+<salida_oscilador.png, id=84, 252.945pt x 180.675pt>
 File: salida_oscilador.png Graphic file (type png)
 <use salida_oscilador.png>
-Package pdftex.def Info: salida_oscilador.png  used on input line 846.
+Package pdftex.def Info: salida_oscilador.png  used on input line 847.
 (pdftex.def)             Requested size: 241.84843pt x 172.75128pt.
-<fft_oscilador.png, id=84, 252.945pt x 180.675pt>
+<fft_oscilador.png, id=85, 252.945pt x 180.675pt>
 File: fft_oscilador.png Graphic file (type png)
 <use fft_oscilador.png>
-Package pdftex.def Info: fft_oscilador.png  used on input line 853.
+Package pdftex.def Info: fft_oscilador.png  used on input line 854.
 (pdftex.def)             Requested size: 241.84843pt x 172.75128pt.
  
 AED: lastpage setting LastPage
@@ -1435,19 +1437,19 @@ Package logreq Info: Writing requests to 'propuesta_v5.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 55346 strings out of 492642
- 1316175 string characters out of 6133163
- 1835805 words of memory out of 5000000
- 58564 multiletter control sequences out of 15000+600000
+ 55329 strings out of 492642
+ 1315760 string characters out of 6133163
+ 1835804 words of memory out of 5000000
+ 58546 multiletter control sequences out of 15000+600000
  551984 words of font info for 73 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  78i,16n,136p,1137b,1965s stack positions out of 5000i,500n,10000p,200000b,80000s
 {f:/texlive/2018/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{f:/texlive/2018/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{f:/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}<f:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><f:/texlive/2018/texmf-dist/fonts/type1/pub
 lic/cm-super/sfcc1000.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfcc1200.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfcc1440.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb><f:/texlive/2018/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on propuesta_v5.pdf (16 pages, 1192806 bytes).
+Output written on propuesta_v5.pdf (16 pages, 1152321 bytes).
 PDF statistics:
- 163 PDF objects out of 1000 (max. 8388607)
- 112 compressed objects within 2 object streams
+ 164 PDF objects out of 1000 (max. 8388607)
+ 114 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  48 words of extra memory for PDF output out of 10000 (max. 10000000)
 

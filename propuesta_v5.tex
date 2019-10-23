@@ -67,7 +67,7 @@
 \thispagestyle{empty}
 
 \begin{center}
-\includegraphics[scale=0.3]{lhead.png}\\
+\includegraphics[scale=0.3]{fiuba.pdf}\\
 \large{\textsc{Universidad de Buenos Aires}}\\
 \large{\textsc{Facultad de Ingeniería}}\\
 % Modificar año y cuatrimestre
@@ -86,7 +86,7 @@
 
 \begin{center}
 \large{José F. González - 100063 - \footnotesize{\verb!<jfgonzalez@fi.uba.ar>!}}\\ \vspace{0.25cm}
-\large{Gottfried, Joel - XXXXXX - \footnotesize{\verb!<joelgottfried99@gmail.com>!}}\\\vspace{0.25cm}
+\large{Gottfried, Joel - 102498 - \footnotesize{\verb!<joelgottfried99@gmail.com>!}}\\\vspace{0.25cm}
 \large{Urquiza, Elias - 100714 - \footnotesize{\verb!<eurquiza@fi.uba.ar>!}}\\
 \end{center}
 
@@ -553,42 +553,7 @@ para simplificar asumimos $\delta^2 g_m = 39\ nS$ (estimación en base a valores
 
 
 \newpage
-\section{Simulaciones}
 
-\subsection{Rango de Frecuencias Medias}
-
-Simulando la respuesta en frecuencia del circuito diseñado, se obtuvo la respuesta en frecuencia y se realizó un gráfico de bode del módulo y fase de la transferencia $V_o/V_i$ tal que se pudo concluir que, efectivamente, al trabajar con una frecuencia de señal de 5KHz nos encontraremos en frecuencias medias, donde se pueden despreciar los efectos reactivos del amplificador.
-\begin{center}
-  \includegraphics[width=0.5\textwidth]{bode-a-mod.png}
-  \captionof{figure}{Respuesta en frecuencia del módulo de la transferencia.}
-  \label{fig:amp-mod-bode}
-\end{center}
-
-\begin{center}
-  \includegraphics[width=0.5\textwidth]{bode-a-fase.png}
-  \captionof{figure}{Respuesta en frecuencia de la fase de la transferencia.}
-  \label{fig:amp-fase-bode}
-\end{center}
-
-\subsection{Resultados obtenidos}
-
-\begin{table}[h]
-\centering
-\begin{tabularx}{0.9\textwidth}{XXXXXXXX}
-\hline
-\multicolumn{1}{c}{}				& \multicolumn{5}{c}{Parámetros Simulados del Amplificador}						& \multicolumn{2}{c}{Punto de Reposo Medido} \\
-									\cmidrule(r){2-6}														\cmidrule(r){7-8}
-\multicolumn{1}{c}{}				& $|A_{vs}|$  		& $|A_{i}|$ 		& $G_P$ 			& $R_I\ (k\Omega)$ & $R_O\ (k\Omega)$ 		& $I_{DQ}$ 			& $V_{DSQ}$			\\
-									\cmidrule(r){2-2} \cmidrule(r){3-3} \cmidrule(r){4-4} 	\cmidrule(r){5-5} 	\cmidrule(r){6-6} \cmidrule(r){7-7} 	\cmidrule(r){8-8}
-\multicolumn{1}{c}{}				& $1.5$	& $???$	& $???$ & $???$ & $???$ & $??$& $??$\\
-\hline
-\end{tabularx}
-\caption{Parámetros simulados de la etapa amplificadora.}
-\label{tab:simulaciones}
-\end{table}
-
-
-\newpage
 \section{Mediciones}\label{sec:mediciones}
 
 Se implementó el circuito de la Figura \ref{fig:circuito} en la placa provista por el LACE utilizando los valores de componentes y alimentaciones definidos en el Cuadro \ref{tab:valores}. Sobre la placa se midieron los parámetros del parámetros del circuito amplificador que se resumen en el Cuadro \ref{tab:mediciones}. Para las señales de generador y de prueba se tuvo en cuenta el análisis de distorciones hecho en la Sección \ref{sec:distorsiones} y se usaron señales de $40\ mV$ pico a $1\ kHz$.
@@ -602,7 +567,7 @@ Se implementó el circuito de la Figura \ref{fig:circuito} en la placa provista 
 									\cmidrule(r){2-6}														\cmidrule(r){7-8}
 \multicolumn{1}{c}{}				& $|A_{vs}|$  		& $|A_{i}|$ 		& $G_P$ 			& $R_I\ (k\Omega)$ & $R_O\ (k\Omega)$ 		& $I_{DQ}$ 			& $V_{DSQ}$			\\
 									\cmidrule(r){2-2} \cmidrule(r){3-3} \cmidrule(r){4-4} 	\cmidrule(r){5-5} 	\cmidrule(r){6-6} \cmidrule(r){7-7} 	\cmidrule(r){8-8}
-\multicolumn{1}{c}{}				& $1.4 \pm 2$	& $917 \pm 98$	& $1284 \pm 1800$ & $820 \pm 4 $ & $1 \pm 0.162 $ & $??$& $??$\\
+\multicolumn{1}{c}{}				& $1.4 \pm 2$	& $917 \pm 98$	& $1284 \pm 1800$ & $820 \pm 4 $ & $1 \pm 0.162 $ & $5.80mA$& $3.5V$\\
 \hline
 \end{tabularx}
 \caption{Parámetros medidos de la etapa amplificadora.}
@@ -756,8 +721,44 @@ En el Cuadro \ref{tab:mediciones} se muestran los resultados de esta medición.
                                             \label{fig:ri}
                                           \end{figure}
 
+\clearpage
 
+\section{Simulaciones}
 
+\subsection{Rango de Frecuencias Medias}
+
+Simulando la respuesta en frecuencia del circuito diseñado, se obtuvo la respuesta en frecuencia y se realizó un gráfico de bode del módulo y fase de la transferencia $V_o/V_i$ tal que se pudo concluir que, efectivamente, al trabajar con una frecuencia de señal de 1KHz nos encontraremos en frecuencias medias, donde se pueden despreciar los efectos reactivos del amplificador.
+\begin{center}
+  \includegraphics[width=0.5\textwidth]{bode-a-mod.png}
+  \captionof{figure}{Respuesta en frecuencia del módulo de la transferencia.}
+  \label{fig:amp-mod-bode}
+\end{center}
+
+\begin{center}
+  \includegraphics[width=0.5\textwidth]{bode-a-fase.png}
+  \captionof{figure}{Respuesta en frecuencia de la fase de la transferencia.}
+  \label{fig:amp-fase-bode}
+\end{center}
+
+\subsection{Resultados obtenidos}
+Simulando las configuraciones presentadas en la sección 3, se obtuvieron los resultados del cuadro \ref{tab:simulaciones}.
+
+\begin{table}[h]
+\centering
+\begin{tabularx}{0.9\textwidth}{XXXXXXXX}
+\hline
+\multicolumn{1}{c}{}				& \multicolumn{5}{c}{Parámetros Simulados del Amplificador}						& \multicolumn{2}{c}{Punto de Reposo Medido} \\
+									\cmidrule(r){2-6}														\cmidrule(r){7-8}
+\multicolumn{1}{c}{}				& $|A_{vs}|$  		& $|A_{i}|$ 		& $G_P$ 			& $R_I\ (k\Omega)$ & $R_O\ (k\Omega)$ 		& $I_{DQ}$ 			& $V_{DSQ}$			\\
+									\cmidrule(r){2-2} \cmidrule(r){3-3} \cmidrule(r){4-4} 	\cmidrule(r){5-5} 	\cmidrule(r){6-6} \cmidrule(r){7-7} 	\cmidrule(r){8-8}
+\multicolumn{1}{c}{}				& $1.5$	& $123.4$	& $190$ & $819$ & $0.995$ & $5.85mA$& $3.4V$\\
+\hline
+\end{tabularx}
+\caption{Parámetros simulados de la etapa amplificadora.}
+\label{tab:simulaciones}
+\end{table}
+
+Se puede observar que la ganancia de corriente es un $87\%$ menor a la presentada en el cuadro \ref{tab:mediciones}. Esto conlleva a una diferencia del $85\%$ en la ganancia de potencia. Consideramos que esto se debe a efectos no contemplados en los que la corriente consumida no es la que consideramos sobre la resistencia $R_G$.
 
 
 \clearpage

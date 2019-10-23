@@ -1,10 +1,10 @@
 # Fdb version 3
-["biber propuesta_v5"] 1571603976 "propuesta_v5.bcf" "propuesta_v5.bbl" "propuesta_v5" 1571760951
-  "propuesta_v5.bcf" 1571760950 90028 b407e86b57bba4aece7bec85f1371fd8 ""
+["biber propuesta_v5"] 1571789496 "propuesta_v5.bcf" "propuesta_v5.bbl" "propuesta_v5" 1571789515
+  "propuesta_v5.bcf" 1571789514 90028 b407e86b57bba4aece7bec85f1371fd8 ""
   (generated)
-  "propuesta_v5.bbl"
   "propuesta_v5.blg"
-["pdflatex"] 1571760944 "propuesta_v5.tex" "propuesta_v5.pdf" "propuesta_v5" 1571760951
+  "propuesta_v5.bbl"
+["pdflatex"] 1571789508 "propuesta_v5.tex" "propuesta_v5.pdf" "propuesta_v5" 1571789515
   "bode-a-fase.png" 1571671600 21753 2e7b39c1d966c84062c3a099597f35ce ""
   "bode-a-mod.png" 1571671462 21473 8966c4644f6809a92d2950b685f10364 ""
   "bode-fase.png" 1571603312 69645 b96c1036add9b5fac51426aa6ca23254 ""
@@ -296,19 +296,19 @@
   "f:/texlive/2018/texmf-var/web2c/pdftex/pdflatex.fmt" 1535863621 4217498 683b672f0d6eeffc09f4786460c83881 ""
   "f:/texlive/2018/texmf.cnf" 1535863414 673 4ae7b2f49cee444c5343a45b5d0f169c ""
   "fft_oscilador.png" 1571398518 23334 cfe7b2db9b7be5b14816cdbe7057c7dc ""
-  "lhead.png" 1567912686 61763 739c1074e2f2aee6ff9d5d088ced0d9d ""
+  "fiuba.pdf" 1571625638 8981 bfb63cd83058a96ce6a29879e1d8c9db ""
   "med_oscilador_cc.png" 1571586642 538493 cd5793ca0098659f714c6e600e713386 ""
   "nul" 0 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "propuesta_v5.aux" 1571760950 8990 78ad5dc7383a1131007dfdb6fa44874f ""
-  "propuesta_v5.bbl" 1571603979 0 d41d8cd98f00b204e9800998ecf8427e "biber propuesta_v5"
-  "propuesta_v5.run.xml" 1571760950 2280 94da9b5579775490cbc7c88a86404203 ""
-  "propuesta_v5.tex" 1571760933 46145 8979e6e1ae722d5d38a86f037309c908 ""
-  "propuesta_v5.toc" 1571760950 2076 76e4fcca45965aa86cc141595b926daf ""
+  "propuesta_v5.aux" 1571789514 8989 a7056740870d10a11ad995ccba966c68 ""
+  "propuesta_v5.bbl" 1571789499 0 d41d8cd98f00b204e9800998ecf8427e "biber propuesta_v5"
+  "propuesta_v5.run.xml" 1571789514 2280 94da9b5579775490cbc7c88a86404203 ""
+  "propuesta_v5.tex" 1571789431 46617 e61f861d3042c74d6b8e4a473cc34a9c ""
+  "propuesta_v5.toc" 1571789514 2074 51e5d558c580976289819277dd29eb2e ""
   "salida_oscilador.png" 1571399676 24479 9824ea4ce274adb58415e721ac449fa4 ""
   (generated)
-  "propuesta_v5.bcf"
   "propuesta_v5.pdf"
-  "propuesta_v5.toc"
-  "propuesta_v5.run.xml"
   "propuesta_v5.log"
   "propuesta_v5.aux"
+  "propuesta_v5.toc"
+  "propuesta_v5.run.xml"
+  "propuesta_v5.bcf"
