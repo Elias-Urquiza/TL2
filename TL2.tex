@@ -118,7 +118,7 @@ Necesitamos diseñar una etapa amplificadora con un transistor \textbf{JFET 2N54
 
 \section{Diseño de la Etapa Amplificadora}
 
-Para la elección de la tecnología del transistor se tuvo en cuenta que al necesitar la etapa una alta ganancia de potencia esta será fácil de obtener si el dispositivo tiene corrientes de entrada casi nulas dando ganancias de corriente muy elevadas. Luego se decidió utilizar transistores FET que cumplen esta característica. En particular utilizamos JFET para familiarizarnos con su funcionamiento. En cuanto a la configuración en que funciona el transistor tenemos tres posibilidades, utilizarlo como Gate común, Drain común o Source común. El primer caso se descartó siendo que la configuración Gate Común tiene una ganancia de corriente unitaria \textit{(current buffer)}. El Drain Común se descarta pues tiene ganancia de tensión casi unitaria \textit{(seguidor por source)}. Finalmente usamos la opción de Source Común que nos permite controlar tanto la ganancia de tensión como la de corriente.
+Para la elección de la tecnología del transistor se tuvo en cuenta que al necesitar la etapa una alta ganancia de potencia esta será fácil de obtener si el dispositivo tiene corrientes de entrada casi nulas dando ganancias de corriente muy elevadas. Luego se decidió utilizar transistores FET que cumplen esta característica. En particular utilizamos JFET para familiarizarnos con su funcionamiento. En cuanto a la configuración en que funciona el transistor tenemos tres posibilidades, utilizarlo como Gate común, Drain común o Source común. El primer caso se descartó siendo que la configuración Gate Común tiene una ganancia de corriente unitaria. El Drain Común se descarta pues tiene ganancia de tensión casi unitaria. Finalmente usamos la opción de Source Común que nos permite controlar tanto la ganancia de tensión como la de corriente.
 
  \begin{figure}[h]
                                             \centering
@@ -157,7 +157,7 @@ En la Figura \ref{fig:circuito} se muestra el circuito propuesto que consiste en
 	G_P = \frac{P_O}{P_I} = \frac{\hat{V_O}\hat{I_O}/2}{\hat{V_S}\hat{I_S}/2} = \frac{\hat{V_O}\hat{I_O}}{\hat{V_S}\hat{I_S}} = A_{vs}\cdot A_{i}
 	\end{equation}
 
-De la hoja de datos\footnote{https://www.mouser.com/datasheet/2/68/2n5484-5486-51207.pdf} se obtienen los datos para definir una \textbf{zona de operación segura} de la Figura \ref{fig:zona_segura} dentro de los cuales podremos polarizar al transistor.
+De la hoja de datos\footnote{https://www.mouser.com/datasheet/2/68/2n5484-5486-51207.pdf} se obtienen los límites para definir una \textbf{zona de operación segura} de la Figura \ref{fig:zona_segura} dentro de los cuales podremos polarizar al transistor.
 
 
 
@@ -246,6 +246,18 @@ y la recta de carga dinámica será
                                          \draw
                                           (fet.D) -- ++(0,0) to[short] ++(5,0) node(RL){} to[R] ++(0,-3.5) node[ground] {}; \draw (RL) ++(0.5cm,-1cm) node[]{$R_L$};
 
+
+                                          %%TENSIONES Y CORRIENTES
+                                          \draw (Rs) ++(-2cm,-0.75cm) [-latex, thick, red] -- ++(1.5cm,0) node[above] {$i_s$};
+                                          \draw (Rs) ++ (-2.5,-3) [-latex,thick,blue] -- ++ (0,2.75) node[left] {$v_s$};
+                                          \draw (fet.G) ++(-1.5,0.75) [-latex,red,thick] -- ++(1.5,0) node[above] {$i_G$};
+                                          \draw (RL) ++ (0,0.75) [-latex, red, thick] -- ++ (-1.5,0) node[above] {$i_o$};
+                                          \draw (RL) ++ (1,-3) [-latex, blue, thick] -- ++ (0,2.5) node [right] {$v_o$};
+                                          \draw (fet.D) ++(2,0.75) [-latex,red,thick] -- ++ (-1.5,0) node[above] {$i_d$};
+                                          \draw (fet.G) ++ (-3,-3) [-latex,blue,thick] -- ++ (0,2.75) node[left] {$v_i$}; 
+
+                                          \draw (RL) ++ (-1,2) node[right] {$R_O$} -- ++ (0,-2.5) [-latex] -- ++ (-0.25,0);
+                                          \draw (fet.G) ++ (-3.75,2) node[left] {$R_I$} -- ++ (0,-2.5) [-latex] -- ++ (0.25,0);
                                             \end{circuitikz}
                                             \caption{Etapa Amplificadora - Circuito de señal a frecuencias medias}
                                           \end{figure}
@@ -257,7 +269,7 @@ Del circuito de señal a frecuencias medias podemos obtener los siguientes pará
 La ganancia de tensión será
 
 \begin{equation}
-A_v = \frac{v_o}{v_i} = \frac{-i_o(R_D // R_L)}{v_{gs}+ v_{R_S}} = \frac{-(R_D//R_L)}{\frac{v_{gs}}{i_o}+R_S} = \frac{-(R_D//R_L)}{\frac{1}{g_m}+R_S}
+A_v = \frac{v_o}{v_i} = \frac{-i_d(R_D // R_L)}{v_{gs}+ v_{R_S}} = \frac{-(R_D//R_L)}{\frac{v_{gs}}{i_d}+R_S} = \frac{-(R_D//R_L)}{\frac{1}{g_m}+R_S}
 \end{equation}
 
 que referida al generador resulta
@@ -269,26 +281,69 @@ A_{vs} = A_v \frac{v_i}{v_s} = A_v \frac{R_G}{R_G + R_s}
 La ganancia de corrientes será
 
 \begin{equation}
-A_i = \frac{i_o}{i_s} = \frac{i_o}{\frac{v_i}{R_G}} = \frac{i_o}{v_{gs}+i_o R_S} = \frac{R_G}{\frac{1}{g_m}+R_S}
+A_i = \frac{i_o}{i_s} = \frac{i_o}{\frac{v_i}{R_G}} = R_G \times \frac{i_o}{v_i} \times \frac{v_o}{v_o}= R_G \times \frac{A_v}{R_L}
 \end{equation}
 
 Asumiendo que se cumple que $R_S >> 1/g_m$ y $R_s << R_G$ \textbf{se puede expresar la ganancia de potencia en una primera aproximación que depende integramente de la elección de resistencias}
 
+\begin{align}
+G_P = A_{vs}\times A_i &= A_v\times \cdot \frac{R_G}{R_G+R_s} \times A_v \cdot \frac{R_G}{R_L}\\
+    &\approx A_v^2 \frac{R_G}{R_L}\\
+    &\approx (\frac{R_D//R_L}{R_S})^2 \times \frac{R_G}{R_L}
+\end{align}
+
+la resistencia de salida se obtiene pasivando la entrada y colocando una señal de prueba a la salida como muestra la Figura \ref{circuito_ro}, tal que
+
 \begin{equation}
-G_P = A_{vs}\times A_i \approx \frac{R_D//R_L}{R_S} \times \frac{R_G}{R_S}
+i_p = g_m\cdot v_{gs} + \frac{v_p}{R_D} \Rightarrow \frac{v_p}{R_D} = i_p - gm\cdot v_{gs} = \frac{v_p}{R_D} = i_p - g_m\cdot (-i_p R_S) = i_p (1+g_mR_S) \nonumber
+\end{equation}
+\begin{equation}
+\Rightarrow \frac{v_p}{i_p} = R_O = R_D(1+g_mR_S)
 \end{equation}
 
 
-la resistencia de entrada y salida serán:
+ \begin{figure}[h!]
+                                            \centering
+                                            \begin{circuitikz}
+                                         \draw
+                                          % Drawing a npn transistor
+                                          (0,0) node[njfet](fet){} node[left=0.5cm]{2N5486}
+                                          (fet.G) -- ++ (0,0) to[short] ++(-2,0) node (RG) {} to[R]  ++(0,-2.5) node[ground] {};\draw (RG) ++(0.5cm,-0.5cm) node[]{$R_G$};
+                                          \draw
+                                          (RG) -- ++ (0,0) node(CA1){} to[short] ++(-2,0) node(Rs) {}to[R] ++(-2.5,0) to[short] ++(0,-2.5) node[ground] {}  ;
+                                                            \draw (Rs) ++(-1.5cm,0.5cm) node {$R_s$};
+                                          \draw
+                                          (fet.S) -- ++ (0,0) node[right] {$R_S$} to[R] ++(0,-2) node[ground] {};
+                                          \draw
+                                          (fet.D) -- ++ (2.5,0) node(RD){} to[R]  ++(0,-3.5) node[ground] {}; \draw (RD) ++(0.5cm,-1cm) node[]{$R_D$};
+                                         \draw
+                                          (fet.D) -- ++(0,0) to[short] ++(5,0) node(RL){} to[american voltage source] ++(0,-3.5) node[ground] {}; \draw (RL) ++(0.5cm,-1cm) node[]{$v_p$};
+
+
+                                          %%TENSIONES Y CORRIENTES
+                                          
+                                          
+                                          \draw (fet.G) ++(-1.5,0.75) [-latex,red,thick] -- ++(1.5,0) node[above] {$i_g$};
+                                          \draw (RL) ++ (0,0.75) [-latex, red, thick] -- ++ (-1.5,0) node[above] {$i_p$};
+                                          \draw (RL) ++ (1,-3) [-latex, blue, thick] -- ++ (0,2.5) node [right] {$v_p$};
+                                          \draw (fet.D) ++(2,0.75) [-latex,red,thick] -- ++ (-1.5,0) node[above] {$i_d$};
+                                          
+
+                                          \draw (RL) ++ (-1,2) node[right] {$R_O$} -- ++ (0,-2.5) [-latex] -- ++ (-0.25,0);
+                                          
+                                            \end{circuitikz}
+                                            \caption{Cálculo por inspección de resistencia de salida a frecuencias medias}
+                                            \label{fig:circuito_ro}
+                                          \end{figure}
+
+
+
+
+y la resistencia de entrada es simplemente
 
 \begin{equation}
 R_I = R_G
 \end{equation}
-
-\begin{equation}
-R_O = R_D(1+g_mR_S)
-\end{equation}
-
 
 \subsection{Elección de valores}\label{sec:valores}
 
@@ -323,14 +378,14 @@ En los Cuadros \ref{tab:dispersion} y \ref{tab:dispersion2} se muestran los dist
 									\cmidrule(r){3-6}														\cmidrule(r){7-8}
 \multicolumn{2}{c}{$(I_{DSS},V_{P})$}& $|A_{vs}|$  		& $|A_{i}|$ 		& $G_P$ 			& $g_m$ 		& $I_{DQ}$ 			& $V_{DSQ}$			\\
 \cmidrule(r){1-2}  									\cmidrule(r){3-3} \cmidrule(r){4-4} 	\cmidrule(r){5-5} 	\cmidrule(r){6-6} \cmidrule(r){7-7} 	\cmidrule(r){8-8}
-\multicolumn{2}{c}{$(20\ mA,-6\ V)$}& $1.2$	& $1096$	& $1316$ & $3.6\ mA/V$ & $5.8\ mA$& $3.5\ V$\\
+\multicolumn{2}{c}{$(20\ mA,-6\ V)$}& $1.2$	& $101$	& $121$ & $3.6\ mA/V$ & $5.8\ mA$& $3.4\ V$\\
 \hline
-\multicolumn{2}{c}{$(14\ mA,-4\ V)$}& $1.2$	& $1108$	& $1329$ & $3.7\ mA/V$& $3.9\ mA$ & $6.3\ V$\\
+\multicolumn{2}{c}{$(14\ mA,-4\ V)$}& $1.2$	& $99$	& $124$ & $3.7\ mA/V$& $3.9\ mA$ & $6.2\ V$\\
 \hline
-\multicolumn{2}{c}{$$(8\ mA,-2\ V)$$}&$1.3$	& $1139$	& $1480$ & 4\ mA/V & $2\ mA$ & $9.1\ V$ \\
+\multicolumn{2}{c}{$$(8\ mA,-2\ V)$$}&$1.3$	& $104$	& $132$ & 4\ mA/V & $2.1\ mA$ & $9.1\ V$ \\
 \hline
 \hline
-\multicolumn{2}{c}{\textcolor{red}{Dispersión:}} & $8\%$ & $3\%$ & $13\%$ & $11\%$ & $190\%$ & $160\% $\\
+\multicolumn{2}{c}{\textcolor{red}{Dispersión:}} & $8\%$ & $5\%$ & $9\%$ & $11\%$ & $190\%$ & $160\% $\\
 \hline
 \end{tabularx}
 \caption{Parámetros teóricos de la etapa amplificadora.}
@@ -374,9 +429,6 @@ Para obtener estos valores se tuvieron en cuenta los siguientes puntos
 	\end{itemize}
 
 
-En la Figura \ref{fig:dispersion} se muestran los distintos puntos de reposo en el contorno de la zona segura.
-
-
 \begin{figure}[h]
     \begin{center}
       \begin{tikzpicture}[scale=0.5]
@@ -400,11 +452,11 @@ En la Figura \ref{fig:dispersion} se muestran los distintos puntos de reposo en 
 
     \end{center}
     \caption{Recta de carga estática con puntos de reposo extremos y típico.}
-    \label{fig:dispersion}
+    \label{fig:recta_estatica_q}
     \end{figure}
 
 
-
+\newpage
 \subsection{Realimentación en señal}
 
 \textbf{El circuito presenta un camino de realimentación de señal de muestro de corriente suma de tensión.} En la Figura \ref{fig:realimentacion} se hace un análisis de incrementos para mostrar que la realimentación es negativa.
@@ -446,15 +498,16 @@ De las expresiones de ganancia de tensión podemos obtener que el \textbf{factor
 	FR = 1+g_mR_S
 	\end{equation}
 
+\newpage
 \subsection{Señales sin recorte}\label{sec:distorsiones}
 
-Asumiendo el punto de operación Q asociado a los valores típicos del transistor $I_{DSS} = 14\ mA$ y $V_P = -4\ V$ obtenemos las máximas señales sin distorsión. De la Figura \ref{fig:dispersion} se ve que para los valores típicos la máxima tensión a la salida sin distorsión por recorte ni triodo serán de tensión máxima aproximadamente $\hat{v_o} = 6\ V$. Luego, en este punto la ganancia referida al generador es de unos $A_{vs} = 1.2$, entonces la máxima tensión que podemos poner del generador, a valores típicos, será
+Asumiendo el punto de operación Q asociado a los valores típicos del transistor $I_{DSS} = 14\ mA$ y $V_P = -4\ V$ obtenemos las máximas señales sin distorsión. De la Figura \ref{fig:dispersion} se ve que para los valores típicos la máxima tensión a la salida sin distorsión por recorte ni triodo serán de tensión máxima aproximadamente $\hat{v_o} = 6\ V$. La ganancia es $A_{vs} = 1.2$ (Cuadro \ref{tab:dispersion}), entonces la máxima tensión que podemos poner del generador sin distorsión de recorte ni triodo, a valores típicos, será
 
 \begin{equation}
 	v_s = \frac{v_o}{A_{vs}} \approx 5\ V \nonumber
 	\end{equation}
 
-\textbf{El límite por alinealidad será el determinante de las máximas señales del generador}. Aceptando un error del $10\ \%$ en la linealización se obtiene una cota de $v_{gs} < 25\ mV$ asociado a la tensión térmica.
+Sin embargo \textbf{el límite por alinealidad será el determinante de las máximas señales del generador}. Aceptando un error del $10\ \%$ en la linealización se obtiene una cota de $v_{gs} < 25\ mV$ asociado a la tensión térmica.
 
 \begin{equation}
 	v_{gs} = 25\ mV \Rightarrow v_o = -i_o\times R_D//R_L = -g_m\cdot v_{gs} \times R_D//R_L = - 80\ mV \Rightarrow v_s = 67\ mV
@@ -463,114 +516,77 @@ Asumiendo el punto de operación Q asociado a los valores típicos del transisto
 \textbf{La máxima amplitud pico de señal que puede tener el generador sin distorsión de ningún tipo es $v_s = 67\ mV$ (cuando $I_{DSS} = 14\ mA$ y $V_P = -4\ V$).}
 
 
-\subsection{Propagación de Errores}
-
-\textbf{Los valores de resistencias poseen un error inherente de $\pm 5 \%$}. La dispersión de los distintos parámetros del amplificador nos da una idea de los extremos dentro del cuál podemos hallar esos valores mientras que para las mediciones vamos a querer ver que error se arrastra al usar las distintas ecuaciones obtenidas por inspección en la Sección \ref{sec:parametros}. Se utiliza la propagación de incertezas analítica para una función de N variables aleatorias $y=f(X_1,..,X_n)$ de valores medios $\mu_{X1},...,\mu_{XN}$ y varianza $\sigma_{X1}^2,...,\sigma_{XN}^2$
-
-\begin{equation}
-	\sigma_y^2 = \sum_{i}^{} (\frac{\delta y}{\delta x} \rvert_{\mu_{X1},..,\mu_{XN}})^2 \times \sigma_{Xi}^2 \nonumber
-	\end{equation}
-
-\subsubsection{Propagación en Ganancia de Tensión}
-
-Obtuvimos para la ganancia de tensión referida al generador la expresión aproximada
-\begin{equation}
-	A_{vs} \approx \frac{-(R_D//R_L)}{R_S} \nonumber
-	\end{equation}
-
-La propagación resulta
-
-\begin{equation}
-	\delta^2 A_{vs} = (\frac{R_L^2}{R_S(R_D+R_L)^2})^2 \times \delta^2 R_D + (\frac{R_D^2}{R_S(R_D+R_L)^2})^2 \times \delta^2R_L + (\frac{R_D//R_L}{R_S^2})^2\times \delta^2R_S \nonumber
-	\end{equation}
-
-que evaluado en la elección de resistencias (valores medios) de la Sección \ref{sec:valores} con desviación estandar $\delta R = 5\% \mu_R$ se obtiene una desciación estandar
-
-\begin{equation}
-	\delta A_{vs} \approx 2 \nonumber
-	\end{equation}
-
-donde el término que más pesa es la incerteza en $R_L$.
 
 
-\subsubsection{Propagación en Ganancia de Corriente}
+\clearpage
 
-Se obtuvo la aproximación para la ganancia de corriente
+\section{Simulaciones}
 
-\begin{equation}
-	A_i = \frac{R_G}{R_S} \nonumber
-	\end{equation}
-
-la propagación de incertezas resulta
-
-\begin{equation}
-	\delta^2 A_i = (\frac{1}{R_S})^2 \times \delta^2 R_G + (\frac{R_G}{R_S^2})^2 \times \delta^2 R_S \nonumber
-	\end{equation}
-
-evaluando en los valores medios y desviaciones
-
-\begin{equation}
-	\delta A_i \approx 98 \nonumber
-	\end{equation}
-
-
-
-
-\subsubsection{Propagación en Ganancia de Potencia}
-
-Siendo por definición $G_P = A_{vs}\times A_{i}$ propagamos errores como
-
-\begin{equation}
-	\delta G_P = \sqrt{A_i^2 \times \delta^2 A_{vs} + A_{vs}^2\times \delta^2A_i} \nonumber
-	\end{equation}
-
-que para los valores obtenidos en las mediciones (ver Sección \ref{sec:mediciones}) vale
-
-\begin{equation}
-	\delta G_P \approx 1800 \nonumber
-	\end{equation}
-
-
-\subsubsection{Propagación en Resistencias de Entrada y Salida}
-
-Para la resistencia de entrada la propagación es simplemente
-
-\begin{equation}
-	\delta R_I = \delta R_G = 0.005\cdot 820\ k\Omega = 4.1\ k\Omega \nonumber
-	\end{equation}
-
-Y en la Resistencia de Salida
-
-\begin{equation}
-	\delta^2 R_O = (1+g_mR_S)^2 \times \delta^2 R_D + (R_D\cdot g_m)^2 \times \delta^2 R_S + (R_DR_S)^2 \times \delta^2 g_m \nonumber
-	\end{equation}
-
-para simplificar asumimos $\delta^2 g_m = 39\ nS$ (estimación en base a valores típicos) para obtener
-
-\begin{equation}
-	\delta R_O \approx 162 \nonumber
-\end{equation}
-
-
-\newpage
-
-\section{Mediciones}\label{sec:mediciones}
-
-Se implementó el circuito de la Figura \ref{fig:circuito} en la placa provista por el LACE utilizando los valores de componentes y alimentaciones definidos en el Cuadro \ref{tab:valores}. Sobre la placa se midieron los parámetros del circuito amplificador que se resumen en el Cuadro \ref{tab:mediciones}. Para las señales de generador y de prueba se tuvo en cuenta el análisis de distorciones hecho en la Sección \ref{sec:distorsiones} y se usaron señales de $40\ mV$ pico a $1\ kHz$.
+Para corroborar la elección de valores de resistencia antes de implementar se simula el circuito en LTSpice. En el Cuadro \ref{tab:simulaciones} se muestran los resultados de la simulación.
 
 
 \begin{table}[h]
 \centering
 \begin{tabularx}{0.9\textwidth}{XXXXXXXX}
 \hline
-\multicolumn{1}{c}{}				& \multicolumn{5}{c}{Parámetros Medidos del Amplificador}						& \multicolumn{2}{c}{Punto de Reposo Medido} \\
+\multicolumn{1}{c}{}        & \multicolumn{5}{c}{Parámetros Simulados del Amplificador}           & \multicolumn{2}{c}{Punto de Reposo Medido} \\
+                  \cmidrule(r){2-6}                           \cmidrule(r){7-8}
+\multicolumn{1}{c}{}        & $|A_{vs}|$      & $|A_{i}|$     & $G_P$       & $R_I\ (k\Omega)$ & $R_O\ (k\Omega)$     & $I_{DQ}$      & $V_{DSQ}$     \\
+                  \cmidrule(r){2-2} \cmidrule(r){3-3} \cmidrule(r){4-4}   \cmidrule(r){5-5}   \cmidrule(r){6-6} \cmidrule(r){7-7}   \cmidrule(r){8-8}
+\multicolumn{1}{c}{}        & $1.5$ & $123.4$ & $190$ & $819$ & $0.995$ & $5.85mA$& $3.4V$\\
+\hline
+\end{tabularx}
+\caption{Parámetros simulados de la etapa amplificadora.}
+\label{tab:simulaciones}
+\end{table}
+
+
+
+
+\subsection{Rango de Frecuencias Medias}
+
+En las Figura \ref{fig:amp-mod-bode} se muestra la simulación de la respuesta en frecuencia de la transferencia $A_v = v_o/v_i$. La transferencia se mantiene constante en el rango $100\ Hz$ a $10000\ kHz$.
+
+\begin{center}
+  \includegraphics[width=0.5\textwidth]{bode-a-mod.png}
+  \captionof{figure}{Respuesta en frecuencia del módulo de la transferencia.}
+  \label{fig:amp-mod-bode}
+\end{center}
+
+%\begin{center}
+%  \includegraphics[width=0.5\textwidth]{bode-a-fase.png}
+%  \captionof{figure}{Respuesta en frecuencia de la fase de la transferencia.}
+%  \label{fig:amp-fase-bode}
+%\end{center}
+
+
+
+
+
+
+
+
+
+\section{Mediciones}\label{sec:mediciones}
+
+Se implementó el circuito de la Figura \ref{fig:circuito} en la placa provista por el LACE utilizando los valores de componentes y alimentaciones definidos en el Cuadro \ref{tab:valores}. Sobre la placa se midieron los parámetros del circuito amplificador que se resumen en el Cuadro \ref{tab:mediciones} comparandolos con los valores teóricos típicos y con los valores simulados. Para las señales de generador y de prueba se tuvo en cuenta el análisis de distorciones hecho en la Sección \ref{sec:distorsiones} y se usaron señales de $40\ mV$ pico a $1\ kHz$.
+
+
+\begin{table}[h]
+\centering
+\begin{tabularx}{0.9\textwidth}{XXXXXXXXX}
+\hline
+\multicolumn{1}{c}{}				& \multicolumn{5}{c}{Parámetros del Amplificador}						& \multicolumn{2}{c}{Punto de Reposo} \\
 									\cmidrule(r){2-6}														\cmidrule(r){7-8}
 \multicolumn{1}{c}{}				& $|A_{vs}|$  		& $|A_{i}|$ 		& $G_P$ 			& $R_I\ (k\Omega)$ & $R_O\ (k\Omega)$ 		& $I_{DQ}$ 			& $V_{DSQ}$			\\
 									\cmidrule(r){2-2} \cmidrule(r){3-3} \cmidrule(r){4-4} 	\cmidrule(r){5-5} 	\cmidrule(r){6-6} \cmidrule(r){7-7} 	\cmidrule(r){8-8}
-\multicolumn{1}{c}{}				& $1.4 \pm 2$	& $917 \pm 98$	& $1284 \pm 1800$ & $820 \pm 4 $ & $1 \pm 0.162 $ & $5.80mA$& $3.5V$\\
+\multicolumn{1}{c}{Medido}				& $1.4$	& $112$	& $157$ & $820$ & $1$ & $5.8\ mA$& $3.5\ V$\\
+\multicolumn{1}{c}{Teórico}        & $1.2$ & $99$ & $124$ & $820$ & $2.7$ & $5.8\ mA$& $3.5\ V$\\
+\multicolumn{1}{c}{Sim.}        & $1.5$ & $123.4$ & $190$ & $819$ & $0.995$ & $5.85mA$& $3.4V$\\
 \hline
+
 \end{tabularx}
-\caption{Parámetros medidos de la etapa amplificadora.}
+\caption{Comparación de parámetros medidos de la etapa amplificadora.}
 \label{tab:mediciones}
 \end{table}
 
@@ -721,44 +737,12 @@ En el Cuadro \ref{tab:mediciones} se muestran los resultados de esta medición.
                                             \label{fig:ri}
                                           \end{figure}
 
-\clearpage
 
-\section{Simulaciones}
 
-\subsection{Rango de Frecuencias Medias}
+\newpage
+\section{Análisis de Resultados}
 
-Simulando la respuesta en frecuencia del circuito diseñado, se obtuvo la respuesta en frecuencia y se realizó un gráfico de bode del módulo y fase de la transferencia $V_o/V_i$ tal que se pudo concluir que, efectivamente, al trabajar con una frecuencia de señal de 1KHz nos encontraremos en frecuencias medias, donde se pueden despreciar los efectos reactivos del amplificador.
-\begin{center}
-  \includegraphics[width=0.5\textwidth]{bode-a-mod.png}
-  \captionof{figure}{Respuesta en frecuencia del módulo de la transferencia.}
-  \label{fig:amp-mod-bode}
-\end{center}
-
-\begin{center}
-  \includegraphics[width=0.5\textwidth]{bode-a-fase.png}
-  \captionof{figure}{Respuesta en frecuencia de la fase de la transferencia.}
-  \label{fig:amp-fase-bode}
-\end{center}
-
-\subsection{Resultados obtenidos}
-Simulando las configuraciones presentadas en la sección 3, se obtuvieron los resultados del cuadro \ref{tab:simulaciones}.
-
-\begin{table}[h]
-\centering
-\begin{tabularx}{0.9\textwidth}{XXXXXXXX}
-\hline
-\multicolumn{1}{c}{}				& \multicolumn{5}{c}{Parámetros Simulados del Amplificador}						& \multicolumn{2}{c}{Punto de Reposo Medido} \\
-									\cmidrule(r){2-6}														\cmidrule(r){7-8}
-\multicolumn{1}{c}{}				& $|A_{vs}|$  		& $|A_{i}|$ 		& $G_P$ 			& $R_I\ (k\Omega)$ & $R_O\ (k\Omega)$ 		& $I_{DQ}$ 			& $V_{DSQ}$			\\
-									\cmidrule(r){2-2} \cmidrule(r){3-3} \cmidrule(r){4-4} 	\cmidrule(r){5-5} 	\cmidrule(r){6-6} \cmidrule(r){7-7} 	\cmidrule(r){8-8}
-\multicolumn{1}{c}{}				& $1.5$	& $123.4$	& $190$ & $819$ & $0.995$ & $5.85mA$& $3.4V$\\
-\hline
-\end{tabularx}
-\caption{Parámetros simulados de la etapa amplificadora.}
-\label{tab:simulaciones}
-\end{table}
-
-Se puede observar que la ganancia de corriente es un $87\%$ menor a la presentada en el cuadro \ref{tab:mediciones}. Esto conlleva a una diferencia del $85\%$ en la ganancia de potencia. Consideramos que esto se debe a efectos no contemplados en los que la corriente consumida no es la que consideramos sobre la resistencia $R_G$.
+Se propuso un circuito utilizando un JFET en modo source común con el objetivo de obtener una ganancia de potencia mayor a cien. Las expresiones por inspección nos permiten elegir 
 
 
 \clearpage
@@ -855,19 +839,6 @@ Se puede observar que la ganancia de corriente es un $87\%$ menor a la presentad
           \captionof{figure}{FFT de la señal de salida del oscilador obtenida mediante LTSpice.}
           \label{fig:fft}
         \end{center}
-
-
-        \clearpage
-                \section{Conclusiones}
-
-        Durante la etapa amplificadora se puede notar que alcanzar una ganancia de potencia mayor a 100 es un objetivo perfectamente razonable puesto que es directamente proporcional a la ganancia de corriente, para la cual se tiene una corriente de entrada cuya magnitud es despreciable al utilizarse un FET, por lo que finalmente se regula con la resistencia de gate elegida. Por este motivo, logramos diseñar un circuito que cumple la condición propuesta. También pudimos comprobar que trabajamos en frecuencias medias para los valores elegidos. Por otro lado, en la simulación se obtuvo un valor de ganancia menor en un $85\%$ al medido en la práctica. Consideramos que esto se debe a algún parámetro no contemplado en el modelo, aunque este valor simulado también cumple la condición propuesta.
-
-        \medskip
-
-        Para el oscilador senoidal por desplazamiento de fase se puede destacar que inicialmente consideramos que el bloque de realimentación estaba constituido por tres bloques RC, pero para ello se requeriría que cada bloque otorgue un desfasaje de 60º, con una frecuencia asociada en el orden de los 6KHz. Dado que tanto en la simulación como en la práctica se midió una respuesta de 500Hz, se concluyó que era más coherente considerar únicamente dos bloques que desfasan 90º. Además, se pudo observar como puede detenerse el efecto de oscilación al disminuir la tensión de alimentación a un valor tal que el transistor se encuentra en corte, o con un punto Q cercano a este régimen.
-
-
-
 
 
         %\section{Conclusiones}
