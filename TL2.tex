@@ -254,7 +254,7 @@ y la recta de carga dinámica será
                                           \draw (RL) ++ (0,0.75) [-latex, red, thick] -- ++ (-1.5,0) node[above] {$i_o$};
                                           \draw (RL) ++ (1,-3) [-latex, blue, thick] -- ++ (0,2.5) node [right] {$v_o$};
                                           \draw (fet.D) ++(2,0.75) [-latex,red,thick] -- ++ (-1.5,0) node[above] {$i_d$};
-                                          \draw (fet.G) ++ (-3,-3) [-latex,blue,thick] -- ++ (0,2.75) node[left] {$v_i$}; 
+                                          \draw (fet.G) ++ (-3,-3) [-latex,blue,thick] -- ++ (0,2.75) node[left] {$v_i$};
 
                                           \draw (RL) ++ (-1,2) node[right] {$R_O$} -- ++ (0,-2.5) [-latex] -- ++ (-0.25,0);
                                           \draw (fet.G) ++ (-3.75,2) node[left] {$R_I$} -- ++ (0,-2.5) [-latex] -- ++ (0.25,0);
@@ -292,7 +292,7 @@ G_P = A_{vs}\times A_i &= A_v\times \cdot \frac{R_G}{R_G+R_s} \times A_v \cdot \
     &\approx (\frac{R_D//R_L}{R_S})^2 \times \frac{R_G}{R_L}
 \end{align}
 
-la resistencia de salida se obtiene pasivando la entrada y colocando una señal de prueba a la salida como muestra la Figura \ref{circuito_ro}, tal que
+la resistencia de salida se obtiene pasivando la entrada y colocando una señal de prueba a la salida como muestra la Figura \ref{fig:circuito_ro}, tal que
 
 \begin{equation}
 i_p = g_m\cdot v_{gs} + \frac{v_p}{R_D} \Rightarrow \frac{v_p}{R_D} = i_p - gm\cdot v_{gs} = \frac{v_p}{R_D} = i_p - g_m\cdot (-i_p R_S) = i_p (1+g_mR_S) \nonumber
@@ -321,16 +321,16 @@ i_p = g_m\cdot v_{gs} + \frac{v_p}{R_D} \Rightarrow \frac{v_p}{R_D} = i_p - gm\c
 
 
                                           %%TENSIONES Y CORRIENTES
-                                          
-                                          
+
+
                                           \draw (fet.G) ++(-1.5,0.75) [-latex,red,thick] -- ++(1.5,0) node[above] {$i_g$};
                                           \draw (RL) ++ (0,0.75) [-latex, red, thick] -- ++ (-1.5,0) node[above] {$i_p$};
                                           \draw (RL) ++ (1,-3) [-latex, blue, thick] -- ++ (0,2.5) node [right] {$v_p$};
                                           \draw (fet.D) ++(2,0.75) [-latex,red,thick] -- ++ (-1.5,0) node[above] {$i_d$};
-                                          
+
 
                                           \draw (RL) ++ (-1,2) node[right] {$R_O$} -- ++ (0,-2.5) [-latex] -- ++ (-0.25,0);
-                                          
+
                                             \end{circuitikz}
                                             \caption{Cálculo por inspección de resistencia de salida a frecuencias medias}
                                             \label{fig:circuito_ro}
@@ -347,7 +347,7 @@ R_I = R_G
 
 \subsection{Elección de valores}\label{sec:valores}
 
-Con el objetivo de obtener $G_P > 100$ se eligieron los valores de resistencias y fuente de polarización del Cuadro \ref{tab:valores}. Para ello se utilizó la expresión aproximada de Ganancia de Potencia obtenida en la Sección \ref{sec:parametros} que se la evaluó en los distintos valores ofrecidos por el LACE. \textbf{La elección de resistores es tal que ,para la tensión de alimentación elegida, permita la mayor ganancia de potencia posible sin que el transistor se salga de saturación.}
+Con el objetivo de obtener $G_P > 100$ se eligieron los valores de resistencias y fuente de polarización del Cuadro \ref{tab:valores}. Para ello se utilizó la expresión aproximada de Ganancia de Potencia obtenida en la Sección \ref{sec:parametros} que se la evaluó en los distintos valores ofrecidos por el LACE. \textbf{La elección de resistores es tal que, para la tensión de alimentación elegida, permita la mayor ganancia de potencia posible sin que el transistor se salga de saturación.}
 
 \begin{table}[h]
 \centering
@@ -740,9 +740,9 @@ En el Cuadro \ref{tab:mediciones} se muestran los resultados de esta medición.
 
 
 \newpage
-\section{Análisis de Resultados}
+\subsection{Análisis de Resultados}
 
-Se propuso un circuito utilizando un JFET en modo source común con el objetivo de obtener una ganancia de potencia mayor a cien. Las expresiones por inspección nos permiten elegir 
+Se propuso un circuito utilizando un JFET en modo source común con el objetivo de obtener una ganancia de potencia mayor a cien. En el cuadro \ref{tab:mediciones} se puede apreciar que en los tres casos se alcanzó este objetivo. Comparando el resultado de $G_p$ predicho teóricamente con el medido, se aprecia una diferencia del 21\%. Se calcula aproximadamente la misma diferencia porcentual al comparar el valor simulado con el obtenido en la práctica.
 
 
 \clearpage
@@ -784,11 +784,11 @@ Se propuso un circuito utilizando un JFET en modo source común con el objetivo 
 
 
         \subsection{Explicación Cualitativa}
-        Para entender por qué la señal de salida $V_o$ es periódica cuasi senoidal, se puede realizar un análisis recorriendo el lazo de realimentación. Dada una perturbación en la señal presente en la base del transistor, que se considerará positiva, se puede esperar una señal negativa en la salida $V_o$. Es decir, existe un desfasaje de $180º$ entre la base y el colector. Esta señal de salida pasará por el bloque realimentador y, en un análisis simplificado, se puede considerar que el mismo está constituido por dos filtros RC pasa-altos idénticos y desacoplados entre sí, seguido por un capacitor de desacople antes de la malla de entrada. Dado que un filtro RC produce un desfasaje entre su entrada y su salida, es de esperarse que la señal que entregue a la base del transistor sea positiva -o negativa si la perturbación inicial es así-. Para que oscile, se requiere que dicho desfasaje total entre la entrada del bloque realimentador y su salida sea de $180º$ tal que se invierta completamente la señal $V_o$. En conclusión, se tiene una realimentación positiva.
+        Para entender por qué la señal de salida $V_o$ es periódica cuasi senoidal, se puede realizar un análisis recorriendo el lazo de realimentación. Dada una perturbación en la señal presente en la base del transistor, que se considerará positiva, se puede esperar una señal negativa en la salida $V_o$. Es decir, existe un desfasaje de $180º$ entre la base y el colector. Esta señal de salida pasará por el bloque realimentador y, en un análisis simplificado, se puede considerar que el mismo está constituido por tres filtros RC pasa-altos idénticos y desacoplados entre sí. Dado que un filtro RC produce un desfasaje entre su entrada y su salida, es de esperarse que la señal que entregue a la base del transistor sea positiva -o negativa si la perturbación inicial es así-. Para que oscile, se requiere que dicho desfasaje total entre la entrada del bloque realimentador y su salida sea de $180º$ tal que se invierta completamente la señal $V_o$. En conclusión, se tiene una realimentación positiva.
 
-        Aparte, para entender por qué la señal de salida $V_o$ es periódica cuasi senoidal, se puede recurrir a la forma exponencial de la Serie de Fourier, por la cual se tiene que la suma de infinitas exponenciales da lugar a una señal senoidal. En este caso, se tienen dos capacitores, para lo cual se tiene una suma de dos exponenciales y por ello se forma una señal cuasi-senoidal. De tener más bloques, teóricamente, se podría formar una señal senoidal más pura.
+        Aparte, para entender por qué la señal de salida $V_o$ es periódica cuasi senoidal, se puede recurrir a la forma exponencial de la Serie de Fourier, por la cual se tiene que la suma de infinitas exponenciales da lugar a una señal senoidal. En este caso, se tienen tres capacitores, para lo cual se tiene una suma de tres exponenciales y por ello se forma una señal cuasi-senoidal. De tener más bloques, teóricamente, se podría formar una señal senoidal más pura.
 
-        La frecuencia de oscilación del circuito puede aproximarse según el desfasaje que aportará cada bloque RC. Se puede ver el diagrama de bode de fase de un pasa-altos en la figura \ref{fig:bode}. En la frecuencia de corte $f_c=\frac{1}{2\pi R C}$ se tiene un desfasaje de 45º, pero se requiere de uno de 90º para que los dos bloques desfasen 180º. Por lo tanto, se puede concluir que la frecuencia de oscilación estará por debajo de la de corte y se encontrará aproximadamente entre los 400Hz y 600Hz.
+        La frecuencia de oscilación del circuito puede aproximarse según el desfasaje que aportará cada bloque RC. Se puede ver el diagrama de bode de fase de un pasa-altos en la figura \ref{fig:bode}. En la frecuencia de corte $f_c=\frac{1}{2\pi R C}=1.5KHz$ se tiene un desfasaje de 45º, pero se requiere de uno de 90º para que los tres bloques desfasen 180º. Por lo tanto, se puede concluir que la frecuencia de oscilación estará por debajo de la de corte y. según este análisis simplificado, tendra un valor entre 800Hz y 900Hz.
 
         \begin{center}
           \includegraphics[width=0.6\textwidth]{bode-fase.png}
@@ -840,9 +840,18 @@ Se propuso un circuito utilizando un JFET en modo source común con el objetivo 
           \label{fig:fft}
         \end{center}
 
+        \newpage
+        \subsection{Análisis de Resultados}
 
-        %\section{Conclusiones}
+        Primeramente, observamos que la frecuencia de oscilación obtenida en la práctica y en la simulación es de aproximadamente 500Hz, siendo este un valor que se encuentra por debajo del rango teorizado. No estamos seguros de a qué factor se debe esto pero pensamos que puede deberse a que los bloques RC como tal no están desacoplados entre sí, aparte de que existe una corriente de entrada en la base del transistor por lo que este también puede influir.
 
+        Por otro lado, al graficar la FFT mediante LTSpice, presente en la figura \ref{fig:fft}, se puede observar que el armónico predominante se encuentra aproximadamente en 500Hz, pero se tienen otros armónicos presentes también. Consideramos que esto se debe al hecho de estar sumando tres exponenciales para formar una señal cuasi-senoidal, como fue mencionado previamente.
+
+        \section{Conclusiones}
+
+        Estudiando los resultados obtenidos de la etapa amplificadora, podemos concluir haber logrado nuestro objetivo de obtener una ganancia de potencia mayor a 100. Se obtuvo en la práctica un valor de $G_p=157$, siendo este un valor que difiere del teórico en un 21\% y del simulado también en un 21\%.
+
+        Por otro lado, refiriendonos al circuito oscilador senoidal por desplazamiento de fase, se midió una frecuencia de oscilación de 500Hz que difiere en un 37.5\% del mínimo valor predicho con un análisis simplificado. Se midió también una señal cuasi-senoidal acoplada a una señal continua de 13V y se encontró que la oscilación se detiene con una fuente de alimentación de aproximadamente 8V, puesto que se posiciona el punto Q cerca de corte.
         %\section{Referencias} %Usar \printbibliography y el archivo ref.bib
         %\begin{itemize}
             %\item How Oscilloscope Probes Affect Your Measurement - Application Note - Tektronix

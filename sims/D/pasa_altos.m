@@ -19,12 +19,14 @@ h_ideal=1/(1+1/(s*R*C))
 
 [mod_bode_ideal, fase_bode_ideal, w_bode_ideal] = bode(h_ideal);
 
+f=w_bode_ideal/(2*pi());
+
 %%Modulo
 figure(1)
 hold on;
 
 %Ideal:
-semilogx(w_bode_ideal, 20*log10(mod_bode_ideal), 'linewidth', 5, '-k');
+semilogx(f, 20*log10(mod_bode_ideal), 'linewidth', 5, '-k');
 
 %opciones graf
 grid on;
@@ -43,12 +45,12 @@ hold off;
 figure(2)
 hold on;
 
-semilogx(w_bode_ideal, fase_bode_ideal, 'linewidth', 5, '-b');
+semilogx(f, fase_bode_ideal, 'linewidth', 5, '-b');
 
 grid on;
 grid minor on;
 title("Diagrama de Bode - Fase");
-xlabel("w [log]","fontsize", 12);
+xlabel("f [log]","fontsize", 12);
 ylabel("Arg[H(jw)] [º]","fontsize", 12);
 %axis([100 10e4 -100 100]);
 print("bode-fase.png");
