@@ -1,0 +1,99 @@
+% Paquetes de generalidades
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%-----------------------------------------------------------
+% defino el formato del documento
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{csquotes}
+\usepackage[a4paper]{geometry}%
+\geometry{
+  a4paper,
+  left       =10mm,
+  right      =10mm,
+  top        =30mm,
+  bottom     =15mm,
+  headheight =20mm
+}
+%-----------------------------------------------------------
+
+% Paquetes para matemática
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Los paquetes ams son desarrollados por la American Mathematical Society y mejoran la escritura de fórmulas y símbolos matemáticos.
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+% Paquetes para manejo de gráficas y figuras
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% para tabular graficos tablas y ecuaciones
+\usepackage{tabularx}
+
+\usepackage{multirow}
+
+
+% Para insertar gráficas
+\usepackage{graphicx}
+
+% Para colocar varias subfiguras
+\usepackage[lofdepth,lotdepth]{subfig}
+
+% Para crear gráficos vectoriales con un lenguaje descriptivo/geométrico
+\usepackage{tikz}
+
+% Para crear circuitos vectoriales basados en TikZ
+\usepackage[american]{circuitikz}
+
+% Paquetes relacionados con el estilo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Para la presentación correcta de magnitudes y unidades
+\usepackage{siunitx}
+
+% Para hipervínculos y marcadores
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=black,citecolor=green]{hyperref}
+	\urlstyle{same}
+
+% Para ubicar las tablas y figuras justo después del texto
+\usepackage{float}
+
+% Para hacer tablas más estilizadas
+\usepackage{booktabs}
+
+% Para hacer secciones con múltiples columnas
+\usepackage{multicol}
+
+% Para insertar código fuente estilizado
+\usepackage{listings}
+	\lstset{basicstyle=\ttfamily,breaklines=true}
+    \lstset{numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=6pt}
+
+% Para agregar código con formato de Matlab
+\usepackage[numbered,autolinebreaks]{mcode}
+
+% Para utilizar el número de páginas
+\usepackage{lastpage}
+
+% Para manejar los encabezados y pies de página
+\usepackage{fancyhdr}
+	% Contenido de los encabezados y pies de pagina
+	\pagestyle{fancy}
+
+%Para cambiar la orientación del texto
+\usepackage[document]{ragged2e}
+
+% Misceláneos
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{enumitem}
+\usepackage{verbatim}
+
+
+% Para insertar símbolos extraños
+\usepackage{marvosym}
+
+\usepackage{pdfpages}
+

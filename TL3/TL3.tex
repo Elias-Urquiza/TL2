@@ -1,0 +1,342 @@
+
+
+\documentclass[a4paper, 10pt, spanish]{article}
+\usepackage{color}
+\definecolor{cadet}{rgb}{0.33, 0.41, 0.47}
+\definecolor{orange}{rgb}{0.93, 0.53, 0.18}
+\definecolor{carminered}{rgb}{1.0, 0.0, 0.22}
+\definecolor{green}{rgb}{0.33, 0.42, 0.18}
+\definecolor{darkmagenta}{rgb}{0.55, 0.0, 0.55}
+\usepackage{anysize}
+\usepackage{amsmath}
+\usepackage{biblatex}
+\usepackage{float}
+\usepackage{array} % 1
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{calc,patterns,angles,quotes}
+\usetikzlibrary{calc,decorations.pathmorphing,patterns}
+\usepackage{graphicx}
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{textcomp}
+\usepackage{fancyhdr}
+\usepackage{color}
+\usepackage{courier}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{pgfplots,filecontents}
+\pgfplotsset{compat=1.7}
+\pgfplotsset{compat=newest}
+\usepgfplotslibrary{units}
+\usepackage[siunitx]{circuitikz}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{cleveref}
+\usepackage{tabularx}
+\usepackage{lscape}
+\usepackage{pdflscape}
+\usepackage{booktabs}
+
+
+\usepackage{lastpage}   % Para poder saber cuántas páginas tiene el documento
+\pagestyle{fancy}
+\renewcommand{\sectionmark}[1]{\markboth{}{\thesection\ \ #1}}
+\fancyhead{}	% Elimino el contenido del encabezado
+% El siguiente texto a la derecha (izquierda) en páginas pares (impares)
+\fancyhead[RE,LO]{86.06 - Circuitos Electrónicos - Informe N\textsuperscript{o}2}
+\fancyhead[R]{FIUBA}
+
+\fancyfoot{}	% Elimino el contenido del pie de página
+% A la izquierda (derecha) en páginas pares (impares): nro. de página / total
+\fancyfoot[LE,RO]{\thepage/\pageref{LastPage}}
+
+
+
+\begin{document}
+
+
+\marginsize{2cm}{2cm}{2cm}{2cm}
+%
+% Carátula:
+%
+\begin{titlepage}
+
+\thispagestyle{empty}
+
+\begin{center}
+\includegraphics[scale=0.3]{fiuba.pdf}\\
+\large{\textsc{Universidad de Buenos Aires}}\\
+\large{\textsc{Facultad de Ingeniería}}\\
+% Modificar año y cuatrimestre
+\small{Año 2019 - 2\textsuperscript{o} cuatrimestre}
+\end{center}
+
+\vfill
+
+\begin{center} % Modificar el código de ser necesario
+\Large{\underline{\textsc{Circuitos Electrónicos (86.06)}}}\\ \vspace{0.5cm}
+\Large{\underline{\textsc{Etapas con Transistores Integrados}}}\\ \vspace{0.5cm}
+\Large{\underline{\textsc{Informe de Laboratorio N\textsuperscript{o}~3}}}
+\end{center}
+
+\vfill
+
+\begin{center}
+\large{José F. González - 100063 - \footnotesize{\verb!<jfgonzalez@fi.uba.ar>!}}\\ \vspace{0.25cm}
+\large{Gottfried, Joel - 102498 - \footnotesize{\verb!<joelgottfried99@gmail.com>!}}\\\vspace{0.25cm}
+\large{Urquiza, Elias - 100714 - \footnotesize{\verb!<eurquiza@fi.uba.ar>!}}\\
+\end{center}
+
+\vfill
+
+\hrule
+\vspace{0.2cm}
+
+% Modificar código de ser necesario
+\noindent\small{86.06 - Circuitos Electrónicos \hfill }
+
+\end{titlepage}
+
+%
+% Hago que las páginas se comiencen a contar a partir de aquí:
+%
+\setcounter{page}{1}
+
+%
+% Pongo el índice en una página aparte:
+%
+\tableofcontents
+\newpage
+
+
+\section{Objetivos}
+  \begin{itemize}
+    \item Analizar las características principales de una etapa amplificadora formada por un MOSFET de doble gate BF966, que puede configurarse como un circuito equivalente de dos transistores NMOSFET de canal preformado.
+    \item Comparar los resultados obtenidos mediante el cálculo analítico, la medición en laboratorio y la verificación por simulación con LTSPICE.
+  \end{itemize}
+
+\section{Desarrollo}
+
+\section{Cálculo Analítico}
+\textbf{INCLUIR FIG.1 DEL ENUNCIADO}
+
+\textbf{GRÁFICO DEL CIRCUITO DE CONTÍNUA}
+
+\subsection{Valores de Reposo}
+  Se tienen los siguientes datos:
+  \begin{itemize}
+    \item $K_1=15\frac{mA}{V^2}$
+    \item $K_2=200\frac{mA}{V^2}$
+    \item $V_{T_1}=V_{T_2}=V_{T}=-1V$
+    \item $\frac{W}{L}=1$
+  \end{itemize}
+
+  Planteando la malla de entrada se obtiene
+  \begin{equation}
+    0 - V_{GSQ_1} - I_D R_S = 0 \Rightarrow -V_{GSQ_1} - R_S K_1 (V_{GSQ_1}-V_{T_1})^2 = 0
+  \end{equation}
+  Desarrollando el cuadrado de la Ec. 1 se obtiene la siguiente expresión:
+  \begin{equation}
+    -R_S K_1 V_{GSQ_1}^2  + (2R_S K_1 V_T - 1) V_{GSQ_1} - R_S K_1 {V_{T}}^2 = 0
+  \end{equation}
+  Por lo que se obtiene
+  \begin{equation}
+     V_{GSQ_1}=-0.77V \Rightarrow I_{DQ_1}=793.5 \mu A
+  \end{equation}
+
+  Debido a que la corriente será la misma en ambos transistores, se pueden despejar los valores de reposo:
+
+  \begin{equation}
+    Q_1=(0.94V;793.5\mu A)
+  \end{equation}
+  \begin{equation}
+    Q_2=(4.54V;793.5\mu A)
+  \end{equation}
+
+\subsection{Análisis de Señal a Frecuencias Medias}
+
+\textbf{GRÁFICO DE SEÑAL}
+
+Tenemos los siguientes valores para el análisis:
+\begin{center}
+   \begin{tabular}{|c|c|c|c|}
+     \hline
+    Transistor & $g_m$ & $r_{gs}$ & $r_ds$  \\
+    \hline
+    1 & $6.9\frac{mA}{V}$ & $\rightarrow \infty$ & $\rightarrow \infty$ \\
+    \hline
+    2 & $25.2\frac{mA}{V}$ & $\rightarrow \infty$ & $\rightarrow \infty$ \\
+    \hline
+   \end{tabular}
+\end{center}
+
+\subsubsection{Amplificación de Tensión Total ($A_v$)}
+
+Si separamos el circuito en dos bloques, uno con amplificación $A_{v1}=v_{o1}/v_i$ y otro con $A_{v2}=v_o/v_{o1}$ como se muestra en el esquema. En las ecuaciones \ref{eq:av1} y \ref{eq:av2} se muestran los resultados.
+
+Para los despejes se utiliza el valor de $r_i^{**}$ que se define en la Ec. \ref{eq:req}. Esta resistencia corresponde a la resistencia equivalente vista desde el Source del segundo transistor hacia el interior de este.
+
+\begin{equation}
+  r_i^{**}=\frac{r_{gs_2}}{r_{gs_2} g_{m_2}} = 39.7 \Omega
+  \label{eq:req}
+\end{equation}
+
+\begin{equation}
+  A_{v1}=\frac{v_{o1}}{v_i}=\frac{-i_d r_i^{**}}{\frac{i_d}{g_{m_1} r_{gs}}r_{gs}}=-g_{m_1} r_i^{**} = -0.274
+  \label{eq:av1}
+\end{equation}
+
+\begin{equation}
+  A_{v1}=\frac{v_{o}}{v_{o1}}=\frac{-i_d 2.35K\Omega}{-i_d r_i^{**}}=\frac{2.35K\Omega}{39.7\Omega} = 59.2
+  \label{eq:av2}
+\end{equation}
+
+Finalmente podemos despejar $A_v$:
+
+\begin{equation}
+  A_v=\frac{v_o}{v_i}=\frac{-i_d 2.35k\Omega}{\frac{i_d}{ g_{m_1} r_{gs_1} } r_{gs_1} } = -g_{m_1} 2.35k\Omega = -16.22
+  \label{eq:av}
+\end{equation}
+
+Que además verifica la relación $A_v = A_{v1} A_{v2}$.
+
+\subsubsection{Resistencia de Entrada y de Salida}
+Dado que la resistencia del Gate 1 está en paralelo con la resistencia de entrada del transistor, que tiende a infinito por el enunciado, se obtiene:
+\begin{equation}
+  R_i=1M\Omega // r_{gs_1} = 1M\Omega
+\end{equation}
+
+Por otro lado, dado que la resistencia de salida es el paralelo entre la resistencia del drain y la resistencia $r_{ds_2}$, se tiene:
+
+\begin{equation}
+  4.7K\Omega // r_{ds_2} = 4.7K\Omega
+\end{equation}
+
+\subsubsection{Máxima excursión de señal a la salida sin recorte}
+
+\textbf{Se estima que existe baja distorsión cuando $\Delta V_{GS} << (V_{GSQ}-V_T)/2$. JUSTIFICAR ESTA DISTORSIÓN.}
+
+Si se traza la recta de carga dinámica de ambos transistores se pueden observar los límites de amplitud de señal que pueden tener en su salida. Las ecuaciones de ambas rectas de carga se presentan a continuación:
+
+
+\textbf{INCLUIR RCD}
+
+\textit{RCD del Primer Transistor:}
+\begin{equation}
+  i_{D_1} = I_{DQ_1} + \frac{V_{DSQ_1} - v_{d1}}{r_i^{**}} = 24.5mA - \frac{v_{d1}}{39.7\Omega}
+\end{equation}
+La raíz se encuentra en $v_{D_1} = 973mV$ y la ordenada al origen en $i_{D_1} = 24.5mA$.
+
+\textit{RCD del Segundo Transistor:}
+\begin{equation}
+  i_{D_2} = I_{DQ_2} + \frac{V_{DSQ_2} - v_{d2}}{4.7K\Omega/2} = 2.73mA - \frac{v_{d1}}{2.35K\Omega}
+\end{equation}
+La raíz se encuentra en $v_{D_1} = 6.42V$ y la ordenada al origen en $i_{D_1} = 2.73mA$.
+
+La tensión $V_{o1_{max}}= V_{DSQ_1} - 0.94V = 0.97V - 0.94V = 30mV$, mientras que $V_{o_{max}}= V_{DSQ_2} - 4.54V = 6.42V - 4.54V = 1.88V$.
+
+Dado el valor de $A_{V1}$ de la ecuación \ref{eq:av1} se puede despejar la tensión de entrada máxima $v_i$:
+
+\begin{equation}
+  v_{i_M}=\frac{30mV}{0.274}=30mV
+  \label{eq:in_max_teo}
+\end{equation}
+
+Para esta tensión de entrada, por el valor de $A_v$ obtenido en la ec. \ref{eq:av}, se tiene:
+
+\begin{equation}
+  v_{o_M}=|A_v|110mV=16.22\ 110mV = 1.8V
+  \label{eq:out_max_teo}
+\end{equation}
+
+Dado que esta tensión de salida es menor que la obtenida por la RCD del segundo transistor, se puede concluir que el primer transistor es el que limita el comportamiento de esta configuración y los valores presentados en las ecuaciones \ref{eq:in_max_teo} y \ref{eq:out_max_teo} son los valores máximos aproximados que se pueden esperar medir sin recorte.
+
+
+\subsubsection{Respuesta en frecuencia para $A_{vs}$.}
+Con un análisis por inspección podemos obtener un valor aproximado de las frecuencias de corte inferior y superior del sistema. Utilizando el modelo simple propuesto por el enunciado, tenemos los siguientes datos:
+\begin{itemize}
+  \item $C_{g_1s} = 2.2pF$
+  \item $C_{g_2s} = 1.1pF$
+  \item $C_{d_1s} = C_{d_2s} = 0.8pF$
+  \item $C_{g_1d} = C_{g_2d} = 25fF$
+\end{itemize}
+
+Analizando primero la respuesta en bajas frecuencias, considerando entonces únicamente la influencia del capacitor $C_G$, $C_L$, y $C_{cc}$, se calcula lo siguiente:
+
+\textbf{$C_G$:}
+\textbf{GRÁFICO}
+
+\begin{equation}
+  \tau_G = (145\Omega//1K\Omega) 1\mu F = 0.127ms \Rightarrow = 1253 Hz
+\end{equation}
+
+\textbf{$C_{cc}$:}
+\textbf{GRÁFICO}
+
+\begin{equation}
+  \tau_{cc} = 9.4\Omega 0.1\mu F = 0.94ms \Rightarrow = 169 Hz
+\end{equation}
+
+\textbf{$C_L$:}
+\textbf{GRÁFICO}
+
+\begin{equation}
+  \tau_L = 9.4\Omega 1\mu F = 9.4ms \Rightarrow = 16.9 Hz \approx 170 Hz
+\end{equation}
+
+Podemos concluir entonces, dado que la suma de polos ficticios es de $1592Hz$, que la frecuencia de corte inferior tendrá este valor aproximado.
+
+\textbf{[GRÁFICO DE ANÁLISIS EN ALTAS FRECUENCIAS AQUÍ]}
+Para el análisis en altas frecuencias, obtenemos los siguientes valores:
+
+\begin{itemize}
+  \item $C_{G_1}=2.2pF(1-\frac{v_{source}}{v_i})+25fF(1-\frac{v_o}{v_i}) = 430fF$
+  \item $C_{G_2}=1.1pF(1-\frac{v_{source}}{v_{gate_2}}) = 1.1pF$
+  \item $C_{D}=25fF(1-\frac{v_i}{v_o})+0.8pF(1-\frac{v_{source}}{v_o}) = 1.3pF$
+  \item $C_{Source}=0.8pF(1-\frac{v_o}{v_{source}})+1.1pF(1-\frac{v_{source}}{v_{gate_2}})+2.2pF(1-\frac{v_i}{v_{source}}) = 14.9pF$
+\end{itemize}
+
+Obtenemos entonces, sin considerar la capacidad del Gate 2 puesto que el capacitor asociado está en serie con una resistencia equivalente que se considera tiende a infinito:
+\textbf{$C_{G1}$:}
+\textbf{GRÁFICO}
+
+\begin{equation}
+  \tau_{G1} = 430fF 1M\Omega = 430ns \Rightarrow f_{G1} = 370.1 KHz
+\end{equation}
+
+
+\textbf{$C_{D}$:}
+\textbf{GRÁFICO}
+
+\begin{equation}
+  \tau_{D} = 1.3pF 2.35K\Omega = 3.1ns \Rightarrow f_{D} = 51.3 MHz
+\end{equation}
+
+\textbf{$C_{S}$:}
+\textbf{GRÁFICO}
+
+\begin{equation}
+  \tau_{S} = 14.9 pF 145\Omega = 2.16ns \Rightarrow f_{S} = 73.7 MHz
+\end{equation}
+
+Debido a que la frecuencia asociada al Gate 1 es la menor, consideraremos que $f_H=370.1KHz$ es la frecuencia de corte superior del sistema.
+
+\textbf{[CUADRO CON TODO AQUÍ O SE DEJA PARA LA ÚLTIMA SECCIÓN?]}
+
+\section{Simulación}
+
+\section{Mediciones}
+
+\section{Análisis Comparativo}
+        %\section{Referencias} %Usar \printbibliography y el archivo ref.bib
+        %\begin{itemize}
+            %\item How Oscilloscope Probes Affect Your Measurement - Application Note - Tektronix
+        %\end{itemize}
+        %\printbibliography
+
+
+
+\end{document}
