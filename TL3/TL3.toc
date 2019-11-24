@@ -11,4 +11,10 @@
 \contentsline {subsubsection}{\numberline {3.2.4}Respuesta en frecuencia para $A_{vs}$.}{4}
 \contentsline {section}{\numberline {4}Simulaci\IeC {\'o}n}{5}
 \contentsline {section}{\numberline {5}Mediciones}{5}
-\contentsline {section}{\numberline {6}An\IeC {\'a}lisis Comparativo}{5}
+\contentsline {subsection}{\numberline {5.1}Valores de Reposo}{5}
+\contentsline {subsection}{\numberline {5.2}An\IeC {\'a}lisis de Se\IeC {\~n}al a Frecuencias Medias}{5}
+\contentsline {subsubsection}{\numberline {5.2.1}Amplificaci\IeC {\'o}n de Tensi\IeC {\'o}n Total ($A_v$)}{5}
+\contentsline {subsubsection}{\numberline {5.2.2}Resistencia de Entrada y de Salida}{5}
+\contentsline {subsubsection}{\numberline {5.2.3}M\IeC {\'a}xima excursi\IeC {\'o}n de se\IeC {\~n}al a la salida sin recorte}{5}
+\contentsline {subsubsection}{\numberline {5.2.4}Respuesta en frecuencia para $A_{vs}$.}{6}
+\contentsline {section}{\numberline {6}An\IeC {\'a}lisis Comparativo}{7}

@@ -171,6 +171,7 @@ Tenemos los siguientes valores para el análisis:
     2 & $25.2\frac{mA}{V}$ & $\rightarrow \infty$ & $\rightarrow \infty$ \\
     \hline
    \end{tabular}
+   \captionof{table}{Parámetros de pequeña señal.}
 \end{center}
 
 \subsubsection{Amplificación de Tensión Total ($A_v$)}
@@ -212,7 +213,7 @@ Dado que la resistencia del Gate 1 está en paralelo con la resistencia de entra
 Por otro lado, dado que la resistencia de salida es el paralelo entre la resistencia del drain y la resistencia $r_{ds_2}$, se tiene:
 
 \begin{equation}
-  4.7K\Omega // r_{ds_2} = 4.7K\Omega
+  R_{out}=4.7K\Omega // r_{ds_2} = 4.7K\Omega
 \end{equation}
 
 \subsubsection{Máxima excursión de señal a la salida sin recorte}
@@ -329,6 +330,91 @@ Debido a que la frecuencia asociada al Gate 1 es la menor, consideraremos que $f
 \section{Simulación}
 
 \section{Mediciones}
+
+\subsection{Valores de Reposo}
+
+\begin{center}
+  \begin{tabular}{|c|c|c|c|c|}
+    \hline
+    $V_{G1_Q}$ & $V_{G2_Q}$ & $V_{S_Q}$ & $V_{D_Q}$ & $V_{cc}$ \\
+    \hline
+    $4.8mV$ & $700mV$ & $700mV$ & $7.6V$ & $10V$ \\
+    \hline
+  \end{tabular}
+  \captionof{table}{Valores de reposo medidos.}
+  \label{tab:valores_reposo_med}
+\end{center}
+
+\begin{equation}
+  V_{DS_Q} = 6.9V
+\end{equation}
+
+\begin{equation}
+  I_{DQ} = \frac{V_{cc} - V_{D_Q}}{R_D} = \frac{10V - 7.6V}{4.7K\Omega} = 511 \mu A
+\end{equation}
+
+\subsection{Análisis de Señal a Frecuencias Medias}
+
+\subsubsection{Amplificación de Tensión Total ($A_v$)}
+
+\textbf{Los gráficos tomados del osciloscopio no salieron bien creo}
+
+\begin{equation}
+  A_v=\frac{1.8V}{244mV}=7.30
+\end{equation}
+
+\subsubsection{Resistencia de Entrada y de Salida}
+\textbf{Resistencia de Entrada:}
+Dado que la tensión de reposo en el Gate 1 es cercana a 0V, consideramos que la resistencia de entrada se corresponde a $R_G$ tal que:
+
+\begin{equation}
+  R_{in}=1M\Omega
+\end{equation}
+
+\textbf{Resistencia de Salida}
+Colocando una resistencia de prueba de $R_p = 4.7K\Omega$ sobre la carga junto con una tensión de prueba $V_p$ se obtuvo:
+
+\begin{equation}
+  V_p= 660mV_{pp} \Rightarrow V^*_{(R_L//R_{out})} = 244 mV_{pp}
+\end{equation}
+
+Con este valor podemos despejar $(R_L//R_{out})$:
+\begin{equation}
+  V^*=V_p \frac{(R_L//R_{out})}{R_p + (R_L//R_{out})} \Rightarrow (R_L//R_{out}) = \frac{V^*\ R_p}{V_p-V^*} = 2.76K\Omega
+\end{equation}
+
+\begin{equation}
+  \frac{R_{out}R_L}{R_{out}+R_L} = (R_L//R_{out})  \Rightarrow R_{out}=\frac{(R_L//R_{out}) R_L}{R_L - (R_L//R_{out})}
+\end{equation}
+
+\begin{equation}
+  R_{out}=\frac{2.76K\Omega\ 4.7K\Omega}{4.7K\Omega - 2.76K\Omega}=6.7K\Omega
+\end{equation}
+
+\subsubsection{Máxima excursión de señal a la salida sin recorte}
+
+\textbf{VER GRÁFICOS}
+
+\subsubsection{Respuesta en frecuencia para $A_{vs}$.}
+
+\begin{center}
+  \includegraphics[width=0.8\textwidth]{X1.png}
+  \captionof{figure}{Respuesta en frecuencia medida con puntas de osciloscopio X1.}
+  \label{fig:X1_med}
+\end{center}
+
+\begin{center}
+  \includegraphics[width=0.8\textwidth]{X10.png}
+  \captionof{figure}{Respuesta en frecuencia medida con puntas de osciloscopio X10.}
+  \label{fig:X10_med}
+\end{center}
+
+\begin{center}
+  \includegraphics[width=0.8\textwidth]{activas.png}
+  \captionof{figure}{Respuesta en frecuencia medida con puntas de prueba activas.}
+  \label{fig:activas_med}
+\end{center}
+
 
 \section{Análisis Comparativo}
         %\section{Referencias} %Usar \printbibliography y el archivo ref.bib

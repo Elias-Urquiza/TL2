@@ -1,15 +1,18 @@
 # Fdb version 3
-["biber TL3"] 1574554244 "TL3.bcf" "TL3.bbl" "TL3" 1574559732
-  "TL3.bcf" 1574559731 90028 b407e86b57bba4aece7bec85f1371fd8 ""
+["biber TL3"] 1574554244 "TL3.bcf" "TL3.bbl" "TL3" 1574605902
+  "TL3.bcf" 1574605901 90028 b407e86b57bba4aece7bec85f1371fd8 ""
   (generated)
   "TL3.bbl"
   "TL3.blg"
-["pdflatex"] 1574559727 "TL3.tex" "TL3.pdf" "TL3" 1574559732
-  "TL3.aux" 1574559731 2306 e13e876ed6177c828d3be7dcb42ac521 ""
+["pdflatex"] 1574605897 "TL3.tex" "TL3.pdf" "TL3" 1574605902
+  "TL3.aux" 1574605901 4066 952f12e931e27736c81ea1a32f5b8dfd ""
   "TL3.bbl" 1574554247 0 d41d8cd98f00b204e9800998ecf8427e "biber TL3"
-  "TL3.run.xml" 1574559731 2217 9e49af09e6991653c9a53c99fd6adddd ""
-  "TL3.tex" 1574559719 11283 5d97952755f2aaa2869f19ee6a3d16e1 ""
-  "TL3.toc" 1574559731 1096 f26e7d84d2153512d7156dc5b252729d ""
+  "TL3.run.xml" 1574605901 2217 9e49af09e6991653c9a53c99fd6adddd ""
+  "TL3.tex" 1574605884 13802 950910b8294ba67cb34a80a90e90ea68 ""
+  "TL3.toc" 1574605901 1687 2014dcdf17a57ddff05ceb9b18c04166 ""
+  "X1.png" 1574603560 25656 318fe67801fda23814a0b8f06baf5366 ""
+  "X10.png" 1574603546 25048 38f225293ac2c32dfa1360ecf1416c0b ""
+  "activas.png" 1574603595 25708 fb758d716a071f350874a2e494b41c5e ""
   "f:/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc" 1535860409 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "f:/texlive/2018/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1535860012 2971 def0b6c1f0b107b3b936def894055589 ""
   "f:/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1535860717 3332 103109f5612ad95229751940c61aada0 ""
@@ -293,9 +296,9 @@
   "fiuba.pdf" 1571625638 8981 bfb63cd83058a96ce6a29879e1d8c9db ""
   "nul" 0 0 d41d8cd98f00b204e9800998ecf8427e ""
   (generated)
-  "TL3.run.xml"
-  "TL3.toc"
-  "TL3.aux"
-  "TL3.pdf"
-  "TL3.log"
   "TL3.bcf"
+  "TL3.log"
+  "TL3.run.xml"
+  "TL3.pdf"
+  "TL3.aux"
+  "TL3.toc"
