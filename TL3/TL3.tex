@@ -221,6 +221,10 @@ Se tienen los siguientes datos:
     Q_2=(4.54V;793.5\mu A)
   \end{equation}
 
+  \begin{equation}
+    Q_T=(5.48V;793.5\mu A)
+  \end{equation}
+
 \subsection{Análisis de Señal a Frecuencias Medias}
 
 \textbf{GRÁFICO DE SEÑAL}
@@ -269,6 +273,11 @@ Finalmente podemos despejar $A_v$:
 
 Que además verifica la relación $A_v = A_{v1} A_{v2}$.
 
+Dado que no tomamos en cuenta ninguna resistencia en serie con la señal del generador, se tiene que $V_i=V_s$ por lo que tenemos:
+\begin{equation}
+  A_{vs}=A_{v}=-16.22
+\end{equation}
+
 \subsubsection{Resistencia de Entrada y de Salida}
 Dado que la resistencia del Gate 1 está en paralelo con la resistencia de entrada del transistor, que tiende a infinito por el enunciado, se obtiene:
 \begin{equation}
@@ -283,12 +292,12 @@ Por otro lado, dado que la resistencia de salida es el paralelo entre la resiste
 
 \subsubsection{Máxima excursión de señal a la salida sin recorte}
 
-\textbf{Se estima que existe baja distorsión cuando $\Delta V_{GS} << (V_{GSQ}-V_T)/2$. JUSTIFICAR ESTA DISTORSIÓN.}
+Se estima que existe baja distorsión cuando $\Delta V_{GS} << (V_{GSQ}-V_T)/2$. Esta expresión puede ser justificada al interpretar lo que representa. Dado que $\Delta V_{GS}$ representa la amplitud pico de la señal de entrada, es necesario que la misma no supere el límite para el cual el transistor deja de estar en saturación y entra en modo triodo. Por ello, el limite de la señal de entrada está impuesto por la distancia entre $V_{GSQ}$ y $V_T$. \textbf{La distorsión presente, entonces, es la que corresponde a}
 
 Si se traza la recta de carga dinámica de ambos transistores se pueden observar los límites de amplitud de señal que pueden tener en su salida. Las ecuaciones de ambas rectas de carga se presentan a continuación:
 
 
-\textbf{INCLUIR RCD}
+\textbf{INCLUIR LAS RCD}
 
 \textit{RCD del Primer Transistor:}
 \begin{equation}
@@ -356,6 +365,7 @@ Analizando primero la respuesta en bajas frecuencias, considerando entonces úni
 Podemos concluir entonces, dado que la suma de polos ficticios es de $1592Hz$, que la frecuencia de corte inferior tendrá este valor aproximado.
 
 \textbf{[GRÁFICO DE ANÁLISIS EN ALTAS FRECUENCIAS AQUÍ]}
+
 Para el análisis en altas frecuencias, obtenemos los siguientes valores:
 
 \begin{itemize}
@@ -401,7 +411,7 @@ Debido a que la frecuencia asociada al Gate 1 es la menor, consideraremos que $f
     \hline
     $V_{G1_Q}$ & $V_{G2_Q}$ & $V_{S_Q}$ & $V_{D_Q}$ & $V_{cc}$ \\
     \hline
-    $4.8mV$ & $700mV$ & $700mV$ & $7.6V$ & $10V$ \\
+    $4.8V$ & $700mV$ & $700mV$ & $7.6V$ & $10V$ \\
     \hline
   \end{tabular}
   \captionof{table}{Valores de reposo medidos.}
@@ -466,7 +476,7 @@ Con este valor podemos despejar $(R_L//R_{out})$:
 \end{equation}
 
 \subsubsection{Máxima excursión de señal a la salida sin recorte}
-\textbf{CREO QUE SERÍA MEJOR QUE LA ENTRADA Y SALIDA ESTUVIERAN EN UN SOLO GRÁFICO}
+\textbf{CREO QUE SERÍA MEJOR QUE LA ENTRADA Y SALIDA ESTUVIERAN EN UN SOLO GRÁFICO. ¿POR QUE NO ESTAN DESFASADOS 180º?}
 Al medir la máxima excursión sin recorte admitiendo baja distorsión, con una frecuencia de \textbf{10KHz}, obtuvimos la respuesta presente en la figura \ref{fig:vo_exc_med}. La señal de entrada se observa en la figura \ref{fig:vi_exc_med}. Observamos que la máxima tensión pico de entrada es de aproximadamente $V_i=212mV$ obteniendo así una señal de salida alineal de aproximadamente $1.82V$.
 
 \begin{center}
@@ -489,9 +499,10 @@ Para evaluar la distorsión de la señal, se utilizó la función FFT del oscilo
   \label{fig:fft_med}
 \end{center}
 
-Se observa el mayor armónico en 5KHz seguido del armónico de 10KHz. Los siguientes armónicos están separados entre sí una distancia de 10KHz aproximadamente. De esta 
+Se observa el mayor armónico en 5KHz seguido del armónico de 10KHz. Los siguientes armónicos están separados entre sí una distancia de 10KHz aproximadamente. De esta forma, se puede observar que se tiene una frecuencia parásita de 5KHz que se sobrepone a la frecuencia de trabajo. \textbf{???}
 
 \subsubsection{Respuesta en frecuencia para $A_{vs}$.}
+Para medir la respuesta en frecuencia, con una tensión de entrada $V_{s_p}=180mV$, se realizó un barrido de frecuencia hasta 10MHz con puntas pasivas X1, X10, y puntas activas X10 alimentadas por una tensión continua de 9V. Los diagramas de bode realizados con las mediciones se encuentran a continuación. En la tabla \ref{tab:rta_frec_med} se comparan los resultados obtenidos.
 
 \begin{center}
   \includegraphics[width=0.8\textwidth]{X1.png}
@@ -511,8 +522,45 @@ Se observa el mayor armónico en 5KHz seguido del armónico de 10KHz. Los siguie
   \label{fig:activas_med}
 \end{center}
 
+\begin{center}
+  \begin{tabular}{|c|c|c|c|}
+    \hline
+    Puntas & $f_l$ & $f_h$ & $|A_{vs}|$ \\
+    \hline
+    X1 & ~4KHz & ~50KHz & 6.8 \\
+    \hline
+    X10 & ~3KHz & ~50KHz & 6.9 \\
+    \hline
+    Activas & ~10KHz& ~100KHz & 6.8 \\
+    \hline
+  \end{tabular}
+  \captionof{table}{Tabla comparativa de los valores de frecuencia de corte inferior y superior. Se incluye también el valor de $|A_{vs}|$.}
+  \label{tab:rta_frec_med}
+\end{center}
 
 \section{Análisis Comparativo}
+En el cuadro \ref{tab:comparativo} se comparan los parámetros de interés. Para el caso de la respuesta en frecuencia medida en el laboratorio, se consideró la frecuencia de corte inferior medida con las puntas X1, por tener más puntos que las mediciones de puntas pasivas X10, y para el valor de la $f_h$ se utilizó aquel obtenido con el uso de puntas de prueba activas, ya que poseen una capacitancia mucho menor que las pasivas y atenúa la influencia de estas.
+
+\begin{center}
+  \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+    \hline
+    Valor & $I_{DQ}$ & $V_{DSQ}$ & $A_v$ & $A_{vs}$ & $R_{in}$ & $R_{out}$ & $V{o_{max}}$ & $f_l$ & $f_h$ \\
+    \hline
+    Analítico & $793.4\mu A$& $5.48V$& -16.22 & -16.22 & $1M\Omega$ & $4.7K\Omega$ & $1.8V$ & $1592Hz$ & $370.1KHz$ \\
+    \hline
+    Simulado & & & & & & & & & \\
+    \hline
+    Medido & $511\mu A$ & $6.9V$ & -9 & -6.8 & $1M\Omega$ & $6.7K\Omega$ & $1.82V$ & $4KHz$ & $100KHz$ \\
+    \hline
+    \hline
+    $\epsilon_{r\%}$ & 55\% & 21\% & 80\% & 105\% & 0\% & 30\% & 1\% & 60\% & 270\% \\
+    \hline
+  \end{tabular}
+  \captionof{table}{Cuadro comparativo de todos los valores obtenidos por análisis, simulación, y medición.}
+  \label{tab:comparativo}
+\end{center}
+
+
         %\section{Referencias} %Usar \printbibliography y el archivo ref.bib
         %\begin{itemize}
             %\item How Oscilloscope Probes Affect Your Measurement - Application Note - Tektronix

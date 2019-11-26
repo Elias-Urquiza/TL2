@@ -5,7 +5,7 @@
 \contentsline {section}{\numberline {3}C\IeC {\'a}lculo Anal\IeC {\'\i }tico}{2}
 \contentsline {subsection}{\numberline {3.1}Valores de Reposo}{3}
 \contentsline {subsection}{\numberline {3.2}An\IeC {\'a}lisis de Se\IeC {\~n}al a Frecuencias Medias}{3}
-\contentsline {subsubsection}{\numberline {3.2.1}Amplificaci\IeC {\'o}n de Tensi\IeC {\'o}n Total ($A_v$)}{3}
+\contentsline {subsubsection}{\numberline {3.2.1}Amplificaci\IeC {\'o}n de Tensi\IeC {\'o}n Total ($A_v$)}{4}
 \contentsline {subsubsection}{\numberline {3.2.2}Resistencia de Entrada y de Salida}{4}
 \contentsline {subsubsection}{\numberline {3.2.3}M\IeC {\'a}xima excursi\IeC {\'o}n de se\IeC {\~n}al a la salida sin recorte}{4}
 \contentsline {subsubsection}{\numberline {3.2.4}Respuesta en frecuencia para $A_{vs}$.}{5}
