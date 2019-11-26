@@ -1,0 +1,33 @@
+\documentclass{standalone}
+\usepackage{circuitikz}
+\begin{document}
+            \begin{circuitikz}
+            \ctikzset{resistor = european}
+            \draw
+            (0, 0) node[nigfete] (fet1) {}
+            (fet1.G) -- ++ (0,0) to[short,-*] ++(-2,0) node (A) {} to[short,-o] ++ (-1,0) node[left] {\textcolor{red}{$v_{i}$}}
+            (A) to[R] ++(0,-4) node[ground] (RG) {} 
+            (RG) ++ (0.75,1.5) node {$R_G$}
+            (fet1.B) -- ++ (fet1.S) to [short,-*] ++ (0,-1.5) node (B) {} to[R] ++(0,-2) node[ground] {}
+            (B) ++ (0.75,-0.5) node {$R_S$}
+            (B) to[short,-*] ++ (3,0) node(D) {} to[C] ++ (0,-2)  node(C) {} node[ground] {}
+            (C) ++ (0.75,1.5) node {$C_G$}
+           
+            (4,2) node[nigfete] (fet2) {}
+            (D) to (fet2.G)
+            (fet1.B) -- ++ (5,0) -- ++ (0,2) to (fet2.B)
+            (fet1.D) -- ++ (0,2) -- ++ (4,0)
+            (fet2.S) to[short,-*]  ++ (2,0) node(E) {} 
+            (E) to[R] ++(0,-2) node(F) {} to[american voltage source] ++ (0,-2) node[ground] {}
+            (F) ++ (0.75,1.5) node {$R_D$}
+            (F) ++ (1,-1.5) node {$V_{CC}$}
+            (F) to[short,*-] ++ (2,0) to[C] ++ (0,-2) node[ground] (G) {}
+            (G) ++ (0.75,1.5) node {$C_{CC}$}
+            (E) to[C] ++(5,0) node (I) {} to[R,*-] ++ (0,-4) node[ground] (H) {}
+            (E) ++ (2,1) node {$C_L$}
+            (H) ++ (0.75,1.5) node {$R_L$}
+            (I) to[short,-o] ++(0.5,0) ++ (0.25,0) node{\textcolor{red}{$v_o$}}
+            ;
+
+            \end{circuitikz}
+\end{document}
