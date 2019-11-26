@@ -1,15 +1,16 @@
 # Fdb version 3
-["biber TL3"] 1574554244 "TL3.bcf" "TL3.bbl" "TL3" 1574605902
-  "TL3.bcf" 1574605901 90028 b407e86b57bba4aece7bec85f1371fd8 ""
+["biber TL3"] 1574554244 "TL3.bcf" "TL3.bbl" "TL3" 1574786143
+  "TL3.bcf" 1574786142 90028 b407e86b57bba4aece7bec85f1371fd8 ""
   (generated)
   "TL3.bbl"
   "TL3.blg"
-["pdflatex"] 1574605897 "TL3.tex" "TL3.pdf" "TL3" 1574605902
-  "TL3.aux" 1574605901 4066 952f12e931e27736c81ea1a32f5b8dfd ""
+["pdflatex"] 1574786134 "TL3.tex" "TL3.pdf" "TL3" 1574786143
+  "FFT_MED.png" 1574785092 8947111 3217617a4a1df98458511a3057c763bf ""
+  "TL3.aux" 1574786142 5648 c765e09486e1be83281421654c9b9099 ""
   "TL3.bbl" 1574554247 0 d41d8cd98f00b204e9800998ecf8427e "biber TL3"
-  "TL3.run.xml" 1574605901 2217 9e49af09e6991653c9a53c99fd6adddd ""
-  "TL3.tex" 1574605884 13802 950910b8294ba67cb34a80a90e90ea68 ""
-  "TL3.toc" 1574605901 1687 2014dcdf17a57ddff05ceb9b18c04166 ""
+  "TL3.run.xml" 1574786142 2217 9e49af09e6991653c9a53c99fd6adddd ""
+  "TL3.tex" 1574786121 17987 cd79ecb821bb2fd78bed2253b50c4510 ""
+  "TL3.toc" 1574786142 1688 21fce4a7d10931c969947e5183e4a0be ""
   "X1.png" 1574603560 25656 318fe67801fda23814a0b8f06baf5366 ""
   "X10.png" 1574603546 25048 38f225293ac2c32dfa1360ecf1416c0b ""
   "activas.png" 1574603595 25708 fb758d716a071f350874a2e494b41c5e ""
@@ -295,10 +296,14 @@
   "f:/texlive/2018/texmf.cnf" 1535863414 673 4ae7b2f49cee444c5343a45b5d0f169c ""
   "fiuba.pdf" 1571625638 8981 bfb63cd83058a96ce6a29879e1d8c9db ""
   "nul" 0 0 d41d8cd98f00b204e9800998ecf8427e ""
+  "vi.png" 1574607377 24055 d4a2e34f2dd7db0c0afd4a6df7f5235f ""
+  "vi3.png" 1574777837 26349 a6518c44bd51a8ce6c8a81746d1e06ec ""
+  "vo.png" 1574607377 23232 6779a27c639c91ad2b608f0a6dc623f3 ""
+  "vo3.png" 1574777837 26669 99a313f072ad4334b2a2091553881c59 ""
   (generated)
-  "TL3.bcf"
-  "TL3.log"
-  "TL3.run.xml"
-  "TL3.pdf"
-  "TL3.aux"
   "TL3.toc"
+  "TL3.aux"
+  "TL3.pdf"
+  "TL3.log"
+  "TL3.bcf"
+  "TL3.run.xml"

@@ -121,18 +121,83 @@
 \section{Desarrollo}
 
 \section{Cálculo Analítico}
-\textbf{INCLUIR FIG.1 DEL ENUNCIADO}
 
-\textbf{GRÁFICO DEL CIRCUITO DE CONTÍNUA}
+Utilizando el modelo presente en la fig. \ref{fig:circuito}, calculamos analíticamente los valores de reposo y los parámetros de señal para frecuencias medias.
 
-\subsection{Valores de Reposo}
-  Se tienen los siguientes datos:
+\begin{center}
+  \begin{circuitikz}
+              \ctikzset{resistor = european}
+              \draw
+              (0, 0) node[nigfete] (fet1) {}
+              (fet1.G) -- ++ (0,0) to[short,-*] ++(-2,0) node (A) {} to[short,-o] ++ (-1,0) node[left] {\textcolor{red}{$v_{i}$}}
+              (A) to[R] ++(0,-4) node[ground] (RG) {}
+              (RG) ++ (0.75,1.5) node {$R_G$}
+              (fet1.B) -- ++ (fet1.S) to [short,-*] ++ (0,-1.5) node (B) {} to[R] ++(0,-2) node[ground] {}
+              (B) ++ (0.75,-0.5) node {$R_S$}
+              (B) to[short,-*] ++ (3,0) node(D) {} to[C] ++ (0,-2)  node(C) {} node[ground] {}
+              (C) ++ (0.75,1.5) node {$C_G$}
+
+              (4,2) node[nigfete] (fet2) {}
+              (D) to (fet2.G)
+              (fet1.B) -- ++ (5,0) -- ++ (0,2) to (fet2.B)
+              (fet1.D) -- ++ (0,2) -- ++ (4,0)
+              (fet2.S) to[short,-*]  ++ (2,0) node(E) {}
+              (E) to[R] ++(0,-2) node(F) {} to[american voltage source] ++ (0,-2) node[ground] {}
+              (F) ++ (0.75,1.5) node {$R_D$}
+              (F) ++ (1,-1.5) node {$V_{CC}$}
+              (F) to[short,*-] ++ (2,0) to[C] ++ (0,-2) node[ground] (G) {}
+              (G) ++ (0.75,1.5) node {$C_{CC}$}
+              (E) to[C] ++(5,0) node (I) {} to[R,*-] ++ (0,-4) node[ground] (H) {}
+              (E) ++ (2,1) node {$C_L$}
+              (H) ++ (0.75,1.5) node {$R_L$}
+              (I) to[short,-o] ++(0.5,0) ++ (0.25,0) node{\textcolor{red}{$v_o$}}
+              ;
+  \end{circuitikz}
+  \captionof{figure}{Esquema simplificado del circuito.}
+  \label{fig:circuito}
+\end{center}
+
+Se tienen los siguientes datos:
+\begin{center}
   \begin{itemize}
     \item $K_1=15\frac{mA}{V^2}$
     \item $K_2=200\frac{mA}{V^2}$
     \item $V_{T_1}=V_{T_2}=V_{T}=-1V$
     \item $\frac{W}{L}=1$
+    \item $C_{g_1s} = 2.2pF$
+    \item $C_{g_2s} = 1.1pF$
+    \item $C_{d_1s} = C_{d_2s} = 0.8pF$
+    \item $C_{g_1d} = C_{g_2d} = 25fF$
   \end{itemize}
+\end{center}
+
+\subsection{Valores de Reposo}
+
+\begin{center}
+  \begin{circuitikz}
+              \ctikzset{resistor = european}
+              \draw
+              (0, 0) node[nigfete] (fet1) {}
+              (fet1.G) -- ++ (0,0) to[short,-*] ++(-2,0) node (A) {} to[short,-o] ++ (-1,0) node[left] {\textcolor{red}{$v_{i}$}}
+              (A) to[R] ++(0,-4) node[ground] (RG) {}
+              (RG) ++ (0.75,1.5) node {$R_G$}
+              (fet1.B) -- ++ (fet1.S) to [short,-*] ++ (0,-1.5) node (B) {} to[R] ++(0,-2) node[ground] {}
+              (B) ++ (0.75,-0.5) node {$R_S$}
+              (B) to[short,-*] ++ (3,0) node(D) {}
+
+              (4,2) node[nigfete] (fet2) {}
+              (D) to (fet2.G)
+              (fet1.B) -- ++ (5,0) -- ++ (0,2) to (fet2.B)
+              (fet1.D) -- ++ (0,2) -- ++ (4,0)
+              (fet2.S) to[short,-*]  ++ (2,0) node(E) {}
+              (E) to[R] ++(0,-2) node(F) {} to[american voltage source] ++ (0,-2) node[ground] {}
+              (F) ++ (0.75,1.5) node {$R_D$}
+              (F) ++ (1,-1.5) node {$V_{CC}$}
+              ;
+  \end{circuitikz}
+  \captionof{figure}{Esquema simplificado del circuito de contínua.}
+  \label{fig:circuito_continua}
+\end{center}
 
   Planteando la malla de entrada se obtiene
   \begin{equation}
@@ -325,8 +390,6 @@ Obtenemos entonces, sin considerar la capacidad del Gate 2 puesto que el capacit
 
 Debido a que la frecuencia asociada al Gate 1 es la menor, consideraremos que $f_H=370.1KHz$ es la frecuencia de corte superior del sistema.
 
-\textbf{[CUADRO CON TODO AQUÍ O SE DEJA PARA LA ÚLTIMA SECCIÓN?]}
-
 \section{Simulación}
 
 \section{Mediciones}
@@ -357,10 +420,21 @@ Debido a que la frecuencia asociada al Gate 1 es la menor, consideraremos que $f
 
 \subsubsection{Amplificación de Tensión Total ($A_v$)}
 
-\textbf{Los gráficos tomados del osciloscopio no salieron bien creo}
+\begin{center}
+  \includegraphics[width=.5\textwidth]{vi.png}
+  \captionof{figure}{Señal de entrada.}
+  \label{fig:vi_med}
+\end{center}
+
+\begin{center}
+  \includegraphics[width=.5\textwidth]{vo.png}
+  \captionof{figure}{Señal de salida.}
+  \label{fig:vo_med}
+\end{center}
+
 
 \begin{equation}
-  A_v=\frac{1.8V}{244mV}=7.30
+  A_v=\frac{1.8V_{pp}}{200mV_{pp}}=9
 \end{equation}
 
 \subsubsection{Resistencia de Entrada y de Salida}
@@ -392,8 +466,30 @@ Con este valor podemos despejar $(R_L//R_{out})$:
 \end{equation}
 
 \subsubsection{Máxima excursión de señal a la salida sin recorte}
+\textbf{CREO QUE SERÍA MEJOR QUE LA ENTRADA Y SALIDA ESTUVIERAN EN UN SOLO GRÁFICO}
+Al medir la máxima excursión sin recorte admitiendo baja distorsión, con una frecuencia de \textbf{10KHz}, obtuvimos la respuesta presente en la figura \ref{fig:vo_exc_med}. La señal de entrada se observa en la figura \ref{fig:vi_exc_med}. Observamos que la máxima tensión pico de entrada es de aproximadamente $V_i=212mV$ obteniendo así una señal de salida alineal de aproximadamente $1.82V$.
 
-\textbf{VER GRÁFICOS}
+\begin{center}
+  \includegraphics[width=0.5\textwidth]{vi3.png}
+  \captionof{figure}{Señal de entrada máxima sin recorte.}
+  \label{fig:vi_exc_med}
+\end{center}
+
+\begin{center}
+  \includegraphics[width=0.5\textwidth]{vo3.png}
+  \captionof{figure}{Señal de salida máxima sin recorte.}
+  \label{fig:vo_exc_med}
+\end{center}
+
+Para evaluar la distorsión de la señal, se utilizó la función FFT del osciloscopio digital, obteniéndose el resultado de la figura \ref{fig:fft_med}.
+
+\begin{center}
+  \includegraphics[width=0.5\textwidth]{FFT_MED.png}
+  \captionof{figure}{FFT de la señal de salida en su máxima excursión sin recorte. \textbf{Escala: 2.5KHz/div.}}
+  \label{fig:fft_med}
+\end{center}
+
+Se observa el mayor armónico en 5KHz seguido del armónico de 10KHz. Los siguientes armónicos están separados entre sí una distancia de 10KHz aproximadamente. De esta 
 
 \subsubsection{Respuesta en frecuencia para $A_{vs}$.}
 
