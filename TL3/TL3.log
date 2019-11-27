@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.9.2)  24 NOV 2019 11:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.9.2)  26 NOV 2019 17:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1358,26 +1358,59 @@ Package cleveref Info: loaded `spanish' language definitions on input line 2.
 \tf@toc=\write6
 \openout6 = `TL3.toc'.
 
- [1] [2] [3] [4]
-<X1.png, id=45, 252.945pt x 180.675pt>
+ [1]
+Overfull \hbox (17.4798pt too wide) in paragraph at lines 155--156
+ [] 
+ []
+
+[2] [3] [4] [5]
+<vi.png, id=48, 252.945pt x 180.675pt>
+File: vi.png Graphic file (type png)
+<use vi.png>
+Package pdftex.def Info: vi.png  used on input line 434.
+(pdftex.def)             Requested size: 241.84843pt x 172.75128pt.
+<vo.png, id=49, 252.945pt x 180.675pt>
+File: vo.png Graphic file (type png)
+<use vo.png>
+Package pdftex.def Info: vo.png  used on input line 440.
+(pdftex.def)             Requested size: 241.84843pt x 172.75128pt.
+ [6 <./vi.png>]
+<vi3.png, id=54, 252.945pt x 180.675pt>
+File: vi3.png Graphic file (type png)
+<use vi3.png>
+Package pdftex.def Info: vi3.png  used on input line 483.
+(pdftex.def)             Requested size: 241.84843pt x 172.75128pt.
+ [7 <./vo.png>]
+<vo3.png, id=59, 252.945pt x 180.675pt>
+File: vo3.png Graphic file (type png)
+<use vo3.png>
+Package pdftex.def Info: vo3.png  used on input line 489.
+(pdftex.def)             Requested size: 241.84843pt x 172.75128pt.
+<FFT_MED.png, id=60, 3385.64874pt x 2241.37375pt>
+File: FFT_MED.png Graphic file (type png)
+<use FFT_MED.png>
+Package pdftex.def Info: FFT_MED.png  used on input line 497.
+(pdftex.def)             Requested size: 241.84843pt x 160.09285pt.
+ [8 <./vi3.png> <./vo3.png> <./FFT_MED.png>]
+<X1.png, id=66, 252.945pt x 180.675pt>
 File: X1.png Graphic file (type png)
 <use X1.png>
-Package pdftex.def Info: X1.png  used on input line 401.
+Package pdftex.def Info: X1.png  used on input line 508.
 (pdftex.def)             Requested size: 386.95897pt x 276.40425pt.
- [5]
-<X10.png, id=49, 252.945pt x 180.675pt>
+<X10.png, id=67, 252.945pt x 180.675pt>
 File: X10.png Graphic file (type png)
 <use X10.png>
-Package pdftex.def Info: X10.png  used on input line 407.
+Package pdftex.def Info: X10.png  used on input line 514.
 (pdftex.def)             Requested size: 386.95897pt x 276.40425pt.
-<activas.png, id=50, 252.945pt x 180.675pt>
+ [9 <./X1.png> <./X10.png>]
+<activas.png, id=71, 252.945pt x 180.675pt>
 File: activas.png Graphic file (type png)
 <use activas.png>
-Package pdftex.def Info: activas.png  used on input line 413.
+Package pdftex.def Info: activas.png  used on input line 520.
 (pdftex.def)             Requested size: 386.95897pt x 276.40425pt.
- [6 <./X1.png> <./X10.png>] 
+ 
 AED: lastpage setting LastPage
-[7 <./activas.png>] (./TL3.aux
+[10 <./activas.png>] (./TL3.aux
 LaTeX Info: Redefining \sptext on input line 10.
 LaTeX Info: Redefining \. on input line 10.
 LaTeX Info: Redefining \% on input line 10.
@@ -1388,19 +1421,19 @@ Package logreq Info: Writing requests to 'TL3.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 53144 strings out of 492642
- 1263201 string characters out of 6133163
- 1792106 words of memory out of 5000000
- 56369 multiletter control sequences out of 15000+600000
- 550046 words of font info for 66 fonts, out of 8000000 for 9000
+ 53909 strings out of 492642
+ 1281101 string characters out of 6133163
+ 1811457 words of memory out of 5000000
+ 57128 multiletter control sequences out of 15000+600000
+ 550386 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  78i,16n,136p,1128b,1965s stack positions out of 5000i,500n,10000p,200000b,80000s
-{f:/texlive/2018/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{f:/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}<f:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfcc1000.pfb><f:/texlive/2018/texmf-dist/fonts/type1/publi
-c/cm-super/sfcc1200.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfcc1440.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb><f:/texlive/2018/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on TL3.pdf (8 pages, 329176 bytes).
+{f:/texlive/2018/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{f:/texlive/2018/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{f:/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}<f:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><f:/texlive/2018/texmf-dist/fonts/type1/publ
+ic/cm-super/sfcc1000.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfcc1200.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfcc1440.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb><f:/texlive/2018/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
+Output written on TL3.pdf (11 pages, 11349829 bytes).
 PDF statistics:
- 126 PDF objects out of 1000 (max. 8388607)
- 90 compressed objects within 1 object stream
+ 145 PDF objects out of 1000 (max. 8388607)
+ 100 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 33 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 58 words of extra memory for PDF output out of 10000 (max. 10000000)
 

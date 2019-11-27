@@ -4,7 +4,7 @@ clear all, close all;
 graphics_toolkit gnuplot
 
 % Importo datos
-SIM=dlmread("Activas.csv",';',1,0);
+SIM=dlmread("X10.csv",';',1,0);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 ##Grafs.
@@ -20,7 +20,8 @@ hold on;
 set(Ha,'Box','on','FontName','Arial','FontSize',7,'GridLineStyle','--','LineWidth',1,'TickDir','in');
 
 %Ideal:
-semilogx(Ha,SIM(2:1:end,1), SIM(2:1:end,2), 'linewidth', 5, '-or', 'markersize', 2);
+v_i=180E-3;
+semilogx(Ha,SIM(2:1:end,1), SIM(2:1:end,2)/v_i, 'linewidth', 5, '-or', 'markersize', 2);
 
 
 %opciones graf
@@ -30,7 +31,7 @@ grid minor on;
 %xlim([0,25])
 %ylim([0,20])
 
-title("Respuesta en Frecuencia medida con puntas activas");
+title("Respuesta en Frecuencia medida con puntas X10");
 xlabel("f[log] (Hz)","fontsize", 8);
 ylabel("|A_{vs}| (V)","fontsize", 8);
 
@@ -38,7 +39,7 @@ ylabel("|A_{vs}| (V)","fontsize", 8);
 %legend('boxon');
 %set(Hleg,'FontName','Arial','FontSize',7);
 
-print('activas.png','-dpng','-r300');
+print('X10.png','-dpng','-r300');
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
