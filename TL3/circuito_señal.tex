@@ -1,0 +1,31 @@
+\documentclass{standalone}
+\usepackage{circuitikz}
+\begin{document}
+            \begin{circuitikz}
+            \ctikzset{resistor = european}
+            \draw
+            (0, 0) node[nigfete] (fet1) {}
+            (fet1.G) -- ++ (0,0) to[short,-*] ++(-2,0) node (A) {} to[short,-o] ++ (-1,0) node[left] {\textcolor{red}{$v_{i}$}}
+            (A) to[R] ++(0,-4) node[ground] (RG) {} 
+            (RG) ++ (0.75,1.5) node {$R_G$}
+            (fet1.B) -- ++ (fet1.S) to [short] ++ (0,-1.5) node (B) {} to[short] ++(0,-2) node[ground] {}
+            (B)  ++ (3,0) node(D) {} to[short] ++ (0,-2)  node(C) {} node[ground] {}
+            
+           
+            (4,2) node[nigfete] (fet2) {}
+            (D) to (fet2.G)
+            (fet1.B) -- ++ (5,0) -- ++ (0,2) to (fet2.B)
+            (fet1.D) -- ++ (0,2) -- ++ (4,0)
+            (fet2.S) to[short,-*]  ++ (2,0) node(E) {} 
+            (E) to[R] ++(0,-2) node(F) {} to[short] ++ (0,-2) node[ground] {}
+            (F) ++ (0.75,1.5) node {$R_D$}
+            
+            
+            (E) to[short] ++(5,0) node (I) {} to[R,*-] ++ (0,-4) node[ground] (H) {}
+            
+            (H) ++ (0.75,1.5) node {$R_L$}
+            (I) to[short,-o] ++(0.5,0) ++ (0.25,0) node{\textcolor{red}{$v_o$}}
+            ;
+
+            \end{circuitikz}
+\end{document}
