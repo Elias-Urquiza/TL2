@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.9.2)  26 NOV 2019 17:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.9.2)  1 DEC 2019 12:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1363,54 +1363,104 @@ Overfull \hbox (17.4798pt too wide) in paragraph at lines 155--156
  [] 
  []
 
-[2] [3] [4] [5]
-<vi.png, id=48, 252.945pt x 180.675pt>
+[2]
+Overfull \hbox (32.4798pt too wide) in paragraph at lines 256--257
+[][] 
+ []
+
+[3] [4] [5]
+<modelo_simple.png, id=48, 606.76688pt x 462.22687pt>
+File: modelo_simple.png Graphic file (type png)
+<use modelo_simple.png>
+Package pdftex.def Info: modelo_simple.png  used on input line 439.
+(pdftex.def)             Requested size: 241.84843pt x 184.23859pt.
+ [6]
+<Av_sim.png, id=53, 252.945pt x 180.675pt>
+File: Av_sim.png Graphic file (type png)
+<use Av_sim.png>
+Package pdftex.def Info: Av_sim.png  used on input line 472.
+(pdftex.def)             Requested size: 338.58632pt x 241.85234pt.
+ [7 <./modelo_simple.png>]
+<vomax_sim.png, id=57, 252.945pt x 180.675pt>
+File: vomax_sim.png Graphic file (type png)
+<use vomax_sim.png>
+Package pdftex.def Info: vomax_sim.png  used on input line 521.
+(pdftex.def)             Requested size: 338.58632pt x 241.85234pt.
+ [8 <./Av_sim.png>]
+<fft_out.png, id=61, 252.945pt x 180.675pt>
+File: fft_out.png Graphic file (type png)
+<use fft_out.png>
+Package pdftex.def Info: fft_out.png  used on input line 533.
+(pdftex.def)             Requested size: 338.58632pt x 241.85234pt.
+ [9 <./vomax_sim.png> <./fft_out.png>]
+<sim_sin_bode.png, id=65, 252.945pt x 180.675pt>
+File: sim_sin_bode.png Graphic file (type png)
+<use sim_sin_bode.png>
+Package pdftex.def Info: sim_sin_bode.png  used on input line 543.
+(pdftex.def)             Requested size: 338.58632pt x 241.85234pt.
+<sim_x1_bode.png, id=66, 252.945pt x 180.675pt>
+File: sim_x1_bode.png Graphic file (type png)
+<use sim_x1_bode.png>
+Package pdftex.def Info: sim_x1_bode.png  used on input line 549.
+(pdftex.def)             Requested size: 338.58632pt x 241.85234pt.
+<sim_x10_bode.png, id=67, 252.945pt x 180.675pt>
+File: sim_x10_bode.png Graphic file (type png)
+<use sim_x10_bode.png>
+Package pdftex.def Info: sim_x10_bode.png  used on input line 555.
+(pdftex.def)             Requested size: 338.58632pt x 241.85234pt.
+ [10 <./sim_sin_bode.png> <./sim_x1_bode.png>]
+<sim_activa_bode.png, id=71, 252.945pt x 180.675pt>
+File: sim_activa_bode.png Graphic file (type png)
+<use sim_activa_bode.png>
+Package pdftex.def Info: sim_activa_bode.png  used on input line 561.
+(pdftex.def)             Requested size: 338.58632pt x 241.85234pt.
+ [11 <./sim_x10_bode.png> <./sim_activa_bode.png>]
+<vi.png, id=75, 252.945pt x 180.675pt>
 File: vi.png Graphic file (type png)
 <use vi.png>
-Package pdftex.def Info: vi.png  used on input line 434.
+Package pdftex.def Info: vi.png  used on input line 607.
 (pdftex.def)             Requested size: 241.84843pt x 172.75128pt.
-<vo.png, id=49, 252.945pt x 180.675pt>
+<vo.png, id=76, 252.945pt x 180.675pt>
 File: vo.png Graphic file (type png)
 <use vo.png>
-Package pdftex.def Info: vo.png  used on input line 440.
+Package pdftex.def Info: vo.png  used on input line 613.
 (pdftex.def)             Requested size: 241.84843pt x 172.75128pt.
- [6 <./vi.png>]
-<vi3.png, id=54, 252.945pt x 180.675pt>
+ [12 <./vi.png> <./vo.png>]
+<vi3.png, id=81, 252.945pt x 180.675pt>
 File: vi3.png Graphic file (type png)
 <use vi3.png>
-Package pdftex.def Info: vi3.png  used on input line 483.
+Package pdftex.def Info: vi3.png  used on input line 656.
 (pdftex.def)             Requested size: 241.84843pt x 172.75128pt.
- [7 <./vo.png>]
-<vo3.png, id=59, 252.945pt x 180.675pt>
+<vo3.png, id=82, 252.945pt x 180.675pt>
 File: vo3.png Graphic file (type png)
 <use vo3.png>
-Package pdftex.def Info: vo3.png  used on input line 489.
+Package pdftex.def Info: vo3.png  used on input line 662.
 (pdftex.def)             Requested size: 241.84843pt x 172.75128pt.
-<FFT_MED.png, id=60, 3385.64874pt x 2241.37375pt>
+ [13 <./vi3.png>]
+<FFT_MED.png, id=87, 3385.64874pt x 2241.37375pt>
 File: FFT_MED.png Graphic file (type png)
 <use FFT_MED.png>
-Package pdftex.def Info: FFT_MED.png  used on input line 497.
+Package pdftex.def Info: FFT_MED.png  used on input line 670.
 (pdftex.def)             Requested size: 241.84843pt x 160.09285pt.
- [8 <./vi3.png> <./vo3.png> <./FFT_MED.png>]
-<X1.png, id=66, 252.945pt x 180.675pt>
+<X1.png, id=89, 252.945pt x 180.675pt>
 File: X1.png Graphic file (type png)
 <use X1.png>
-Package pdftex.def Info: X1.png  used on input line 508.
+Package pdftex.def Info: X1.png  used on input line 681.
 (pdftex.def)             Requested size: 386.95897pt x 276.40425pt.
-<X10.png, id=67, 252.945pt x 180.675pt>
+ [14 <./vo3.png> <./FFT_MED.png>]
+<X10.png, id=94, 252.945pt x 180.675pt>
 File: X10.png Graphic file (type png)
 <use X10.png>
-Package pdftex.def Info: X10.png  used on input line 514.
+Package pdftex.def Info: X10.png  used on input line 687.
 (pdftex.def)             Requested size: 386.95897pt x 276.40425pt.
- [9 <./X1.png> <./X10.png>]
-<activas.png, id=71, 252.945pt x 180.675pt>
+<activas.png, id=95, 252.945pt x 180.675pt>
 File: activas.png Graphic file (type png)
 <use activas.png>
-Package pdftex.def Info: activas.png  used on input line 520.
+Package pdftex.def Info: activas.png  used on input line 693.
 (pdftex.def)             Requested size: 386.95897pt x 276.40425pt.
- 
+ [15 <./X1.png> <./X10.png>] 
 AED: lastpage setting LastPage
-[10 <./activas.png>] (./TL3.aux
+[16 <./activas.png>] (./TL3.aux
 LaTeX Info: Redefining \sptext on input line 10.
 LaTeX Info: Redefining \. on input line 10.
 LaTeX Info: Redefining \% on input line 10.
@@ -1421,19 +1471,19 @@ Package logreq Info: Writing requests to 'TL3.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 53909 strings out of 492642
- 1281101 string characters out of 6133163
- 1811457 words of memory out of 5000000
- 57128 multiletter control sequences out of 15000+600000
+ 54305 strings out of 492642
+ 1290426 string characters out of 6133163
+ 1811846 words of memory out of 5000000
+ 57516 multiletter control sequences out of 15000+600000
  550386 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  78i,16n,136p,1128b,1965s stack positions out of 5000i,500n,10000p,200000b,80000s
 {f:/texlive/2018/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{f:/texlive/2018/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{f:/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}<f:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><f:/texlive/2018/texmf-dist/fonts/type1/publ
 ic/cm-super/sfcc1000.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfcc1200.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfcc1440.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb><f:/texlive/2018/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on TL3.pdf (11 pages, 11349829 bytes).
+Output written on TL3.pdf (17 pages, 11503637 bytes).
 PDF statistics:
- 145 PDF objects out of 1000 (max. 8388607)
- 100 compressed objects within 1 object stream
+ 173 PDF objects out of 1000 (max. 8388607)
+ 113 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 58 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 98 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -227,7 +227,33 @@ Se tienen los siguientes datos:
 
 \subsection{Análisis de Señal a Frecuencias Medias}
 
-\textbf{GRÁFICO DE SEÑAL}
+\begin{circuitikz}
+\ctikzset{resistor = european}
+\draw
+(0, 0) node[nigfete] (fet1) {}
+(fet1.G) -- ++ (0,0) to[short,-*] ++(-2,0) node (A) {} to[short,-o] ++ (-1,0) node[left] {\textcolor{red}{$v_{i}$}}
+(A) to[R] ++(0,-4) node[ground] (RG) {}
+(RG) ++ (0.75,1.5) node {$R_G$}
+(fet1.B) -- ++ (fet1.S) to [short] ++ (0,-1.5) node (B) {} to[short] ++(0,-2) node[ground] {}
+(B)  ++ (3,0) node(D) {} to[short] ++ (0,-2)  node(C) {} node[ground] {}
+
+
+(4,2) node[nigfete] (fet2) {}
+(D) to (fet2.G)
+(fet1.B) -- ++ (5,0) -- ++ (0,2) to (fet2.B)
+(fet1.D) -- ++ (0,2) -- ++ (4,0)
+(fet2.S) to[short,-*]  ++ (2,0) node(E) {}
+(E) to[R] ++(0,-2) node(F) {} to[short] ++ (0,-2) node[ground] {}
+(F) ++ (0.75,1.5) node {$R_D$}
+
+
+(E) to[short] ++(5,0) node (I) {} to[R,*-] ++ (0,-4) node[ground] (H) {}
+
+(H) ++ (0.75,1.5) node {$R_L$}
+(I) to[short,-o] ++(0.5,0) ++ (0.25,0) node{\textcolor{red}{$v_o$}}
+;
+
+\end{circuitikz}
 
 Tenemos los siguientes valores para el análisis:
 \begin{center}
@@ -401,6 +427,153 @@ Obtenemos entonces, sin considerar la capacidad del Gate 2 puesto que el capacit
 Debido a que la frecuencia asociada al Gate 1 es la menor, consideraremos que $f_H=370.1KHz$ es la frecuencia de corte superior del sistema.
 
 \section{Simulación}
+Simulando el circuito dado con LTSpice, utilizando el modelo simplificado del integrado, presente en la figura \ref{fig:mod_sim}, verificamos los resultados análiticos calculados en la sección anterior. Consideramos nuevamente los siguientes valores:
+\begin{itemize}
+  \item $K_1=15\frac{mA}{V^2}$
+  \item $K_2=200\frac{mA}{V^2}$
+  \item $V_{T_1}=V_{T_2}=V_{T}=-1V$
+  \item $\frac{W}{L}=1$
+\end{itemize}
+
+\begin{center}
+  \includegraphics[width=0.5\textwidth]{modelo_simple.png}
+  \captionof{figure}{Modelo simple del integrado según lo propuesto por el enunciado.}
+  \label{fig:mod_sim}
+\end{center}
+
+\subsection{Valores de Reposo}
+
+\begin{center}
+  \begin{tabular}{|c|c|c|c|c|}
+    \hline
+    $V_{G1_Q}$ & $V_{G2_Q}$ & $V_{S_Q}$ & $V_{D_Q}$ & $V_{cc}$ \\
+    \hline
+    $0V$ & $695mV$ & $695mV$ & $6.73V$ & $10V$ \\
+    \hline
+  \end{tabular}
+  \captionof{table}{Valores de reposo simulados.}
+  \label{tab:valores_reposo_sim}
+\end{center}
+
+\begin{equation}
+  V_{DS_{Q}} = V_{D_Q} - V_{S_Q} = 6V
+\end{equation}
+
+\begin{equation}
+  I_{DQ} = 695 \mu A
+\end{equation}
+
+\subsection{Análisis de Señal a Frecuencias Medias}
+
+\subsubsection{Amplificación de Tensión Total ($A_v$)}
+Alimentando al circuito con una señal de entrada de $10mV$ pico y de frecuencia $10KHz$ se obtuvo el gráfico de la figura \ref{fig:Av_sim}. Con el cociente de los valores pico de tensión se puede concluir que $A_v=-10.6$ y $A_{vs}$ tendrá el mismo valor puesto que no estamos considerando algún valor de resistencia en serie con la fuente de señal.
+
+\begin{center}
+  \includegraphics[width=0.7\textwidth]{Av_sim.png}
+  \captionof{figure}{Señal de entrada y salida dentro del rango de frecuencias medias obtenida por simulación.}
+  \label{fig:Av_sim}
+\end{center}
+
+\subsubsection{Resistencia de Entrada y de Salida}
+\textbf{Resistencia de Entrada}
+Dado que no se registra corriente entrante por el Gate 1, se puede concluir entonces que
+\begin{equation}
+  R_{in} = 1M\Omega
+\end{equation}
+
+\textbf{Resistencia de Salida}
+\begin{center}
+  \begin{circuitikz}
+  \ctikzset{resistor = european}
+  \draw
+
+  (0, 0) to[R] ++(0,-2) node(F) {} to[short] ++ (0,-2) node[ground] {}
+  (F) ++ (0.75,1.5) node {$R_D$}
+
+  (0, 0) to[short] ++(5,0) node (I) {} to[R,*-] ++ (0,-4) node[ground] (H) {}
+
+  (H) ++ (0.75,1.5) node {$R_L$}
+  (I) to[short,-o] ++(0,0.5) ++ (0, 0.25) node{\textcolor{red}{$v^*$}}
+
+  (I) to[R] ++(5,0) node (P) {} ++(-0.25, 0.25) node{$R_p=4.7K\Omega$}
+
+  (P) to[short, -o] ++(1, 0) ++(0.5, 0) ++ (0.25, 0) node{\textcolor{red}{$v_p$}}
+  ;
+
+  \end{circuitikz}
+\end{center}
+
+
+Pasivando la fuente de señal entre Gate 1 y común, y colocando una fuente de prueba con $V_{p(pico)}=330mV$ en serie con una resistencia de $4.7K\Omega$ en el nodo e salida del circuito, se puede calcular la $R_{out}$ por medio del análisis siguiente:
+
+\begin{equation}
+  \frac{V_p - V^*}{4.7K\Omega} - \frac{V^*}{4.7K\Omega} = i_{R_{out}} = \frac{V^*}{R_{out}}
+\end{equation}
+
+Se obtuvo
+\begin{equation}
+  V^* = 108.9 mV \Rightarrow i_{R_{out}} = 23.9 \mu A \Rightarrow R_{out} = 4.6K\Omega
+\end{equation}
+
+\subsubsection{Máxima Excursión de Señal a la salida sin recorte}
+
+\begin{center}
+  \includegraphics[width=0.7\textwidth]{vomax_sim.png}
+  \captionof{figure}{Señal de entrada y salida máxima sin recorte obtenida por simulación.}
+  \label{fig:vomax_sim}
+\end{center}
+
+Como se observa en la figura \ref{fig:vomax_sim}, se tiene que la tensión de salida máxima sin recorte y con baja distorsión es de $V_{o(max)_{pp}}=4.2V$ para una señal $V_{s_{pp}}=440mV$. Con estos parámetros se utilizó el comando \textbf{.FOURIER} de LTSpice para calcular la TDH, obteniendose así:
+
+\begin{equation}
+  TDH=19.93\%
+\end{equation}
+
+\begin{center}
+  \includegraphics[width=0.7\textwidth]{fft_out.png}
+  \captionof{figure}{FFT de la señal de salida presente en la figura \ref{fig:vomax_sim} para la que se obtuvo TDH=19.93\%.}
+  \label{fig:fft_sim}
+\end{center}
+
+\subsubsection{Respuesta en Frecuencia para $A_{vs}$}
+
+Se simuló la respuesta en frecuencia para cuatro casos distintos: sin simular las puntas del osciloscopio; simulando puntas X1; simulando puntas X10; simulando puntas activas. Se presentan a continuación los resultados obtenidos.
+
+\begin{center}
+  \includegraphics[width=0.7\textwidth]{sim_sin_bode.png}
+  \captionof{figure}{Respuesta en frecuencia sin simular puntas de osciloscopio.}
+  \label{fig:sim-sin}
+\end{center}
+
+\begin{center}
+  \includegraphics[width=0.7\textwidth]{sim_x1_bode.png}
+  \captionof{figure}{Respuesta en frecuencia simulando puntas X1.}
+  \label{fig:sim-x1}
+\end{center}
+
+\begin{center}
+  \includegraphics[width=0.7\textwidth]{sim_x10_bode.png}
+  \captionof{figure}{Respuesta en frecuencia simulando puntas X10.}
+  \label{fig:sim-x10}
+\end{center}
+
+\begin{center}
+  \includegraphics[width=0.7\textwidth]{sim_activa_bode.png}
+  \captionof{figure}{Respuesta en frecuencia simulando puntas activas.}
+  \label{fig:sim-activa}
+\end{center}
+
+Podemos observar que la frecuencia de corte inferior no es alterada apreciablemente con el uso de las distintas puntas de medición, obteniendo entonces:
+
+\begin{equation}
+  f_l \approx 3KHz
+\end{equation}
+
+Por otro lado, la frecuencia de corte superior se ve disminuida con el uso de puntas X1 y X10 respecto a la obtenida sin simular las puntas. La frecuencia de corte superior que más se asemeja a la $f_h$ es la obtenida utilizando puntas activas, por tener una capacidad mucho menor que las otras dos.
+
+\begin{equation}
+  f_h \approx 11MHz
+\end{equation}
 
 \section{Mediciones}
 
@@ -411,7 +584,7 @@ Debido a que la frecuencia asociada al Gate 1 es la menor, consideraremos que $f
     \hline
     $V_{G1_Q}$ & $V_{G2_Q}$ & $V_{S_Q}$ & $V_{D_Q}$ & $V_{cc}$ \\
     \hline
-    $4.8V$ & $700mV$ & $700mV$ & $7.6V$ & $10V$ \\
+    $4.8mV$ & $700mV$ & $700mV$ & $7.6V$ & $10V$ \\
     \hline
   \end{tabular}
   \captionof{table}{Valores de reposo medidos.}
@@ -477,7 +650,7 @@ Con este valor podemos despejar $(R_L//R_{out})$:
 
 \subsubsection{Máxima excursión de señal a la salida sin recorte}
 \textbf{CREO QUE SERÍA MEJOR QUE LA ENTRADA Y SALIDA ESTUVIERAN EN UN SOLO GRÁFICO. ¿POR QUE NO ESTAN DESFASADOS 180º?}
-Al medir la máxima excursión sin recorte admitiendo baja distorsión, con una frecuencia de \textbf{10KHz}, obtuvimos la respuesta presente en la figura \ref{fig:vo_exc_med}. La señal de entrada se observa en la figura \ref{fig:vi_exc_med}. Observamos que la máxima tensión pico de entrada es de aproximadamente $V_i=212mV$ obteniendo así una señal de salida alineal de aproximadamente $1.82V$.
+Al medir la máxima excursión sin recorte admitiendo baja distorsión, con una frecuencia de \textbf{5KHz}, obtuvimos la respuesta presente en la figura \ref{fig:vo_exc_med}. La señal de entrada se observa en la figura \ref{fig:vi_exc_med}. Observamos que la máxima tensión pico de entrada es de aproximadamente $V_i=212mV$ obteniendo así una señal de salida alineal de aproximadamente $1.82V$.
 
 \begin{center}
   \includegraphics[width=0.5\textwidth]{vi3.png}
@@ -499,7 +672,7 @@ Para evaluar la distorsión de la señal, se utilizó la función FFT del oscilo
   \label{fig:fft_med}
 \end{center}
 
-Se observa el mayor armónico en 5KHz seguido del armónico de 10KHz. Los siguientes armónicos están separados entre sí una distancia de 10KHz aproximadamente. De esta forma, se puede observar que se tiene una frecuencia parásita de 5KHz que se sobrepone a la frecuencia de trabajo. \textbf{???}
+Se observa que la señal fundamental es de 5KHz, correspondiente a la frecuencia de la señal de entrada, pero se encuentran otros armónicos de menor magnitud en 10KHz, 15KHz y 20KHz. Estos armónicos indican que la señal de salida no es pura y tenemos un cierto nivel de distorsión presente.
 
 \subsubsection{Respuesta en frecuencia para $A_{vs}$.}
 Para medir la respuesta en frecuencia, con una tensión de entrada $V_{s_p}=180mV$, se realizó un barrido de frecuencia hasta 10MHz con puntas pasivas X1, X10, y puntas activas X10 alimentadas por una tensión continua de 9V. Los diagramas de bode realizados con las mediciones se encuentran a continuación. En la tabla \ref{tab:rta_frec_med} se comparan los resultados obtenidos.
@@ -539,7 +712,7 @@ Para medir la respuesta en frecuencia, con una tensión de entrada $V_{s_p}=180m
 \end{center}
 
 \section{Análisis Comparativo}
-En el cuadro \ref{tab:comparativo} se comparan los parámetros de interés. Para el caso de la respuesta en frecuencia medida en el laboratorio, se consideró la frecuencia de corte inferior medida con las puntas X1, por tener más puntos que las mediciones de puntas pasivas X10, y para el valor de la $f_h$ se utilizó aquel obtenido con el uso de puntas de prueba activas, ya que poseen una capacitancia mucho menor que las pasivas y atenúa la influencia de estas.
+En el cuadro \ref{tab:comparativo} se comparan los parámetros de interés. Para el caso de la respuesta en frecuencia medida en el laboratorio, se consideró la frecuencia de corte inferior medida con las puntas X1, por tener más puntos que las mediciones de puntas pasivas X10, y para el valor de la $f_h$ se utilizó aquel obtenido con el uso de puntas de prueba activas, ya que poseen una capacitancia mucho menor que las pasivas y atenúa la influencia de dichas puntas. El error relativo incluido en el cuadro corresponde a la diferencia porcentual entre el valor medido y el analítico, tomando el medido como valor real.
 
 \begin{center}
   \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
@@ -548,7 +721,7 @@ En el cuadro \ref{tab:comparativo} se comparan los parámetros de interés. Para
     \hline
     Analítico & $793.4\mu A$& $5.48V$& -16.22 & -16.22 & $1M\Omega$ & $4.7K\Omega$ & $1.8V$ & $1592Hz$ & $370.1KHz$ \\
     \hline
-    Simulado & & & & & & & & & \\
+    Simulado & $695\mu A$ & $6V$ & -10.6 & -10.6 & $1M\Omega$ & $4.6K\Omega$ & $2.15V$ & $3KHz$ & $11MHz$ \\
     \hline
     Medido & $511\mu A$ & $6.9V$ & -9 & -6.8 & $1M\Omega$ & $6.7K\Omega$ & $1.82V$ & $4KHz$ & $100KHz$ \\
     \hline

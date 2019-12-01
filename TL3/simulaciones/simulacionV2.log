@@ -1,27 +1,46 @@
-Circuit: * E:\Circuitos I\Repos\TL3\simulaciones\simulacionV2.asc
+Circuit: * F:\Usuario Elias\Downloads\FIUBA\01 - En Curso\Circuitos I\Repos\TL2\TL3\simulaciones\simulacionV2.asc
 
 C4: both pins shorted together -- ignoring.
-Error on line 1089 : .model mos2 nmos (kp=200m vto=-1 w/l=1)
+Error on line 1091 : .model mos2 nmos (kp=200m vto=-1 w/l=1)
 	* Unrecognized parameter "w/l" -- ignored
-Error on line 1088 : .model mos1 nmos (kp=15m vto=-1 w/l=1)
+Error on line 1090 : .model mos1 nmos (kp=15m vto=-1 w/l=1)
 	* Unrecognized parameter "w/l" -- ignored
 WARNING: Node N002 is floating.
 
 Direct Newton iteration for .op point succeeded.
+N-Period=1
+Fourier components of V(out)
+DC component:-0.0639293
 
-Date: Mon Sep 02 20:07:33 2019
-Total elapsed time: 0.376 seconds.
+Harmonic	Frequency	 Fourier 	Normalized	 Phase  	Normalized
+ Number 	  [Hz]   	Component	 Component	[degree]	Phase [deg]
+    1   	5.000e+03	2.071e+00	1.000e+00	 -173.02°	    0.00°
+    2   	1.000e+04	4.125e-01	1.992e-01	  106.81°	  279.83°
+    3   	1.500e+04	1.075e-02	5.192e-03	  117.53°	  290.56°
+    4   	2.000e+04	3.672e-04	1.773e-04	  144.65°	  317.68°
+    5   	2.500e+04	1.255e-04	6.062e-05	  175.36°	  348.38°
+    6   	3.000e+04	1.011e-04	4.880e-05	  177.17°	  350.19°
+    7   	3.500e+04	8.650e-05	4.177e-05	  177.22°	  350.25°
+    8   	4.000e+04	7.569e-05	3.655e-05	  177.19°	  350.22°
+    9   	4.500e+04	6.731e-05	3.251e-05	  177.13°	  350.15°
+Total Harmonic Distortion: 19.928810%(19.928813%)
+
+
+
+Date: Sun Dec 01 12:05:14 2019
+Total elapsed time: 0.087 seconds.
 
 tnom = 27
 temp = 27
-method = trap
-totiter = 24
-traniter = 0
-tranpoints = 0
-accept = 0
+method = modified trap
+totiter = 2066
+traniter = 2042
+tranpoints = 1022
+accept = 1022
 rejected = 0
-matrix size = 14
+matrix size = 15
 fillins = 0
 solver = Normal
-Matrix Compiler1:      48 opcodes
-Matrix Compiler2: 1.05 KB object code size
+Matrix Compiler1: 882 bytes object code size  0.3/0.2/[0.1]
+Matrix Compiler2: off  [0.2]/0.2/0.2
+
