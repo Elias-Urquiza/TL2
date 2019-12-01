@@ -1,23 +1,22 @@
 # Fdb version 3
-["biber TL3"] 1575200729 "TL3.bcf" "TL3.bbl" "TL3" 1575212924
-  "TL3.bcf" 1575212923 90028 b407e86b57bba4aece7bec85f1371fd8 ""
+["biber TL3"] 1575200729 "TL3.bcf" "TL3.bbl" "TL3" 1575213709
+  "TL3.bcf" 1575213708 90028 b407e86b57bba4aece7bec85f1371fd8 ""
   (generated)
   "TL3.bbl"
   "TL3.blg"
-["pdflatex"] 1575212914 "TL3.tex" "TL3.pdf" "TL3" 1575212924
+["pdflatex"] 1575213700 "TL3.tex" "TL3.pdf" "TL3" 1575213709
   "Av_sim.png" 1575202263 31953 a3387ca3f0dfc5a2af68a38f638768b0 ""
   "FFT_MED.png" 1574785094 8947111 3217617a4a1df98458511a3057c763bf ""
-  "TL3.aux" 1575212923 9264 1161a663481a0d884354dfe1468d8a28 ""
+  "TL3.aux" 1575213708 9264 1161a663481a0d884354dfe1468d8a28 ""
   "TL3.bbl" 1575200746 0 d41d8cd98f00b204e9800998ecf8427e "biber TL3"
-  "TL3.run.xml" 1575212923 2217 9e49af09e6991653c9a53c99fd6adddd ""
-  "TL3.tex" 1575212912 27797 79d4000baa51d649bd98dc646e5a3fa0 ""
-  "TL3.toc" 1575212923 2286 96b6fbe124fcab9d8fdc4b6499a4af3a ""
+  "TL3.run.xml" 1575213708 2217 9e49af09e6991653c9a53c99fd6adddd ""
+  "TL3.tex" 1575213697 28033 43754cfd4a305b945b19e9c2e81718d5 ""
+  "TL3.toc" 1575213708 2286 96b6fbe124fcab9d8fdc4b6499a4af3a ""
   "X1.png" 1575209133 24349 9bb4a063211d010f5b09e67855626ac4 ""
   "X10.png" 1575209117 25346 49185cdc58808fd65c947de76d8a587e ""
   "activas.png" 1575209151 23678 46a60977407d4d283f9b9971c28431b9 ""
   "f:/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc" 1535860409 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "f:/texlive/2018/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1535860012 2971 def0b6c1f0b107b3b936def894055589 ""
-  "f:/texlive/2018/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1535860012 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "f:/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1535860717 3332 103109f5612ad95229751940c61aada0 ""
   "f:/texlive/2018/texmf-dist/fonts/tfm/adobe/courier/pcrr8r.tfm" 1535860202 1292 bd42be2f344128bff6d35d98474adfe3 ""
   "f:/texlive/2018/texmf-dist/fonts/tfm/adobe/courier/pcrr8t.tfm" 1535860202 1384 4632f5e54900a7dadbb83f555bc61e56 ""
@@ -35,7 +34,6 @@
   "f:/texlive/2018/texmf-dist/fonts/tfm/jknappen/ec/ecrm1200.tfm" 1535860428 3584 f80ddd985bd00e29e9a6047ebd9d4781 ""
   "f:/texlive/2018/texmf-dist/fonts/tfm/jknappen/ec/ecrm1440.tfm" 1535860428 3584 3169d30142b88a27d4ab0e3468e963a2 ""
   "f:/texlive/2018/texmf-dist/fonts/tfm/jknappen/ec/ecti1000.tfm" 1535860429 3072 3bce340d4c075dffe6d4ec732b4c32fe ""
-  "f:/texlive/2018/texmf-dist/fonts/tfm/jknappen/ec/tcbx1000.tfm" 1535860429 1536 30fde759286ded71559881bfa2623939 ""
   "f:/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1535859463 1004 54797486969f23fa377b128694d548df ""
   "f:/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex9.tfm" 1535859463 996 a18840b13b499c08ac2de96a99eda4bc ""
   "f:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmex10.tfm" 1535859956 992 662f679a0b3d2d53c1b94050fdaa3f50 ""
@@ -311,9 +309,9 @@
   "vo3.png" 1574777838 26669 99a313f072ad4334b2a2091553881c59 ""
   "vomax_sim.png" 1575212780 29045 25ec7054fb34da6d87c94ecc0819a9bc ""
   (generated)
-  "TL3.log"
-  "TL3.aux"
-  "TL3.bcf"
-  "TL3.run.xml"
-  "TL3.pdf"
   "TL3.toc"
+  "TL3.aux"
+  "TL3.run.xml"
+  "TL3.log"
+  "TL3.bcf"
+  "TL3.pdf"

@@ -318,12 +318,12 @@ Por otro lado, dado que la resistencia de salida es el paralelo entre la resiste
 
 \subsubsection{Máxima excursión de señal a la salida sin recorte}
 
-Se estima que existe baja distorsión cuando $\Delta V_{GS} << (V_{GSQ}-V_T)/2$. Esta expresión puede ser justificada al interpretar lo que representa. Dado que $\Delta V_{GS}$ representa la amplitud pico de la señal de entrada, es necesario que la misma no supere el límite para el cual el transistor deja de estar en saturación y entra en modo triodo. Por ello, el limite de la señal de entrada está impuesto por la distancia entre $V_{GSQ}$ y $V_T$. \textbf{La distorsión presente, entonces, es la que corresponde a}
+Se estima que existe baja distorsión cuando $\Delta V_{GS} << (V_{GSQ}-V_T)/2$. Esta expresión puede ser justificada al interpretar lo que representa. Dado que $\Delta V_{GS}$ representa la amplitud pico de la señal de entrada, es necesario que la misma no supere el límite para el cual el transistor deja de estar en saturación y entra en modo triodo. Por ello, el limite de la señal de entrada está impuesto por la distancia entre $V_{GSQ}$ y $V_T$. \textcolor{red}\textbf{La distorsión presente, entonces, es la que corresponde a}}
 
 Si se traza la recta de carga dinámica de ambos transistores se pueden observar los límites de amplitud de señal que pueden tener en su salida. Las ecuaciones de ambas rectas de carga se presentan a continuación:
 
 
-\textbf{INCLUIR LAS RCD}
+\textbf{\textcolor{red}{INCLUIR LAS RCD}}
 
 \textit{RCD del Primer Transistor:}
 \begin{equation}
@@ -368,21 +368,21 @@ Con un análisis por inspección podemos obtener un valor aproximado de las frec
 Analizando primero la respuesta en bajas frecuencias, considerando entonces únicamente la influencia del capacitor $C_G$, $C_L$, y $C_{cc}$, se calcula lo siguiente:
 
 \textbf{$C_G$:}
-\textbf{GRÁFICO}
+\textbf{\textcolor{red}{ESQUEMA}}
 
 \begin{equation}
   \tau_G = (145\Omega//1K\Omega) 1\mu F = 0.127ms \Rightarrow = 1253 Hz
 \end{equation}
 
 \textbf{$C_{cc}$:}
-\textbf{GRÁFICO}
+\textbf{\textcolor{red}{ESQUEMA}}
 
 \begin{equation}
   \tau_{cc} = 9.4\Omega 0.1\mu F = 0.94ms \Rightarrow = 169 Hz
 \end{equation}
 
 \textbf{$C_L$:}
-\textbf{GRÁFICO}
+\textbf{\textcolor{red}{ESQUEMA}}
 
 \begin{equation}
   \tau_L = 9.4\Omega 1\mu F = 9.4ms \Rightarrow = 16.9 Hz \approx 170 Hz
@@ -390,7 +390,7 @@ Analizando primero la respuesta en bajas frecuencias, considerando entonces úni
 
 Podemos concluir entonces, dado que la suma de polos ficticios es de $1592Hz$, que la frecuencia de corte inferior tendrá este valor aproximado.
 
-\textbf{[GRÁFICO DE ANÁLISIS EN ALTAS FRECUENCIAS AQUÍ]}
+\textcolor{red}{\textbf{[HACER ESQUEMA CIRCUITAL DE ANÁLISIS EN ALTAS FRECUENCIAS AQUÍ]}}
 
 Para el análisis en altas frecuencias, obtenemos los siguientes valores:
 
@@ -402,8 +402,10 @@ Para el análisis en altas frecuencias, obtenemos los siguientes valores:
 \end{itemize}
 
 Obtenemos entonces, sin considerar la capacidad del Gate 2 puesto que el capacitor asociado está en serie con una resistencia equivalente que se considera tiende a infinito:
+
+
 \textbf{$C_{G1}$:}
-\textbf{GRÁFICO}
+\textbf{\textcolor{red}{ESQUEMA}}
 
 \begin{equation}
   \tau_{G1} = 430fF 1M\Omega = 430ns \Rightarrow f_{G1} = 370.1 KHz
@@ -411,14 +413,14 @@ Obtenemos entonces, sin considerar la capacidad del Gate 2 puesto que el capacit
 
 
 \textbf{$C_{D}$:}
-\textbf{GRÁFICO}
+\textbf{\textcolor{red}{ESQUEMA}}
 
 \begin{equation}
   \tau_{D} = 1.3pF 2.35K\Omega = 3.1ns \Rightarrow f_{D} = 51.3 MHz
 \end{equation}
 
 \textbf{$C_{S}$:}
-\textbf{GRÁFICO}
+\textbf{\textcolor{red}{ESQUEMA}}
 
 \begin{equation}
   \tau_{S} = 14.9 pF 145\Omega = 2.16ns \Rightarrow f_{S} = 73.7 MHz
@@ -603,6 +605,7 @@ Por otro lado, la frecuencia de corte superior se ve disminuida con el uso de pu
 
 \subsubsection{Amplificación de Tensión Total ($A_v$)}
 
+\textbf{\textcolor{red}{GRAFICAR Vi y Vo EN UN SOLO GRÁFICO}}
 \begin{center}
   \includegraphics[width=.5\textwidth]{vi.png}
   \captionof{figure}{Señal de entrada.}
@@ -649,7 +652,7 @@ Con este valor podemos despejar $(R_L//R_{out})$:
 \end{equation}
 
 \subsubsection{Máxima excursión de señal a la salida sin recorte}
-\textbf{CREO QUE SERÍA MEJOR QUE LA ENTRADA Y SALIDA ESTUVIERAN EN UN SOLO GRÁFICO. ¿POR QUE NO ESTAN DESFASADOS 180º?}
+\textbf{\textcolor{red}{GRAFICAR Vi y Vo EN UN SOLO GRÁFICO. Ese desfasaje no me gusta. creo que no medimos en frecuencias medias.}}
 Al medir la máxima excursión sin recorte admitiendo baja distorsión, con una frecuencia de \textbf{5KHz}, obtuvimos la respuesta presente en la figura \ref{fig:vo_exc_med}. La señal de entrada se observa en la figura \ref{fig:vi_exc_med}. Observamos que la máxima tensión pico de entrada es de aproximadamente $V_i=212mV$ obteniendo así una señal de salida alineal de aproximadamente $1.82V$.
 
 \begin{center}
