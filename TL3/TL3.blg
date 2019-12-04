@@ -1,5 +1,5 @@
-[0] Config.pm:302> INFO - This is Biber 2.11
-[0] Config.pm:305> INFO - Logfile is 'TL3.blg'
-[59] biber-MSWIN32:313> INFO - === 
-[100] Biber.pm:371> INFO - Reading 'TL3.bcf'
-[244] Utils.pm:193> WARN - No data sources defined!
+[6] Config.pm:304> INFO - This is Biber 2.12
+[8] Config.pm:307> INFO - Logfile is 'TL3.blg'
+[108] biber:315> INFO - === lun sep  2, 2019, 18:13:38
+[363] Biber.pm:371> INFO - Reading 'TL3.bcf'
+[517] Utils.pm:193> WARN - No data sources defined!

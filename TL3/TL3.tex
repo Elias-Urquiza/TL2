@@ -302,10 +302,11 @@ Finalmente podemos despejar $A_v$:
 
 Que además verifica la relación $A_v = A_{v1} A_{v2}$.
 
-Dado que no tomamos en cuenta ninguna resistencia en serie con la señal del generador, se tiene que $V_i=V_s$ por lo que tenemos:
+Dado que no se especifica un valor de resistencia en serie con la fuente de señal, utilizaremos un valor típico de $R_s=50\Omega$:
 \begin{equation}
-  A_{vs}=A_{v}=-16.22
+  A_{vs}=frac{R_G}{R_s+R_G}A_{v} = 0.999 A_v \approx -16.22
 \end{equation}
+
 
 \subsubsection{Resistencia de Entrada y de Salida}
 Dado que la resistencia del Gate 1 está en paralelo con la resistencia de entrada del transistor, que tiende a infinito por el enunciado, se obtiene:
@@ -512,18 +513,18 @@ Obtenemos entonces, sin considerar la capacidad del Gate 2 puesto que el capacit
   \draw
 
   (0, 0) to[R] ++ (0,-4) node[ground] (F) {}
-  (F) ++ (1.25,1.5) node {$R_G=1M\Omega$}
+  (F) ++ (1.25,1.5) node {$R_G//50\Omega=50\Omega$}
 
   (0, 0) to[short] ++(5,0) node (I) {} to[C] ++ (0,-4) node[ground] (H) {}
 
-  (H) ++ (1.25,1.5) node {$C_{G1}=430fF$}
+  (H) ++ (1.25,1.5) node {$C_{G1}=2.6pF$}
   ;
 
   \end{circuitikz}
 \end{center}
 
 \begin{equation}
-  \tau_{G1} = 1M\Omega \ 430fF = 430ns \Rightarrow f_{G1} = 370.1 KHz
+  \tau_{G1} = 50\Omega \\ 2.6pF = 0.13ns \Rightarrow f_{G1} = 1GHz
 \end{equation}
 
 
@@ -539,7 +540,7 @@ Obtenemos entonces, sin considerar la capacidad del Gate 2 puesto que el capacit
 
   (0, 0) to[short] ++(5,0) node (I) {} to[C,*-] ++ (0,-4) node[ground] (H) {}
 
-  (H) ++ (1,1.5) node {$C_D=1.3pF$}
+  (H) ++ (1,1.5) node {$C_D=825fF$}
 
   (0, 0) to[short] ++(-5,0) node (J) {} to[R,*-] ++ (0,-4) node[ground] (K) {}
   (K) ++ (2,1.5) node {$R_L=4.7K\Omega$}
@@ -550,31 +551,15 @@ Obtenemos entonces, sin considerar la capacidad del Gate 2 puesto que el capacit
 
 
 \begin{equation}
-  \tau_{D} = 1.3pF \ 2.35K\Omega = 3.1ns \Rightarrow f_{D} = 51.3 MHz
+  \tau_{D} = 825fF \\ 2.35K\Omega = 1.94ns \Rightarrow f_{D} = 82 MHz
 \end{equation}
 
-\textbf{$C_{S}$:}
+\textbf{$C_s$ y $C_{g2}$:}
 
-\begin{center}
-  \begin{circuitikz}
-  \ctikzset{resistor = european}
-  \draw
+No tiene sentido calcular estos debido a que están a tierra.
 
-  (0, 0) to[R,*-] ++ (0,-2) node (F) {}
-  (F) ++ (1.4,1.5) node {$R_{eq}=145\Omega$}
-
-  (F) ++ to[C] ++ (0,-2) node[ground] (A) {}
-  (A) ++ (1.25,1.5) node {$C_{S}=14.9pF$}
-  ;
-
-  \end{circuitikz}
-\end{center}
-
-\begin{equation}
-  \tau_{S} = 14.9 pF\ 145\Omega = 2.16ns \Rightarrow f_{S} = 73.7 MHz
-\end{equation}
-
-Debido a que la frecuencia asociada al Gate 1 es la menor, consideraremos que $f_H=370.1KHz$ es la frecuencia de corte superior del sistema.
+\textbf{Frecuencia de corte superior:}
+Sumando las constantes de tiempo, concluímos que la frecuencia de corte superior es de 76.9MHz.
 
 \section{Simulación}
 Simulando el circuito dado con LTSpice, utilizando el modelo simplificado del integrado, presente en la figura \ref{fig:mod_sim}, verificamos los resultados análiticos calculados en la sección anterior. Consideramos nuevamente los siguientes valores:
@@ -777,20 +762,16 @@ Dado que la tensión de reposo en el Gate 1 es cercana a 0V, consideramos que la
 Colocando una resistencia de prueba de $R_p = 4.7K\Omega$ sobre la carga junto con una tensión de prueba $V_p$ se obtuvo:
 
 \begin{equation}
-  V_p= 660mV_{pp} \Rightarrow V^*_{(R_L//R_{out})} = 244 mV_{pp}
-\end{equation}
-
-Con este valor podemos despejar $(R_L//R_{out})$:
-\begin{equation}
-  V^*=V_p \frac{(R_L//R_{out})}{R_p + (R_L//R_{out})} \Rightarrow (R_L//R_{out}) = \frac{V^*\ R_p}{V_p-V^*} = 2.76K\Omega
+  V_p= 660mV_{pp} \Rightarrow V^*_{(R_L//R_{out})} = 219 mV_{pp}
 \end{equation}
 
 \begin{equation}
-  \frac{R_{out}R_L}{R_{out}+R_L} = (R_L//R_{out})  \Rightarrow R_{out}=\frac{(R_L//R_{out}) R_L}{R_L - (R_L//R_{out})}
+  \frac{V_p - V^*}{4.7K\Omega} - \frac{V^*}{4.7K\Omega} = i_{R_{out}} = \frac{V^*}{R_{out}}
 \end{equation}
 
+Se obtuvo
 \begin{equation}
-  R_{out}=\frac{2.76K\Omega\ 4.7K\Omega}{4.7K\Omega - 2.76K\Omega}=6.7K\Omega
+  V^* = 218mV \Rightarrow R_{out} \approx 4.6K\Omega
 \end{equation}
 
 \subsubsection{Máxima excursión de señal a la salida sin recorte}
@@ -857,20 +838,22 @@ En el cuadro \ref{tab:comparativo} se comparan los parámetros de interés. Para
     \hline
     Valor & $I_{DQ}$ & $V_{DSQ}$ & $A_v$ & $A_{vs}$ & $R_{in}$ & $R_{out}$ & $V{o_{max}}$ & $f_l$ & $f_h$ \\
     \hline
-    Analítico & $793.4\mu A$& $5.48V$& -16.22 & -16.22 & $1M\Omega$ & $4.7K\Omega$ & $1.8V$ & $1592Hz$ & $370.1KHz$ \\
+    Analítico & $793.4\mu A$& $5.48V$& -16.22 & -16.22 & $1M\Omega$ & $4.7K\Omega$ & $1.8V$ & $1.44KHz$ & $76.9MHz$ \\
     \hline
-    Simulado & $695\mu A$ & $6V$ & -10.6 & -10.6 & $1M\Omega$ & $4.6K\Omega$ & $2.15V$ & $3KHz$ & $11MHz$ \\
+    Simulado & $695\mu A$ & $6V$ & -10.6 & -10.6 & $1M\Omega$ & $4.6K\Omega$ & $2.15V$ & $3KHz$ & $76.5MHz$ \\
     \hline
-    Medido & $511\mu A$ & $6.9V$ & -9 & -6.8 & $1M\Omega$ & $6.7K\Omega$ & $1.82V$ & $4KHz$ & $2MHz$ \\
+    Medido & $511\mu A$ & $6.9V$ & -9 & -9 & $1M\Omega$ & $4.6K\Omega$ & $1.82V$ & $4KHz$ & $8MHz$ \\
     \hline
     \hline
-    $\epsilon_{r\%}$ & 55\% & 21\% & 80\% & 105\% & 0\% & 30\% & 1\% & 60\% & 81.5\% \\
+    $\epsilon_{r\%}$ & 55\% & 21\% & 21\% & 21\% & 0\% & 2.1\% & 1\% & 60\% & 90\% \\
     \hline
   \end{tabular}
   \captionof{table}{Cuadro comparativo de todos los valores obtenidos por análisis, simulación, y medición.}
   \label{tab:comparativo}
 \end{center}
 
+\section{Conclusiones}
+	En cuanto al análisis de respuesta en frecuencia, pudimos notar que el efecto de las puntas pasivas sobre la frecuencia de corte superior puede alterar el resultado en hasta un 95\%. Nótese que el valor calculado analiticamente y el simulado no contemplan las capacidades y resistencias de las puntas de osciloscopio, mientras que en la medición sí están presentes, por ello se tiene una diferencia del 80\% entre sus valores.
 
         %\section{Referencias} %Usar \printbibliography y el archivo ref.bib
         %\begin{itemize}
