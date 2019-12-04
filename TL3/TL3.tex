@@ -46,7 +46,7 @@
 \renewcommand{\sectionmark}[1]{\markboth{}{\thesection\ \ #1}}
 \fancyhead{}	% Elimino el contenido del encabezado
 % El siguiente texto a la derecha (izquierda) en páginas pares (impares)
-\fancyhead[RE,LO]{86.06 - Circuitos Electrónicos - Informe N\textsuperscript{o}2}
+\fancyhead[RE,LO]{86.06 - Circuitos Electrónicos - Informe N\textsuperscript{o}3}
 \fancyhead[R]{FIUBA}
 
 \fancyfoot{}	% Elimino el contenido del pie de página
@@ -227,33 +227,36 @@ Se tienen los siguientes datos:
 
 \subsection{Análisis de Señal a Frecuencias Medias}
 
-\begin{circuitikz}
-\ctikzset{resistor = european}
-\draw
-(0, 0) node[nigfete] (fet1) {}
-(fet1.G) -- ++ (0,0) to[short,-*] ++(-2,0) node (A) {} to[short,-o] ++ (-1,0) node[left] {\textcolor{red}{$v_{i}$}}
-(A) to[R] ++(0,-4) node[ground] (RG) {}
-(RG) ++ (0.75,1.5) node {$R_G$}
-(fet1.B) -- ++ (fet1.S) to [short] ++ (0,-1.5) node (B) {} to[short] ++(0,-2) node[ground] {}
-(B)  ++ (3,0) node(D) {} to[short] ++ (0,-2)  node(C) {} node[ground] {}
+\begin{center}
+  \begin{circuitikz}
+  \ctikzset{resistor = european}
+  \draw
+  (0, 0) node[nigfete] (fet1) {}
+  (fet1.G) -- ++ (0,0) to[short,-*] ++(-2,0) node (A) {} to[short,-o] ++ (-1,0) node[left] {\textcolor{red}{$v_{i}$}}
+  (A) to[R] ++(0,-4) node[ground] (RG) {}
+  (RG) ++ (0.75,1.5) node {$R_G$}
+  (fet1.B) -- ++ (fet1.S) to [short] ++ (0,-1.5) node (B) {} to[short] ++(0,-2) node[ground] {}
+  (B)  ++ (3,0) node(D) {} to[short] ++ (0,-2)  node(C) {} node[ground] {}
 
 
-(4,2) node[nigfete] (fet2) {}
-(D) to (fet2.G)
-(fet1.B) -- ++ (5,0) -- ++ (0,2) to (fet2.B)
-(fet1.D) -- ++ (0,2) -- ++ (4,0)
-(fet2.S) to[short,-*]  ++ (2,0) node(E) {}
-(E) to[R] ++(0,-2) node(F) {} to[short] ++ (0,-2) node[ground] {}
-(F) ++ (0.75,1.5) node {$R_D$}
+  (4,2) node[nigfete] (fet2) {}
+  (D) to (fet2.G)
+  (fet1.B) -- ++ (5,0) -- ++ (0,2) to (fet2.B)
+  (fet1.D) -- ++ (0,2) -- ++ (4,0)
+  (fet2.S) to[short,-*]  ++ (2,0) node(E) {}
+  (E) to[R] ++(0,-2) node(F) {} to[short] ++ (0,-2) node[ground] {}
+  (F) ++ (0.75,1.5) node {$R_D$}
 
 
-(E) to[short] ++(5,0) node (I) {} to[R,*-] ++ (0,-4) node[ground] (H) {}
+  (E) to[short] ++(3,0) node (I) {} to[R,*-] ++ (0,-4) node[ground] (H) {}
 
-(H) ++ (0.75,1.5) node {$R_L$}
-(I) to[short,-o] ++(0.5,0) ++ (0.25,0) node{\textcolor{red}{$v_o$}}
-;
+  (H) ++ (0.75,1.5) node {$R_L$}
+  (I) to[short,-o] ++(0.5,0) ++ (0.25,0) node{\textcolor{red}{$v_o$}}
 
-\end{circuitikz}
+  ;
+
+  \end{circuitikz}
+\end{center}
 
 Tenemos los siguientes valores para el análisis:
 \begin{center}
@@ -318,12 +321,9 @@ Por otro lado, dado que la resistencia de salida es el paralelo entre la resiste
 
 \subsubsection{Máxima excursión de señal a la salida sin recorte}
 
-Se estima que existe baja distorsión cuando $\Delta V_{GS} << (V_{GSQ}-V_T)/2$. Esta expresión puede ser justificada al interpretar lo que representa. Dado que $\Delta V_{GS}$ representa la amplitud pico de la señal de entrada, es necesario que la misma no supere el límite para el cual el transistor deja de estar en saturación y entra en modo triodo. Por ello, el limite de la señal de entrada está impuesto por la distancia entre $V_{GSQ}$ y $V_T$. \textcolor{red}\textbf{La distorsión presente, entonces, es la que corresponde a}}
+Se estima que existe baja distorsión cuando $\Delta V_{GS} << (V_{GSQ}-V_T)/2$. Esta expresión puede ser justificada al interpretar lo que representa. Dado que $\Delta V_{GS}$ representa la amplitud pico de la señal de entrada, es necesario que la misma no supere el límite para el cual el transistor deja de estar en saturación y entra en modo triodo. Por ello, el limite de la señal de entrada está impuesto por la distancia entre $V_{GSQ}$ y $V_T$.
 
 Si se traza la recta de carga dinámica de ambos transistores se pueden observar los límites de amplitud de señal que pueden tener en su salida. Las ecuaciones de ambas rectas de carga se presentan a continuación:
-
-
-\textbf{\textcolor{red}{INCLUIR LAS RCD}}
 
 \textit{RCD del Primer Transistor:}
 \begin{equation}
@@ -365,32 +365,132 @@ Con un análisis por inspección podemos obtener un valor aproximado de las frec
   \item $C_{g_1d} = C_{g_2d} = 25fF$
 \end{itemize}
 
+\textbf{Análisis en Baja Frecuencia}
+
 Analizando primero la respuesta en bajas frecuencias, considerando entonces únicamente la influencia del capacitor $C_G$, $C_L$, y $C_{cc}$, se calcula lo siguiente:
 
 \textbf{$C_G$:}
-\textbf{\textcolor{red}{ESQUEMA}}
+Pasivando las fuentes independientes y considerando los otros capacitores externos como cortocircuitos:
 
+\begin{center}
+  \begin{circuitikz}
+  \ctikzset{resistor = european}
+  \draw
+
+  (0, 0) to[R,*-] ++ (0,-4) node[ground] (F) {}
+  (F) ++ (1.25,1.5) node {$R_S=1K\Omega$}
+
+  (0, 0) to[short] ++(5,0) node (I) {} to[C,*-] ++ (0,-4) node[ground] (H) {}
+
+  (H) ++ (1,1.5) node {$C_G=1\mu F$}
+
+  (0, 0) to[short] ++(-5,0) node (J) {} to[R,*-] ++ (0,-4) node[ground] (K) {}
+  (K) ++ (2,1.5) node {$R_{eq}=\frac{R_G+r_{gs_1}}{g_{m_1}r_{gs_1}}=145\Omega$}
+  ;
+
+  \end{circuitikz}
+\end{center}
+
+$R_{eq}$ es la resistencia equivalente vista desde el source del T1.
 \begin{equation}
-  \tau_G = (145\Omega//1K\Omega) 1\mu F = 0.127ms \Rightarrow = 1253 Hz
+  \tau_G = (145\Omega//1K\Omega) 1\mu F = 0.127ms \Rightarrow f_G = 1253 Hz
 \end{equation}
 
 \textbf{$C_{cc}$:}
-\textbf{\textcolor{red}{ESQUEMA}}
+Pasivando las fuentes independientes y considerando los otros capacitores externos como cortocircuitos:
+
+\begin{center}
+  \begin{circuitikz}
+  \ctikzset{resistor = european}
+  \draw
+
+  (0, 0) to[R,*-] ++ (0,-2) node (F) {}
+  (F) ++ (1.4,1.5) node {$R_D=4.7K\Omega$}
+
+  (F) ++ to[C] ++ (0,-2) node[ground] (A) {}
+  (A) ++ (1.25,1.5) node {$C_{cc}=0.1\mu F$}
+
+  (0, 0) to[short] ++(5,0) node (I) {} to[R,*-] ++ (0,-4) node[ground] (H) {}
+
+  (H) ++ (1.5,1.5) node {$R_L=4.7K\Omega$}
+
+  (0, 0) to[short] ++(-5,0) node (J) {} to[R,*-] ++ (0,-4) node[ground] (K) {}
+  (K) ++ (1.25,1.5) node {$r_o^{**}\rightarrow \infty$}
+  ;
+
+  \end{circuitikz}
+\end{center}
 
 \begin{equation}
-  \tau_{cc} = 9.4\Omega 0.1\mu F = 0.94ms \Rightarrow = 169 Hz
+  \tau_{cc} = 9.4\Omega 0.1\mu F = 0.94ms \Rightarrow f_{cc}= 169 Hz
 \end{equation}
 
 \textbf{$C_L$:}
-\textbf{\textcolor{red}{ESQUEMA}}
+Pasivando las fuentes independientes y considerando los otros capacitores externos como cortocircuitos:
 
-\begin{equation}
-  \tau_L = 9.4\Omega 1\mu F = 9.4ms \Rightarrow = 16.9 Hz \approx 170 Hz
-\end{equation}
+\begin{center}
+  \begin{circuitikz}
+  \ctikzset{resistor = european}
+  \draw
+
+  (0, 0) to[R,*-] ++ (0,-4) node[ground] (F) {}
+  (F) ++ (1.25,1.5) node {$R_D=4.7K\Omega$}
+
+  (0, 0) to[C] ++(5,0) node (I) {} to[R,*-] ++ (0,-4) node[ground] (H) {}
+
+  (H) ++ (1.3,1.5) node {$R_L=4.7K\Omega$}
+
+  (I) ++ (-1,0.5) node{$C_L=1\mu F$}
+  ;
+
+  \end{circuitikz}
+\end{center}
 
 Podemos concluir entonces, dado que la suma de polos ficticios es de $1592Hz$, que la frecuencia de corte inferior tendrá este valor aproximado.
 
-\textcolor{red}{\textbf{[HACER ESQUEMA CIRCUITAL DE ANÁLISIS EN ALTAS FRECUENCIAS AQUÍ]}}
+\textbf{Análisis en Alta Frecuencia}
+\begin{center}
+  \begin{circuitikz}
+  \ctikzset{resistor = european}
+  \draw
+  (0, 0) node[nigfete] (fet1) {}
+  (fet1.G) -- ++ (0,0) to[short,-*] ++(-2,0) node (A) {} to[short,-o] ++ (-1,0) node[left] {\textcolor{red}{$v_{i}$}}
+  (A) to[R] ++(0,-4) node[ground] (RG) {}
+  (RG) ++ (0.75,1.5) node {$R_G$}
+  (fet1.B) -- ++ (fet1.S) to [short] ++ (0,-1.5) node (B) {} to[short] ++(0,-2) node[ground] {}
+  (B)  ++ (3,0) node(D) {} to[short] ++ (0,-2)  node(C) {} node[ground] {}
+
+
+  (4,2) node[nigfete] (fet2) {}
+  (D) to (fet2.G)
+  (fet1.B) -- ++ (5,0) -- ++ (0,2) to (fet2.B)
+  (fet1.D) -- ++ (0,2) -- ++ (4,0)
+  (fet2.S) to[short,-*]  ++ (4,0) node(E) {}
+  (E) to[R] ++(0,-2) node(F) {} to[short] ++ (0,-2) node[ground] {}
+  (F) ++ (0.75,1.5) node {$R_D$}
+
+
+  (E) to[short] ++(3,0) node (I) {} to[R,*-] ++ (0,-4) node[ground] (H) {}
+
+  (H) ++ (0.75,1.5) node {$R_L$}
+  (I) to[short,-o] ++(0.5,0) ++ (0.25,0) node{\textcolor{red}{$v_o$}}
+
+  %CAPACITORES:
+  (A) -- ++ (1.5,0) to[C,*-,color=red] ++(0,-4) node[ground] (CG1) {}
+  (CG1) ++ (0.75,1.5) node{\textcolor{red}{$C_{G1}$}}
+
+  (B) -- ++ (0,1.5) to[C,*-,color=red] ++(2,0) node(CS) {} to[short] ++(0,-2) node[ground] {}
+  (CS) ++ (-0.5,-0.5) node{\textcolor{red}{$C_{S}$}}
+
+  (D) -- ++ (0,1.5) to[C,*-,color=red] ++(2,0) node(CG2) {} to[short] ++(0,-2) node[ground] {}
+  (CG2) ++ (-0.5,-0.5) node{\textcolor{red}{$C_{G2}$}}
+
+  (E) -- ++ (-1.5,0) to[C,*-,color=red] ++(0,-4) node[ground] (CD) {}
+  (CD) ++ (0.75,1.5) node{\textcolor{red}{$C_{D}$}}
+  ;
+
+  \end{circuitikz}
+\end{center}
 
 Para el análisis en altas frecuencias, obtenemos los siguientes valores:
 
@@ -405,25 +505,73 @@ Obtenemos entonces, sin considerar la capacidad del Gate 2 puesto que el capacit
 
 
 \textbf{$C_{G1}$:}
-\textbf{\textcolor{red}{ESQUEMA}}
+
+\begin{center}
+  \begin{circuitikz}
+  \ctikzset{resistor = european}
+  \draw
+
+  (0, 0) to[R] ++ (0,-4) node[ground] (F) {}
+  (F) ++ (1.25,1.5) node {$R_G=1M\Omega$}
+
+  (0, 0) to[short] ++(5,0) node (I) {} to[C] ++ (0,-4) node[ground] (H) {}
+
+  (H) ++ (1.25,1.5) node {$C_{G1}=430fF$}
+  ;
+
+  \end{circuitikz}
+\end{center}
 
 \begin{equation}
-  \tau_{G1} = 430fF 1M\Omega = 430ns \Rightarrow f_{G1} = 370.1 KHz
+  \tau_{G1} = 1M\Omega \ 430fF = 430ns \Rightarrow f_{G1} = 370.1 KHz
 \end{equation}
 
 
 \textbf{$C_{D}$:}
-\textbf{\textcolor{red}{ESQUEMA}}
+
+\begin{center}
+  \begin{circuitikz}
+  \ctikzset{resistor = european}
+  \draw
+
+  (0, 0) to[R,*-] ++ (0,-4) node[ground] (F) {}
+  (F) ++ (1.25,1.5) node {$R_D=4.7K\Omega$}
+
+  (0, 0) to[short] ++(5,0) node (I) {} to[C,*-] ++ (0,-4) node[ground] (H) {}
+
+  (H) ++ (1,1.5) node {$C_D=1.3pF$}
+
+  (0, 0) to[short] ++(-5,0) node (J) {} to[R,*-] ++ (0,-4) node[ground] (K) {}
+  (K) ++ (2,1.5) node {$R_L=4.7K\Omega$}
+  ;
+
+  \end{circuitikz}
+\end{center}
+
 
 \begin{equation}
-  \tau_{D} = 1.3pF 2.35K\Omega = 3.1ns \Rightarrow f_{D} = 51.3 MHz
+  \tau_{D} = 1.3pF \ 2.35K\Omega = 3.1ns \Rightarrow f_{D} = 51.3 MHz
 \end{equation}
 
 \textbf{$C_{S}$:}
-\textbf{\textcolor{red}{ESQUEMA}}
+
+\begin{center}
+  \begin{circuitikz}
+  \ctikzset{resistor = european}
+  \draw
+
+  (0, 0) to[R,*-] ++ (0,-2) node (F) {}
+  (F) ++ (1.4,1.5) node {$R_{eq}=145\Omega$}
+
+  (F) ++ to[C] ++ (0,-2) node[ground] (A) {}
+  (A) ++ (1.25,1.5) node {$C_{S}=14.9pF$}
+  ;
+
+  \end{circuitikz}
+\end{center}
 
 \begin{equation}
-  \tau_{S} = 14.9 pF 145\Omega = 2.16ns \Rightarrow f_{S} = 73.7 MHz
+  \tau_{S} = 14.9 pF\ 145\Omega = 2.16ns \Rightarrow f_{S} = 73.7 MHz
 \end{equation}
 
 Debido a que la frecuencia asociada al Gate 1 es la menor, consideraremos que $f_H=370.1KHz$ es la frecuencia de corte superior del sistema.
@@ -605,19 +753,13 @@ Por otro lado, la frecuencia de corte superior se ve disminuida con el uso de pu
 
 \subsubsection{Amplificación de Tensión Total ($A_v$)}
 
-\textbf{\textcolor{red}{GRAFICAR Vi y Vo EN UN SOLO GRÁFICO}}
 \begin{center}
-  \includegraphics[width=.5\textwidth]{vi.png}
-  \captionof{figure}{Señal de entrada.}
-  \label{fig:vi_med}
+  \includegraphics[width=.7\textwidth]{AvTRUCHO.png}
+  \captionof{figure}{Respuesta obtenida para una señal de entrada de 5KHz y amplitud de 100mV.}
+  \label{fig:av_med}
 \end{center}
 
-\begin{center}
-  \includegraphics[width=.5\textwidth]{vo.png}
-  \captionof{figure}{Señal de salida.}
-  \label{fig:vo_med}
-\end{center}
-
+%La señal de salida observada en la figura \ref{fig:av_med} se puede observar que no tiene desfasaje apreciable respecto de $v_i$. Esto es así, y lo confirmamos más adelante, puesto que el rango de frecuencias medias empieza una decada por encima de la frecuencia de corte inferior de la transferencia $|A_{vs}|$. Es decir, habría sido conveniente medir en aproximadamente $10KHz$. Durante la medición no notamos esto debido a que utilizamos una única punta para realizar ambas mediciones.
 
 \begin{equation}
   A_v=\frac{1.8V_{pp}}{200mV_{pp}}=9
@@ -652,25 +794,18 @@ Con este valor podemos despejar $(R_L//R_{out})$:
 \end{equation}
 
 \subsubsection{Máxima excursión de señal a la salida sin recorte}
-\textbf{\textcolor{red}{GRAFICAR Vi y Vo EN UN SOLO GRÁFICO. Ese desfasaje no me gusta. creo que no medimos en frecuencias medias.}}
-Al medir la máxima excursión sin recorte admitiendo baja distorsión, con una frecuencia de \textbf{5KHz}, obtuvimos la respuesta presente en la figura \ref{fig:vo_exc_med}. La señal de entrada se observa en la figura \ref{fig:vi_exc_med}. Observamos que la máxima tensión pico de entrada es de aproximadamente $V_i=212mV$ obteniendo así una señal de salida alineal de aproximadamente $1.82V$.
+Al medir la máxima excursión sin recorte admitiendo baja distorsión, con una frecuencia de \textbf{5KHz}, obtuvimos la respuesta presente en la figura \ref{fig:exc_med}. Observamos que la máxima tensión pico de entrada es de aproximadamente $V_i=212mV$ obteniendo así una señal de salida alineal de aproximadamente $V_{O_{pp}}=3.3V$.
 
 \begin{center}
-  \includegraphics[width=0.5\textwidth]{vi3.png}
-  \captionof{figure}{Señal de entrada máxima sin recorte.}
-  \label{fig:vi_exc_med}
-\end{center}
-
-\begin{center}
-  \includegraphics[width=0.5\textwidth]{vo3.png}
-  \captionof{figure}{Señal de salida máxima sin recorte.}
-  \label{fig:vo_exc_med}
+  \includegraphics[width=.7\textwidth]{excursion.png}
+  \captionof{figure}{Máxima excursión de señal a la salida sin recorte.}
+  \label{fig:exc_med}
 \end{center}
 
 Para evaluar la distorsión de la señal, se utilizó la función FFT del osciloscopio digital, obteniéndose el resultado de la figura \ref{fig:fft_med}.
 
 \begin{center}
-  \includegraphics[width=0.5\textwidth]{FFT_MED.png}
+  \includegraphics[width=0.7\textwidth]{FFT_MED.png}
   \captionof{figure}{FFT de la señal de salida en su máxima excursión sin recorte. \textbf{Escala: 2.5KHz/div.}}
   \label{fig:fft_med}
 \end{center}
@@ -703,11 +838,11 @@ Para medir la respuesta en frecuencia, con una tensión de entrada $V_{s_p}=180m
     \hline
     Puntas & $f_l$ & $f_h$ & $|A_{vs}|$ \\
     \hline
-    X1 & ~4KHz & ~50KHz & 6.8 \\
+    X1 & 4KHz & ~100KHz & 6.8 \\
     \hline
-    X10 & ~3KHz & ~50KHz & 6.9 \\
+    X10 & 3KHz & 1MHz & 6.9 \\
     \hline
-    Activas & ~10KHz& ~100KHz & 6.8 \\
+    Activas & 10KHz& 2MHz & 6.8 \\
     \hline
   \end{tabular}
   \captionof{table}{Tabla comparativa de los valores de frecuencia de corte inferior y superior. Se incluye también el valor de $|A_{vs}|$.}
@@ -726,10 +861,10 @@ En el cuadro \ref{tab:comparativo} se comparan los parámetros de interés. Para
     \hline
     Simulado & $695\mu A$ & $6V$ & -10.6 & -10.6 & $1M\Omega$ & $4.6K\Omega$ & $2.15V$ & $3KHz$ & $11MHz$ \\
     \hline
-    Medido & $511\mu A$ & $6.9V$ & -9 & -6.8 & $1M\Omega$ & $6.7K\Omega$ & $1.82V$ & $4KHz$ & $100KHz$ \\
+    Medido & $511\mu A$ & $6.9V$ & -9 & -6.8 & $1M\Omega$ & $6.7K\Omega$ & $1.82V$ & $4KHz$ & $2MHz$ \\
     \hline
     \hline
-    $\epsilon_{r\%}$ & 55\% & 21\% & 80\% & 105\% & 0\% & 30\% & 1\% & 60\% & 270\% \\
+    $\epsilon_{r\%}$ & 55\% & 21\% & 80\% & 105\% & 0\% & 30\% & 1\% & 60\% & 81.5\% \\
     \hline
   \end{tabular}
   \captionof{table}{Cuadro comparativo de todos los valores obtenidos por análisis, simulación, y medición.}
