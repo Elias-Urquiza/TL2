@@ -31,7 +31,7 @@ grid minor on;
 %xlim([0,25])
 %ylim([0,20])
 
-title("Respuesta en Frecuencia medida con puntas X10");
+title("Respuesta en Frecuencia medida con puntas de prueba activas");
 xlabel("f[log] (Hz) [log]","fontsize", 8);
 ylabel("|A_{vs}| [dB]","fontsize", 8);
 
