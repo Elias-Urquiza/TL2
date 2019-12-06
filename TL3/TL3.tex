@@ -118,8 +118,6 @@
     \item Comparar los resultados obtenidos mediante el cálculo analítico, la medición en laboratorio y la verificación por simulación con LTSPICE.
   \end{itemize}
 
-\section{Desarrollo}
-
 \section{Cálculo Analítico}
 
 Utilizando el modelo presente en la fig. \ref{fig:circuito}, calculamos analíticamente los valores de reposo y los parámetros de señal para frecuencias medias.
@@ -304,7 +302,7 @@ Que además verifica la relación $A_v = A_{v1} A_{v2}$.
 
 Dado que no se especifica un valor de resistencia en serie con la fuente de señal, utilizaremos un valor típico de $R_s=50\Omega$:
 \begin{equation}
-  A_{vs}=frac{R_G}{R_s+R_G}A_{v} = 0.999 A_v \approx -16.22
+  A_{vs}=\frac{R_G}{R_s+R_G}A_{v} = 0.999 A_v \approx -16.22
 \end{equation}
 
 
@@ -338,12 +336,13 @@ La raíz se encuentra en $v_{D_1} = 973mV$ y la ordenada al origen en $i_{D_1} =
 \end{equation}
 La raíz se encuentra en $v_{D_1} = 6.42V$ y la ordenada al origen en $i_{D_1} = 2.73mA$.
 
-La tensión $V_{o1_{max}}= V_{DSQ_1} - 0.94V = 0.97V - 0.94V = 30mV$, mientras que $V_{o_{max}}= V_{DSQ_2} - 4.54V = 6.42V - 4.54V = 1.88V$.
+\smallskip
+La tensión $V_{o1_{max}}= V_{DSQ_1} - 0.94V = 0.97V - 0.94V = 30mV$, porque opera en un punto cercano a saturación, mientras que $V_{o2_{max}}= 6.42V - V_{DSQ_2} = 6.42V - 4.54V = 1.88V$.
 
 Dado el valor de $A_{V1}$ de la ecuación \ref{eq:av1} se puede despejar la tensión de entrada máxima $v_i$:
 
 \begin{equation}
-  v_{i_M}=\frac{30mV}{0.274}=30mV
+  v_{i_M}=\frac{30mV}{0.274}\approx110mV
   \label{eq:in_max_teo}
 \end{equation}
 
@@ -511,8 +510,7 @@ Para el análisis en altas frecuencias, obtenemos los siguientes valores:
   \item $C_{Source}=0.8pF(1-\frac{v_o}{v_{source}})+1.1pF(1-\frac{v_{source}}{v_{gate_2}})+2.2pF(1-\frac{v_i}{v_{source}}) = 14.9pF$
 \end{itemize}
 
-Obtenemos entonces, sin considerar la capacidad del Gate 2 puesto que el capacitor asociado está en serie con una resistencia equivalente que se considera tiende a infinito:
-
+\newpage
 
 \textbf{$C_{G1}$:}
 
@@ -522,7 +520,7 @@ Obtenemos entonces, sin considerar la capacidad del Gate 2 puesto que el capacit
   \draw
 
   (0, 0) to[R] ++ (0,-4) node[ground] (F) {}
-  (F) ++ (1.25,1.5) node {$R_G//50\Omega=50\Omega$}
+  (F) ++ (1.5,1.5) node {$R_G//50\Omega=50\Omega$}
 
   (0, 0) to[short] ++(5,0) node (I) {} to[C] ++ (0,-4) node[ground] (H) {}
 
@@ -714,17 +712,20 @@ Se simuló la respuesta en frecuencia para cuatro casos distintos: sin simular l
   \label{fig:sim-activa}
 \end{center}
 
-Podemos observar que la frecuencia de corte inferior no es alterada apreciablemente con el uso de las distintas puntas de medición, obteniendo entonces:
+Podemos observar que la frecuencia de corte inferior no es alterada apreciablemente con el uso de las distintas puntas de medición. Por otro lado, gráficamente se observa que la frecuencia de corte superior se ve disminuida con el uso de puntas X1 y X10 respecto a la obtenida sin simular las puntas. La frecuencia de corte superior que más se asemeja a la $f_h$ es la obtenida utilizando puntas activas, por tener una capacidad mucho menor que las otras dos. Por ello, en el cuadro \ref{tab:frec_sim} se comparan los resultados obtenidos al simular puntas activas con los valores sin puntas.
 
-\begin{equation}
-  f_l \approx 3KHz
-\end{equation}
-
-Por otro lado, la frecuencia de corte superior se ve disminuida con el uso de puntas X1 y X10 respecto a la obtenida sin simular las puntas. La frecuencia de corte superior que más se asemeja a la $f_h$ es la obtenida utilizando puntas activas, por tener una capacidad mucho menor que las otras dos.
-
-\begin{equation}
-  f_h \approx 11MHz
-\end{equation}
+\begin{center}
+  \begin{tabular}{|c|c|c|c|}
+    \hline
+     & Sin Puntas & Puntas Activas & $\epsilon_{r\%}$ \\
+    \hline
+    $f_l$ & 860Hz & 860Hz & 0\% \\
+    \hline
+    $f_h$ & 77.8MHz & 50MHz & 36\% \\
+    \hline
+  \end{tabular}
+  \captionof{table}{Comparación de los valores simulados sin puntas de osciloscopio y los simulados con puntas activas.}
+\end{center}
 
 \section{Mediciones}
 
@@ -848,7 +849,7 @@ Para medir la respuesta en frecuencia, con una tensión de entrada $V_{s_p}=180m
 Se puede observar que la frecuencia de corte superior tiene un error porcentual del 95\% entre el valor medido con puntas activas y el medido con puntas X1.
 
 \section{Análisis Comparativo}
-En los siguientes cuadros comparamos los resultados obtenidos en toda la experiencia. \textbf{Se utilizaron los valores de simulación que no contemplan las puntas de osciloscopio, mientras que los valores medidos son los que se obtuvieron con puntas de prueba activa.}
+En los siguientes cuadros comparamos los resultados obtenidos en toda la experiencia. \textbf{En el cuadro \ref{tab:comparativo1} se utilizan los valores de simulación que no contemplan las puntas de osciloscopio, mientras que los valores medidos son los que se obtuvieron con puntas de prueba activa. El error relativo se considera según el valor de simulación.} Los valores analíticos se espera que se aproximen mayormente a los valores de simulación que no contemplan las puntas de osciloscopio.
 
 \begin{center}
   \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
@@ -857,16 +858,16 @@ En los siguientes cuadros comparamos los resultados obtenidos en toda la experie
     \hline
     Analítico & $793.4\mu A$& $5.48V$& -16.22 & -16.22 & $1M\Omega$ & $4.7K\Omega$ & $1.8V$ & $1.44KHz$ & $76.9MHz$ \\
     \hline
-    Simulado & $695\mu A$ & $6V$ & -10.6 & -10.6 & $1M\Omega$ & $4.6K\Omega$ & $2.15V$ & $870Hz$ & $76.5MHz$ \\
+    Simulado & $695\mu A$ & $6V$ & -10.6 & -10.6 & $1M\Omega$ & $4.6K\Omega$ & $2.15V$ & $860Hz$ & $76.5MHz$ \\
     \hline
-    $\epsilon_{r\%}$ & 14.2\% & 8.7\% & 53\% & 53\% & 0\% & 2.17\% & 16.3\% & 39.6\% & 0.52\% \\
+    $\epsilon_{r\%}$ & 14.2\% & 8.7\% & 53\% & 53\% & 0\% & 2.17\% & 16.3\% & 67.4\% & 0.52\% \\
     \hline
   \end{tabular}
   \captionof{table}{Comparación entre los valores analíticos y los simulados.}
   \label{tab:comparativo1}
 \end{center}
 
-En el cuadro \ref{tab:comparativo2} se comparan los resultados obtenidos analíticamente con los medidos. El error relativo se considera según el valor de medición.
+\textbf{En el cuadro \ref{tab:comparativo2} se comparan los resultados obtenidos analíticamente con los medidos. El error relativo se considera según el valor de medición. Los valores medidos corresponden a lo obtenido con el uso de puntas activas.}
 
 \begin{center}
   \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
@@ -877,33 +878,35 @@ En el cuadro \ref{tab:comparativo2} se comparan los resultados obtenidos analít
     \hline
     Medido & $511\mu A$ & $6.9V$ & -9 & -9 & $1M\Omega$ & $4.6K\Omega$ & $1.82V$ & $1.5KHz$ & $7.11MHz$ \\
     \hline
-    $\epsilon_{r\%}$ & 55\% & 21\% & 21\% & 21\% & 0\% & 2.1\% & 1\% & 4\% & 90\% \\
+    $\epsilon_{r\%}$ & 55\% & 80\% & 80\% & 21\% & 0\% & 2.1\% & 1\% & 4\% & 982\% \\
     \hline
   \end{tabular}
   \captionof{table}{Comparación entre los valores analíticos y los medidos.}
   \label{tab:comparativo2}
 \end{center}
 
-En el cuadro \ref{tab:comparativo3} se comparan los resultados obtenidos por simulación con los medidos. El error relativo se considera según el valor de medición.
+\textbf{En el cuadro \ref{tab:comparativo3} se comparan los resultados obtenidos por simulación con los medidos. El error relativo se considera según el valor de medición. Los valores simulados corresponden al modelo que contempla el uso de puntas activas.}
 
 \begin{center}
   \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
     \hline
     Valor & $I_{DQ}$ & $V_{DSQ}$ & $A_v$ & $A_{vs}$ & $R_{in}$ & $R_{out}$ & $V{o_{max}}$ & $f_l$ & $f_h$ \\
     \hline
-    Simulado & $695\mu A$ & $6V$ & -10.6 & -10.6 & $1M\Omega$ & $4.6K\Omega$ & $2.15V$ & $870Hz$ & $76.5MHz$ \\
+    Simulado & $695\mu A$ & $6V$ & -10.6 & -10.6 & $1M\Omega$ & $4.6K\Omega$ & $2.15V$ & $860Hz$ & $50MHz$ \\
     \hline
     Medido & $511\mu A$ & $6.9V$ & -9 & -9 & $1M\Omega$ & $4.6K\Omega$ & $1.82V$ & $1.5KHz$ & $7.11MHz$ \\
     \hline
-    $\epsilon_{r\%}$ & 36\% & 13\% & 17.8\% & 17.8\% & 0\% & 0\% & 18.1\% & 42\% & 90\% \\
+    $\epsilon_{r\%}$ & 36\% & 13\% & 17.8\% & 17.8\% & 0\% & 0\% & 18.1\% & 42.7\% & 603\% \\
     \hline
   \end{tabular}
   \captionof{table}{Comparación entre los valores simulados y los medidos.}
   \label{tab:comparativo3}
 \end{center}
 
+\newpage
+
 \section{Conclusiones}
-	En cuanto al análisis de respuesta en frecuencia, pudimos notar que el efecto de las puntas pasivas sobre la frecuencia de corte superior puede alterar el resultado en hasta un 95\%. Nótese que el valor calculado analiticamente y el simulado no contemplan las capacidades y resistencias de las puntas de osciloscopio, mientras que en la medición sí están presentes, por ello se tiene una diferencia de hasta un 90\% entre sus valores.
+	En cuanto al análisis de respuesta en frecuencia, pudimos notar que el efecto de las puntas pasivas sobre la frecuencia de corte superior puede alterar el resultado en hasta un 95\%. Nótese que el valor calculado analiticamente y el simulado no contemplan las capacidades y resistencias de las puntas de osciloscopio, por lo que la diferencia entre las frecuencias de corte superior son similares en un 98.48\%. Por otro lado, durante las mediciones sí se tiene que considerar el efecto de las puntas. Por ello, se tiene una diferencia de un 982\% entre el valor analítico y el medido. Cabe destacar que esta diferencia porcentual se ve disminuida al comparar el valor medido con el modelo simulado que contempla puntas activas. Sin embargo, esta diferencia es significativa, al ser de un 603\%. Consideramos que esto se debe a que la simulación no parece contemplar plenamente el efecto de la resistencia en serie del generador, a pesar de su inclusión, por lo que la frecuencia de corte superior está sobreestimada.
 
   Las principales diferencias notables, aparte de las correspondientes a la respuesta en frecuencia, son los correspondientes a los valores de reposo. El análisis y la simulación sobrestiman el valor de corriente en hasta un 55\%. Esto altera los parámetros de pequeña señal contemplados y consideramos que a esto se deben las discrepancias de hasta un 21\% en los valores de amplificación $A_v$ y $A_{vs}$. En cuanto a los valores de resistencia de entrada y salida, en cambio, se puede notar que los errores son prácticamente nulos.
 

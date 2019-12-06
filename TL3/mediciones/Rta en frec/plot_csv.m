@@ -4,7 +4,7 @@ clear all, close all;
 graphics_toolkit gnuplot
 
 % Importo datos
-SIM=dlmread("Activas.csv",';',1,0);
+SIM=dlmread("X1.csv",';',1,0);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 ##Grafs.
@@ -31,7 +31,7 @@ grid minor on;
 %xlim([0,25])
 %ylim([0,20])
 
-title("Respuesta en Frecuencia medida con puntas de prueba activas");
+title("Respuesta en Frecuencia medida con puntas X1");
 xlabel("f[log] (Hz) [log]","fontsize", 8);
 ylabel("|A_{vs}| [dB]","fontsize", 8);
 
@@ -39,7 +39,7 @@ ylabel("|A_{vs}| [dB]","fontsize", 8);
 %legend('boxon');
 %set(Hleg,'FontName','Arial','FontSize',7);
 
-print('activas.png','-dpng','-r300');
+print('X1.png','-dpng','-r300');
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
