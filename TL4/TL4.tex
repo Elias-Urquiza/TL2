@@ -1,0 +1,135 @@
+
+
+\documentclass[a4paper, 10pt, spanish]{article}
+\usepackage{color}
+\definecolor{cadet}{rgb}{0.33, 0.41, 0.47}
+\definecolor{orange}{rgb}{0.93, 0.53, 0.18}
+\definecolor{carminered}{rgb}{1.0, 0.0, 0.22}
+\definecolor{green}{rgb}{0.33, 0.42, 0.18}
+\definecolor{darkmagenta}{rgb}{0.55, 0.0, 0.55}
+\usepackage{anysize}
+\usepackage{amsmath}
+\usepackage{biblatex}
+\usepackage{float}
+\usepackage{array} % 1
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{calc,patterns,angles,quotes}
+\usetikzlibrary{calc,decorations.pathmorphing,patterns}
+\usepackage{graphicx}
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{textcomp}
+\usepackage{fancyhdr}
+\usepackage{color}
+\usepackage{courier}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{pgfplots,filecontents}
+\pgfplotsset{compat=1.7}
+\pgfplotsset{compat=newest}
+\usepgfplotslibrary{units}
+\usepackage[siunitx]{circuitikz}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{cleveref}
+\usepackage{tabularx}
+\usepackage{lscape}
+\usepackage{pdflscape}
+\usepackage{booktabs}
+
+
+\usepackage{lastpage}   % Para poder saber cuántas páginas tiene el documento
+\pagestyle{fancy}
+\renewcommand{\sectionmark}[1]{\markboth{}{\thesection\ \ #1}}
+\fancyhead{}	% Elimino el contenido del encabezado
+% El siguiente texto a la derecha (izquierda) en páginas pares (impares)
+\fancyhead[RE,LO]{86.06 - Circuitos Electrónicos - Informe N\textsuperscript{o}4}
+\fancyhead[R]{FIUBA}
+
+\fancyfoot{}	% Elimino el contenido del pie de página
+% A la izquierda (derecha) en páginas pares (impares): nro. de página / total
+\fancyfoot[LE,RO]{\thepage/\pageref{LastPage}}
+
+
+
+\begin{document}
+
+
+\marginsize{2cm}{2cm}{2cm}{2cm}
+%
+% Carátula:
+%
+\begin{titlepage}
+
+\thispagestyle{empty}
+
+\begin{center}
+\includegraphics[scale=0.3]{fiuba.pdf}\\
+\large{\textsc{Universidad de Buenos Aires}}\\
+\large{\textsc{Facultad de Ingeniería}}\\
+% Modificar año y cuatrimestre
+\small{Año 2019 - 2\textsuperscript{o} cuatrimestre}
+\end{center}
+
+\vfill
+
+\begin{center} % Modificar el código de ser necesario
+\Large{\underline{\textsc{Circuitos Electrónicos (86.06)}}}\\ \vspace{0.5cm}
+\Large{\underline{\textsc{Diseño de Circuito Amplificador Para Sensor de Laboratorio}}}\\ \vspace{0.5cm}
+\Large{\underline{\textsc{Informe de Laboratorio N\textsuperscript{o}~4}}}
+\end{center}
+
+\vfill
+
+\begin{center}
+\large{José F. González - 100063 - \footnotesize{\verb!<jfgonzalez@fi.uba.ar>!}}\\ \vspace{0.25cm}
+\large{Gottfried, Joel - 102498 - \footnotesize{\verb!<joelgottfried99@gmail.com>!}}\\\vspace{0.25cm}
+\large{Urquiza, Elias - 100714 - \footnotesize{\verb!<eurquiza@fi.uba.ar>!}}\\
+\end{center}
+
+\vfill
+
+\hrule
+\vspace{0.2cm}
+
+% Modificar código de ser necesario
+\noindent\small{86.06 - Circuitos Electrónicos \hfill }
+
+\end{titlepage}
+
+%
+% Hago que las páginas se comiencen a contar a partir de aquí:
+%
+\setcounter{page}{1}
+
+%
+% Pongo el índice en una página aparte:
+%
+\tableofcontents
+\newpage
+
+
+\section{Objetivos}
+  \begin{itemize}
+    \item Analizar las características principales de una etapa amplificadora formada por un MOSFET de doble gate BF966, que puede configurarse como un circuito equivalente de dos transistores NMOSFET de canal preformado.
+    \item Comparar los resultados obtenidos mediante el cálculo analítico, la medición en laboratorio y la verificación por simulación con LTSPICE.
+  \end{itemize}
+
+
+\newpage
+
+\section{Conclusiones}
+	
+
+        %\section{Referencias} %Usar \printbibliography y el archivo ref.bib
+        %\begin{itemize}
+            %\item How Oscilloscope Probes Affect Your Measurement - Application Note - Tektronix
+        %\end{itemize}
+        %\printbibliography
+
+
+
+\end{document}
