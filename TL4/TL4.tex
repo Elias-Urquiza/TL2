@@ -1,4 +1,4 @@
-
+﻿
 
 \documentclass[a4paper, 10pt, spanish]{article}
 \usepackage{color}
@@ -101,11 +101,6 @@
 \end{titlepage}
 
 %
-% Hago que las páginas se comiencen a contar a partir de aquí:
-%
-\setcounter{page}{1}
-
-%
 % Pongo el índice en una página aparte:
 %
 \tableofcontents
@@ -113,23 +108,48 @@
 
 
 \section{Objetivos}
-  \begin{itemize}
-    \item Analizar las características principales de una etapa amplificadora formada por un MOSFET de doble gate BF966, que puede configurarse como un circuito equivalente de dos transistores NMOSFET de canal preformado.
-    \item Comparar los resultados obtenidos mediante el cálculo analítico, la medición en laboratorio y la verificación por simulación con LTSPICE.
-  \end{itemize}
+    Se busca crear un circuito capaz de adaptar la diferencia de potencial producida por un sensor de fuerza FN3030 al rango de tensiones que maneja el ADC de un arduino (0-5V). El mismo debe contar con una etapa diferencial en la entrada ya que la señal producida por el sensor posee ruido de amplitud similar a la de la señal.
+    También se busca que la ganancia sea ajustable ya que se no se conoce con precisión la fuerza máxima que va a recibir el sensor medible y se busca maximizar la eficiencia del ADC.
 
+\section{Diseño}
 
-\newpage
+    Dado que junto al sensor de fuerza ya venia incluido un amplificador diferencial AD620 se utilizo el mismo para la etapa diferencial. La ganancia del mismo es configurable mediante la ecuación~\ref{eq:ganancia} Se utilizo un amplificador operacional TL082 en configuración no inversora en conjunto con un preset para crear la ganancia ajustable mencionada previamente.
+    
+    Se diseño el circuito de la figura X.
+    
+    \begin{equation}\label{eq:ganancia}
+        G = \frac{49.4K\Omega}{R_g} + 1
+    \end{equation}
 
+\section{Mediciones}
+
+    Se realizo una serie de mediciones utilizando pesas de alta precisión para determinar una recta de tensión en función de la fuerza que en este caso iba a ser puramente el peso de las pesas. Lo primero que se hizo fue realizar la máxima fuerza que puede recibir el sensor y ajustar la ganancia tal que a esa fuerza máxima, la tensión de salida del circuito sea 5V, y por lo tanto nunca supere la tensión máxima que puede recibir el ADC.
+    
+    Las mediciones pueden verse en la tabla~\ref{tb:mediciones}
+    
+    \begin{center}
+        \begin{tabular}{| l | l |}
+        \hline
+        Peso & Tensión medida \\ \hline
+        0g   & 241mV  \\ \hline
+        20g  & 318mV  \\ \hline
+        50g  & 433mV  \\ \hline
+        100g & 625mV  \\ \hline
+        200g & 1009mV \\ \hline
+        250g & 1.2V   \\ \hline
+        500g & 2.16V  \\ \hline
+        \end{tabular}
+        \captionof{table}{Tabla de resultados\label{tb:mediciones}}
+    \end{center}
+    
+     Mediante hacer cuadrados mínimos se obtuvo la recta deseada que puede verse en la ecuación~\ref{eq:recta}, donde F es la fuerza que esta siendo aplicada sobre el sensor y V es la tensión medida en milivolts.
+     
+    \begin{equation}\label{eq:recta}
+        F = V\cdot0.259 - 60.456
+    \end{equation}
+     
+     
 \section{Conclusiones}
-	
-
-        %\section{Referencias} %Usar \printbibliography y el archivo ref.bib
-        %\begin{itemize}
-            %\item How Oscilloscope Probes Affect Your Measurement - Application Note - Tektronix
-        %\end{itemize}
-        %\printbibliography
-
 
 
 \end{document}
