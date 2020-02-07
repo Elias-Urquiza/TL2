@@ -46,12 +46,12 @@
 \renewcommand{\sectionmark}[1]{\markboth{}{\thesection\ \ #1}}
 \fancyhead{}	% Elimino el contenido del encabezado
 % El siguiente texto a la derecha (izquierda) en páginas pares (impares)
-\fancyhead[RE,LO]{86.06 - Circuitos Electrónicos - Informe N\textsuperscript{o}4}
+\fancyhead{86.06 - Circuitos Electrónicos - Informe N\textsuperscript{o}4}
 \fancyhead[R]{FIUBA}
 
 \fancyfoot{}	% Elimino el contenido del pie de página
 % A la izquierda (derecha) en páginas pares (impares): nro. de página / total
-\fancyfoot[LE,RO]{\thepage/\pageref{LastPage}}
+\fancyfoot{\thepage/\pageref{LastPage}}
 
 
 
@@ -111,7 +111,12 @@
     Se busca crear un circuito capaz de adaptar la diferencia de potencial producida por un sensor de fuerza FN3030 al rango de tensiones que maneja el ADC de un arduino (0-5V). El mismo debe contar con una etapa diferencial en la entrada ya que la señal producida por el sensor posee ruido de amplitud similar a la de la señal.
     También se busca que la ganancia sea ajustable ya que se no se conoce con precisión la fuerza máxima que va a recibir el sensor medible y se busca maximizar la eficiencia del ADC.
 
+\section{Alimentación}
+
+    Dado que se busca que el circuito opere en un ambiente pequeño se decidió crear una fuente de alimentación especifica para el circuito. La misma es una fuente partida a partir de un transformador 220v-30v cuyo circuito puede verse en la figura XX.
+
 \section{Diseño}
+
 
     Dado que junto al sensor de fuerza ya venia incluido un amplificador diferencial AD620 se utilizo el mismo para la etapa diferencial. La ganancia del mismo es configurable mediante la ecuación~\ref{eq:ganancia} Se utilizo un amplificador operacional TL082 en configuración no inversora en conjunto con un preset para crear la ganancia ajustable mencionada previamente.
     
@@ -153,3 +158,4 @@
 
 
 \end{document}
+
