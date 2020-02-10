@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.9.2)  12 DEC 2019 12:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.9.2)  9 FEB 2020 21:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1476,16 +1476,9 @@ Package: booktabs 2016/04/27 v1.618033 publication quality tables
 (f:/texlive/2018/texmf-dist/tex/latex/lastpage/lastpage.sty
 Package: lastpage 2015/03/29 v1.2m Refers to last page's name (HMM; JPG)
 )
-
-Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
-less on input line 49.
-
-
-Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is use
-less on input line 54.
-
 Package biblatex Info: Trying to load language 'spanish'...
 Package biblatex Info: ... file 'spanish.lbx' found.
+
 (f:/texlive/2018/texmf-dist/tex/latex/biblatex/lbx/spanish.lbx
 File: spanish.lbx 2018/03/04 v3.11 biblatex localization (PK/MW)
 )
@@ -1617,9 +1610,9 @@ Package cleveref Info: loaded `spanish' language definitions on input line 2.
 \openout6 = `TL4.toc'.
 
  [1]
-[2] 
+
 AED: lastpage setting LastPage
-[3] (./TL4.aux
+[2] (./TL4.aux
 LaTeX Info: Redefining \sptext on input line 10.
 LaTeX Info: Redefining \. on input line 10.
 LaTeX Info: Redefining \% on input line 10.
@@ -1630,29 +1623,32 @@ Package logreq Info: Writing requests to 'TL4.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 53092 strings out of 492642
- 1262527 string characters out of 6133163
- 1783719 words of memory out of 5000000
- 56325 multiletter control sequences out of 15000+600000
+ 53107 strings out of 492642
+ 1262740 string characters out of 6133163
+ 1786936 words of memory out of 5000000
+ 56340 multiletter control sequences out of 15000+600000
  548584 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  78i,15n,136p,1128b,1965s stack positions out of 5000i,500n,10000p,200000b,80000s
 {f:/texlive/2018/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{f:/texl
 ive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}<f:/texlive/2018/texmf-dist/fon
-ts/type1/public/cm-super/sfbx1000.pfb><f:/texlive/2018/texmf-dist/fonts/type1/p
-ublic/cm-super/sfbx1440.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-s
-uper/sfcc1000.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfcc1
-200.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfcc1440.pfb><f
-:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb><f:/texlive/
-2018/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb><f:/texlive/2018/texmf
--dist/fonts/type1/public/cm-super/sfrm0900.pfb><f:/texlive/2018/texmf-dist/font
-s/type1/public/cm-super/sfrm1000.pfb><f:/texlive/2018/texmf-dist/fonts/type1/pu
-blic/cm-super/sfrm1200.pfb><f:/texlive/2018/texmf-dist/fonts/type1/urw/courier/
-ucrr8a.pfb>
-Output written on TL4.pdf (4 pages, 132668 bytes).
+ts/type1/public/amsfonts/cm/cmmi10.pfb><f:/texlive/2018/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmmi7.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmr10.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/c
+msy10.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb>
+<f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><f:/texliv
+e/2018/texmf-dist/fonts/type1/public/cm-super/sfcc1000.pfb><f:/texlive/2018/tex
+mf-dist/fonts/type1/public/cm-super/sfcc1200.pfb><f:/texlive/2018/texmf-dist/fo
+nts/type1/public/cm-super/sfcc1440.pfb><f:/texlive/2018/texmf-dist/fonts/type1/
+public/cm-super/sfrm0600.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-
+super/sfrm0700.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfrm
+0900.pfb><f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><
+f:/texlive/2018/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><f:/texlive
+/2018/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
+Output written on TL4.pdf (3 pages, 174008 bytes).
 PDF statistics:
- 69 PDF objects out of 1000 (max. 8388607)
- 50 compressed objects within 1 object stream
+ 82 PDF objects out of 1000 (max. 8388607)
+ 60 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  18 words of extra memory for PDF output out of 10000 (max. 10000000)
 
