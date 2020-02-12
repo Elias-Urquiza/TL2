@@ -108,30 +108,38 @@
 
 
 \section{Objetivos}
-    Se busca crear un circuito capaz de adaptar la diferencia de potencial producida por un sensor de fuerza FN3030 al rango de tensiones que maneja el ADC de un arduino (0-5V). El mismo debe contar con una etapa diferencial en la entrada ya que la señal producida por el sensor posee ruido de amplitud similar a la de la señal.
-    También se busca que la ganancia sea ajustable ya que se no se conoce con precisión la fuerza máxima que va a recibir el sensor medible y se busca maximizar la eficiencia del ADC.
+    Se busca crear un circuito capaz de adaptar la diferencia de potencial producida por un sensor de fuerza FN3030 al rango de tensiones que maneja el ADC de un arduino (0-5V). El mismo debe contar con una etapa diferencial en la entrada ya que la señal producida por el sensor posee ruido de amplitud comparable a la de la señal.
+    También se busca que la ganancia sea ajustable ya que no se conoce con precisión la fuerza máxima que va a recibir el sensor medible, y se busca maximizar la eficiencia del ADC.
 
 \section{Alimentación}
 
-    Dado que se busca que el circuito opere en un ambiente pequeño se decidió crear una fuente de alimentación especifica para el circuito. La misma es una fuente partida a partir de un transformador 220v-30v cuyo circuito puede verse en la figura XX.
+    Dado que se busca que el circuito opere en un ambiente pequeño se decidió crear una fuente de alimentación especifica para el circuito. %La misma es una fuente partida a partir de un transformador 220v-30v cuyo circuito puede verse en la figura XX.
 
 \section{Diseño}
 
 
-    Dado que junto al sensor de fuerza ya venia incluido un amplificador diferencial AD620 se utilizo el mismo para la etapa diferencial. La ganancia del mismo es configurable mediante la ecuación~\ref{eq:ganancia} Se utilizo un amplificador operacional TL082 en configuración no inversora en conjunto con un preset para crear la ganancia ajustable mencionada previamente.
-    
-    Se diseño el circuito de la figura X.
-    
+    Dado que el sensor de fuerza incluye un amplificador diferencial AD620, se utilizó el mismo para la etapa diferencial. La ganancia del mismo es configurable mediante la ecuación~\ref{eq:ganancia}. Se utilizó un amplificador operacional TL082 en configuración no inversora en conjunto con un preset para crear la ganancia ajustable mencionada previamente.
+
+    Se diseñó el circuito de la figura \ref{fig:circuito}.
+
     \begin{equation}\label{eq:ganancia}
         G = \frac{49.4K\Omega}{R_g} + 1
     \end{equation}
 
+    \begin{center}
+      \includegraphics[width=0.8\textwidth]{Circuito.png}
+      \captionof{figure}{Circuito diseñado.}
+      \label{fig:circuito}
+    \end{center}
+
+\newpage
+
 \section{Mediciones}
 
-    Se realizo una serie de mediciones utilizando pesas de alta precisión para determinar una recta de tensión en función de la fuerza que en este caso iba a ser puramente el peso de las pesas. Lo primero que se hizo fue realizar la máxima fuerza que puede recibir el sensor y ajustar la ganancia tal que a esa fuerza máxima, la tensión de salida del circuito sea 5V, y por lo tanto nunca supere la tensión máxima que puede recibir el ADC.
-    
+    Se realizaron una serie de mediciones utilizando pesas de alta precisión y se buscó aproximar los datos obtenidos mediante una recta regresión. Esta recta corresponde a la tensión en función de la fuerza, que en este caso está constituida puramente por la fuerza peso de las pesas. Lo primero que se hizo fue medir la máxima fuerza que puede recibir el sensor y ajustar la ganancia del amplificador tal que la tensión de salida máxima del circuito no supere la tensión límite de entrada (5V) del arduino.
+
     Las mediciones pueden verse en la tabla~\ref{tb:mediciones}
-    
+
     \begin{center}
         \begin{tabular}{| l | l |}
         \hline
@@ -146,16 +154,15 @@
         \end{tabular}
         \captionof{table}{Tabla de resultados\label{tb:mediciones}}
     \end{center}
-    
-     Mediante hacer cuadrados mínimos se obtuvo la recta deseada que puede verse en la ecuación~\ref{eq:recta}, donde F es la fuerza que esta siendo aplicada sobre el sensor y V es la tensión medida en milivolts.
-     
+
+     Mediante el uso de cuadrados mínimos se obtuvo la recta deseada, que puede verse en la ecuación~\ref{eq:recta}, donde F es la fuerza que esta siendo aplicada sobre el sensor y V es la tensión medida en milivolts.
+
     \begin{equation}\label{eq:recta}
         F = V\cdot0.259 - 60.456
     \end{equation}
-     
-     
-\section{Conclusiones}
 
+
+\section{Conclusiones}
+Podemos observar que el circuito diseñado cumple con las características deseadas para realizar mediciones con el sensor de peso. Medimos, además, un error cuadrático medio de 5.5mV entre la curva de regresión por mínimos cuadrados y los datos medidos.  
 
 \end{document}
-
